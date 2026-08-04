@@ -12,11 +12,11 @@ const whyUsData = [
     tags: ['Scalable', 'Secure', 'Performant'],
     illustration: (
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
-        <path d="M0 20H100M0 40H100M0 60H100M0 80H100" stroke="currentColor" strokeWidth="0.5"/>
-        <path d="M20 0V100M40 0V100M60 0V100M80 0V100" stroke="currentColor" strokeWidth="0.5"/>
-        <circle cx="40" cy="40" r="2" fill="currentColor"/>
-        <circle cx="80" cy="60" r="2" fill="currentColor"/>
-        <circle cx="20" cy="80" r="2" fill="currentColor"/>
+        <path d="M0 20H100M0 40H100M0 60H100M0 80H100" stroke="currentColor" strokeWidth="0.5" className="anim-pan-x"/>
+        <path d="M20 0V100M40 0V100M60 0V100M80 0V100" stroke="currentColor" strokeWidth="0.5" className="anim-pan-y"/>
+        <circle cx="40" cy="40" r="2" fill="currentColor" className="anim-pulse-1" />
+        <circle cx="80" cy="60" r="2" fill="currentColor" className="anim-pulse-2" />
+        <circle cx="20" cy="80" r="2" fill="currentColor" className="anim-pulse-3" />
       </svg>
     )
   },
@@ -29,10 +29,10 @@ const whyUsData = [
     illustration: (
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
         <rect x="10" y="20" width="60" height="40" rx="4" stroke="currentColor" strokeWidth="1"/>
-        <rect x="15" y="25" width="20" height="6" rx="2" fill="currentColor" fillOpacity="0.5"/>
-        <rect x="15" y="35" width="50" height="4" rx="2" fill="currentColor" fillOpacity="0.3"/>
-        <rect x="15" y="43" width="30" height="4" rx="2" fill="currentColor" fillOpacity="0.3"/>
-        <path d="M70 50L85 65L80 75L65 60Z" stroke="currentColor" strokeWidth="1"/>
+        <rect x="15" y="25" width="20" height="6" rx="2" fill="currentColor" fillOpacity="0.5" className="anim-float-1"/>
+        <rect x="15" y="35" width="50" height="4" rx="2" fill="currentColor" fillOpacity="0.3" className="anim-float-2"/>
+        <rect x="15" y="43" width="30" height="4" rx="2" fill="currentColor" fillOpacity="0.3" className="anim-float-3"/>
+        <path d="M65 45L80 60L75 70L60 55Z" stroke="currentColor" strokeWidth="1" className="anim-cursor"/>
       </svg>
     )
   },
@@ -44,11 +44,10 @@ const whyUsData = [
     tags: ['Automation', 'Intelligence', 'Analytics'],
     illustration: (
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
-        <path d="M20 50C40 20 60 80 80 50" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2"/>
-        <circle cx="20" cy="50" r="4" fill="currentColor" fillOpacity="0.8"/>
-        <circle cx="50" cy="50" r="6" fill="currentColor" fillOpacity="0.4"/>
-        <circle cx="80" cy="50" r="4" fill="currentColor" fillOpacity="0.8"/>
-        <path d="M40 35L50 50L60 65" stroke="currentColor" strokeWidth="0.5"/>
+        <path d="M20 50C40 20 60 80 80 50" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" className="anim-dash"/>
+        <circle cx="20" cy="50" r="4" fill="currentColor" fillOpacity="0.8" className="anim-pulse-1"/>
+        <circle cx="50" cy="50" r="6" fill="currentColor" fillOpacity="0.4" className="anim-pulse-2"/>
+        <circle cx="80" cy="50" r="4" fill="currentColor" fillOpacity="0.8" className="anim-pulse-3"/>
       </svg>
     )
   },
@@ -60,8 +59,8 @@ const whyUsData = [
     tags: ['Reliable', 'Secure', 'Maintainable'],
     illustration: (
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
-        <path d="M50 15L80 25V50C80 70 50 85 50 85C50 85 20 70 20 50V25L50 15Z" stroke="currentColor" strokeWidth="1"/>
-        <path d="M40 50L48 58L65 40" stroke="currentColor" strokeWidth="1"/>
+        <path d="M50 15L80 25V50C80 70 50 85 50 85C50 85 20 70 20 50V25L50 15Z" stroke="currentColor" strokeWidth="1" className="anim-shield"/>
+        <path d="M40 50L48 58L65 40" stroke="currentColor" strokeWidth="1" className="anim-draw"/>
       </svg>
     )
   }
@@ -108,6 +107,7 @@ const WhyUs = () => {
         >
           {whyUsData.map((feature, index) => (
             <motion.div key={index} variants={itemVariants} className={`why-us-card ${feature.theme}`}>
+              <div className="why-us-card-accent-line"></div>
               <div className="why-us-bg-glow"></div>
               {feature.illustration}
               
@@ -119,9 +119,9 @@ const WhyUs = () => {
                 <p className="why-us-desc">{feature.desc}</p>
               </div>
               
-              <div className="why-us-tags">
+              <div className="why-us-chips">
                 {feature.tags.map((tag, i) => (
-                  <span key={i} className="why-us-tag">{tag}</span>
+                  <span key={i} className="why-us-chip">{tag}</span>
                 ))}
               </div>
             </motion.div>
