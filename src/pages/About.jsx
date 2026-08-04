@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Lightbulb, Code2, Users, Handshake, Link, Mail } from 'lucide-react';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
+import SEO from '../components/SEO/SEO';
 import './About.css';
 
 const timelineData = [
@@ -130,7 +131,13 @@ const About = () => {
   });
 
   return (
-    <div className="about-page">
+    <div className="about-page chapter-about">
+      <SEO 
+        title="About Us"
+        description="CodexNeural is a premium product engineering team built on strategy, innovation, and design. Learn about our story, values, and the people behind every intelligent solution."
+        url="/about"
+      />
+
       {/* 1. Hero Section */}
       <section className="about-hero">
         <div className="aurora-blob aurora-purple about-hero-aurora1"></div>
@@ -344,7 +351,9 @@ const About = () => {
       </section>
 
       {/* 7. Final CTA */}
-      <FinalCTA />
+      <div className="chapter-hero">
+        <FinalCTA />
+      </div>
     </div>
   );
 };

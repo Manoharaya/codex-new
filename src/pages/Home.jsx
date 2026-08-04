@@ -9,21 +9,39 @@ import Industries from '../components/Industries/Industries';
 import Testimonials from '../components/Testimonials/Testimonials';
 import Stats from '../components/Stats/Stats';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
+import SEO from '../components/SEO/SEO';
 
 const Home = () => {
   return (
-    <main>
-      <Hero />
-      <Services />
-      <WhyUs />
-      <FeaturedProjects />
-      <Process />
-      <TechStack />
-      <Industries />
-      <Testimonials />
-      <Stats />
-      <FinalCTA />
-    </main>
+    <div className="home page-wrapper">
+      <SEO 
+        title="Home"
+        description="CodexNeural engineers premium digital products. We specialize in AI solutions, custom enterprise software, and scalable web and mobile applications."
+        url="/"
+      />
+      <div className="chapter-hero">
+        <Hero />
+      </div>
+      <div className="chapter-services">
+        <Services />
+        <WhyUs />
+      </div>
+      <div className="chapter-portfolio">
+        <FeaturedProjects />
+        <Process />
+      </div>
+      <div className="chapter-tech">
+        <TechStack />
+      </div>
+      <div className="chapter-about">
+        <Industries />
+        <Testimonials />
+        <Stats />
+      </div>
+      <div className="chapter-hero">
+        <FinalCTA />
+      </div>
+    </div>
   );
 };
 

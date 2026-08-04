@@ -99,7 +99,7 @@ const Services = () => {
           {servicesData.map((service, index) => (
             <motion.div key={index} variants={itemVariants} className="service-card-wrapper">
               <Tilt options={defaultTiltOptions} style={{ height: '100%' }}>
-                <div className="glass-card service-card">
+                <div className="card-base card-primary service-card">
                   <div className="service-icon-wrapper">
                     {service.icon}
                   </div>

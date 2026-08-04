@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
+import SEO from '../components/SEO/SEO';
 import './ServicesPage.css';
 
 const servicesData = [
@@ -189,7 +190,12 @@ const ServicesPage = () => {
   }, []);
 
   return (
-    <div className="services-page">
+    <div className="services-page chapter-services">
+      <SEO 
+        title="Our Services"
+        description="From AI-powered automation to enterprise software, cloud infrastructure, and intuitive digital experiences, CodexNeural helps businesses build technology that delivers measurable impact."
+        url="/services"
+      />
       {/* 1. Hero Section */}
       <section className="services-hero">
         <div className="aurora-blob aurora-indigo services-hero-aurora1"></div>
@@ -530,10 +536,14 @@ const ServicesPage = () => {
       </section>
 
       {/* 9. Featured Success Stories (Reusing Homepage Component) */}
-      <FeaturedProjects />
+      <div className="chapter-portfolio">
+        <FeaturedProjects />
+      </div>
 
       {/* 10. Final CTA */}
-      <FinalCTA />
+      <div className="chapter-hero">
+        <FinalCTA />
+      </div>
     </div>
   );
 };

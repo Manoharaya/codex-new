@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, PlayCircle, Brain, Code, Cloud, Layout, Smartphone, Terminal, Bell, BarChart2, CheckCircle2, Activity, Server } from 'lucide-react';
+import { ArrowRight, PlayCircle, Brain, Code, Cloud, Layout, Smartphone, Terminal, Bell, BarChart2, CheckCircle2, Activity, Server, Home as HomeIcon, Settings, PieChart, Users, Zap, ShieldCheck, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Hero.css';
 
@@ -119,17 +119,26 @@ const Hero = () => {
                 <div className="mockup-search"></div>
               </div>
               <div className="mockup-body">
-                <div className="mockup-sidebar">
-                  <div className="sidebar-item active"></div>
-                  <div className="sidebar-item"></div>
-                  <div className="sidebar-item"></div>
-                  <div className="sidebar-item"></div>
+                  <div className="mockup-sidebar">
+                  <div className="sidebar-item active"><HomeIcon size={14} /></div>
+                  <div className="sidebar-item"><PieChart size={14} /></div>
+                  <div className="sidebar-item"><Database size={14} /></div>
+                  <div className="sidebar-item"><Settings size={14} /></div>
                 </div>
                 <div className="mockup-main">
                   <div className="mockup-top-metrics">
-                    <div className="metric-box"></div>
-                    <div className="metric-box"></div>
-                    <div className="metric-box"></div>
+                    <div className="metric-box">
+                      <span className="metric-title">Active Users</span>
+                      <span className="metric-val">24.5k</span>
+                    </div>
+                    <div className="metric-box">
+                      <span className="metric-title">Avg Latency</span>
+                      <span className="metric-val">12ms</span>
+                    </div>
+                    <div className="metric-box">
+                      <span className="metric-title">Sys Load</span>
+                      <span className="metric-val">14%</span>
+                    </div>
                   </div>
                   <div className="mockup-chart-area">
                     <div className="chart-bars">
@@ -155,13 +164,29 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="mobile-notch"></div>
-              <div className="mobile-header"></div>
-              <div className="mobile-card large"></div>
-              <div className="mobile-grid">
-                <div className="mobile-card small"></div>
-                <div className="mobile-card small"></div>
+              <div className="mobile-header">
+                <span className="mobile-time">9:41</span>
+                <div className="mobile-icons"><Activity size={10} /><ShieldCheck size={10} /></div>
               </div>
-              <div className="mobile-tab-bar"></div>
+              <div className="mobile-card large">
+                <Brain size={48} className="mobile-hero-icon" />
+                <div className="mobile-card-text">AI Neural Model Running</div>
+              </div>
+              <div className="mobile-grid">
+                <div className="mobile-card small">
+                  <Zap size={20} className="mobile-small-icon" />
+                  <div className="mobile-small-text">99% Fast</div>
+                </div>
+                <div className="mobile-card small">
+                  <Users size={20} className="mobile-small-icon" />
+                  <div className="mobile-small-text">Online</div>
+                </div>
+              </div>
+              <div className="mobile-tab-bar">
+                <span className="tab-dot active"></span>
+                <span className="tab-dot"></span>
+                <span className="tab-dot"></span>
+              </div>
             </motion.div>
 
             {/* Analytics Widget */}
@@ -172,7 +197,7 @@ const Hero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="widget-icon-wrapper"><BarChart2 size={16} /></div>
+              <div className="widget-icon-wrapper cyan"><BarChart2 size={16} /></div>
               <div className="widget-content">
                 <div className="widget-title">Revenue</div>
                 <div className="widget-value">+$14,200</div>

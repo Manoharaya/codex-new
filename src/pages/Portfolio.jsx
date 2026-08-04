@@ -5,6 +5,7 @@ import {
   Cloud, BrainCircuit, Database, Layout, Code2, Server, Globe, Quote
 } from 'lucide-react';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
+import SEO from '../components/SEO/SEO';
 import './Portfolio.css';
 
 const categories = ["All", "AI", "Enterprise", "Web", "Mobile", "Cloud", "UI/UX"];
@@ -121,7 +122,12 @@ const Portfolio = () => {
     : galleryProjects.filter(p => p.category === activeCategory);
 
   return (
-    <div className="portfolio-page">
+    <div className="portfolio-page chapter-portfolio">
+      <SEO 
+        title="Portfolio"
+        description="Behind every application is a business challenge, a thoughtful design process, and an engineering team focused on measurable outcomes. Explore some of the digital experiences we've crafted."
+        url="/portfolio"
+      />
       {/* 1. Hero Section */}
       <section className="portfolio-hero">
         <div className="container">
@@ -426,7 +432,7 @@ const Portfolio = () => {
       </section>
 
       {/* 8. Final CTA */}
-      <section className="portfolio-final-cta">
+      <section className="portfolio-final-cta chapter-hero">
         <FinalCTA 
           title="Ready to Create Your Success Story?" 
           desc="Whether you're launching a startup, modernizing enterprise software, or exploring AI-powered solutions, let's build something exceptional together." 
