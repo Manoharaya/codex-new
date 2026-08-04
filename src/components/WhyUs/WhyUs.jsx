@@ -5,24 +5,65 @@ import './WhyUs.css';
 
 const whyUsData = [
   {
+    theme: 'theme-engineering',
     icon: <Settings size={28} strokeWidth={1.5} />,
     title: 'Engineering Mindset',
-    desc: 'We design software for long-term scalability.'
+    desc: 'We design software for long-term scalability.',
+    tags: ['Scalable', 'Secure', 'Performant'],
+    illustration: (
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
+        <path d="M0 20H100M0 40H100M0 60H100M0 80H100" stroke="currentColor" strokeWidth="0.5"/>
+        <path d="M20 0V100M40 0V100M60 0V100M80 0V100" stroke="currentColor" strokeWidth="0.5"/>
+        <circle cx="40" cy="40" r="2" fill="currentColor"/>
+        <circle cx="80" cy="60" r="2" fill="currentColor"/>
+        <circle cx="20" cy="80" r="2" fill="currentColor"/>
+      </svg>
+    )
   },
   {
+    theme: 'theme-design',
     icon: <Layout size={28} strokeWidth={1.5} />,
     title: 'User-Centered Design',
-    desc: 'Beautiful interfaces built around real user behavior.'
+    desc: 'Beautiful interfaces built around real user behavior.',
+    tags: ['Research', 'Prototype', 'Experience'],
+    illustration: (
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
+        <rect x="10" y="20" width="60" height="40" rx="4" stroke="currentColor" strokeWidth="1"/>
+        <rect x="15" y="25" width="20" height="6" rx="2" fill="currentColor" fillOpacity="0.5"/>
+        <rect x="15" y="35" width="50" height="4" rx="2" fill="currentColor" fillOpacity="0.3"/>
+        <rect x="15" y="43" width="30" height="4" rx="2" fill="currentColor" fillOpacity="0.3"/>
+        <path d="M70 50L85 65L80 75L65 60Z" stroke="currentColor" strokeWidth="1"/>
+      </svg>
+    )
   },
   {
+    theme: 'theme-ai',
     icon: <BrainCircuit size={28} strokeWidth={1.5} />,
     title: 'AI-First Thinking',
-    desc: 'We integrate AI where it creates measurable value.'
+    desc: 'We integrate AI where it creates measurable value.',
+    tags: ['Automation', 'Intelligence', 'Analytics'],
+    illustration: (
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
+        <path d="M20 50C40 20 60 80 80 50" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2"/>
+        <circle cx="20" cy="50" r="4" fill="currentColor" fillOpacity="0.8"/>
+        <circle cx="50" cy="50" r="6" fill="currentColor" fillOpacity="0.4"/>
+        <circle cx="80" cy="50" r="4" fill="currentColor" fillOpacity="0.8"/>
+        <path d="M40 35L50 50L60 65" stroke="currentColor" strokeWidth="0.5"/>
+      </svg>
+    )
   },
   {
+    theme: 'theme-enterprise',
     icon: <ShieldCheck size={28} strokeWidth={1.5} />,
     title: 'Enterprise Quality',
-    desc: 'Security, performance, maintainability, and reliability.'
+    desc: 'Security, performance, maintainability, and reliability.',
+    tags: ['Reliable', 'Secure', 'Maintainable'],
+    illustration: (
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="why-us-illustration">
+        <path d="M50 15L80 25V50C80 70 50 85 50 85C50 85 20 70 20 50V25L50 15Z" stroke="currentColor" strokeWidth="1"/>
+        <path d="M40 50L48 58L65 40" stroke="currentColor" strokeWidth="1"/>
+      </svg>
+    )
   }
 ];
 
@@ -66,12 +107,23 @@ const WhyUs = () => {
           className="why-us-grid"
         >
           {whyUsData.map((feature, index) => (
-            <motion.div key={index} variants={itemVariants} className="why-us-card">
-              <div className="why-us-icon">
-                {feature.icon}
+            <motion.div key={index} variants={itemVariants} className={`why-us-card ${feature.theme}`}>
+              <div className="why-us-bg-glow"></div>
+              {feature.illustration}
+              
+              <div className="why-us-content-top">
+                <div className="why-us-icon-wrapper">
+                  {feature.icon}
+                </div>
+                <h3 className="why-us-title">{feature.title}</h3>
+                <p className="why-us-desc">{feature.desc}</p>
               </div>
-              <h3 className="why-us-title">{feature.title}</h3>
-              <p className="why-us-desc">{feature.desc}</p>
+              
+              <div className="why-us-tags">
+                {feature.tags.map((tag, i) => (
+                  <span key={i} className="why-us-tag">{tag}</span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </motion.div>
