@@ -42,10 +42,64 @@
   --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* Spacing */
+  /* Strict 4pt/8pt Spacing Scale */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-120: 120px;
+  --space-140: 140px;
+  --space-160: 160px;
+
+  /* Global Semantic Tokens (Desktop Default) */
   --page-width: 1280px;
-  --section-padding: 160px;
-  --card-padding: 48px;
+  --page-padding: var(--space-32);
+  --section-spacing-y: var(--space-120);
+  --card-padding: var(--space-32);
+  --grid-gap: var(--space-48);
+  --content-gap: var(--space-24);
+  --section-gap: var(--space-48);
+  
+  /* Fluid Typography Scale */
+  --text-h1: clamp(36px, 6vw, 72px);
+  --text-h2: clamp(28px, 4.5vw, 56px);
+  --text-h3: clamp(24px, 3.5vw, 40px);
+  --text-body-lg: clamp(16px, 2vw, 18px);
+  --text-body: clamp(15px, 1.5vw, 16px);
+  --text-body-sm: clamp(13px, 1vw, 14px);
+
+  /* Touch & Safe Areas */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* Tablet Semantic Overrides */
+@media (max-width: 1024px) {
+  :root {
+    --section-spacing-y: var(--space-80);
+    --grid-gap: var(--space-32);
+    --page-padding: var(--space-24);
+  }
+}
+
+/* Mobile Semantic Overrides */
+@media (max-width: 768px) {
+  :root {
+    --section-spacing-y: var(--space-64);
+    --card-padding: var(--space-24);
+    --grid-gap: var(--space-24);
+    --page-padding: var(--space-20);
+  }
 }
 
 [data-theme='light'] {
@@ -129,11 +183,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: var(--text-h1);
 }
 
 h2 {
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+p {
+  font-size: var(--text-body);
+  max-width: 65ch; /* Prevent overly long lines for readability */
+}
+
+@media (max-width: 768px) {
+  p {
+    line-height: 1.7; /* Increased line-height for mobile readability */
+  }
 }
 
 .font-mono {
@@ -157,13 +226,16 @@ h2 {
 
 /* Layout */
 .container {
+  width: 100%;
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--page-padding);
+  padding-left: calc(var(--page-padding) + var(--safe-left));
+  padding-right: calc(var(--page-padding) + var(--safe-right));
 }
 
 section {
-  padding: var(--section-padding) 0;
+  padding: var(--section-spacing-y) 0;
   position: relative;
 }
 
@@ -432,3 +504,25 @@ section {
 
 .animate-fade-in { animation: fadeIn 1.2s ease forwards; }
 .animate-slide-up { animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* Disable complex animations for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* Base Form Inputs Accessibility */
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+input, select, textarea {
+  min-height: 48px; /* Touch friendly minimums */
+}

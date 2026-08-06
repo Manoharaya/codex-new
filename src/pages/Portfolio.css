@@ -9,13 +9,13 @@
   min-height: 80vh;
   display: flex;
   align-items: center;
-  padding-top: 120px;
+  padding-top: var(--space-120);
 }
 
 .portfolio-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: var(--space-80);
   align-items: center;
 }
 
@@ -25,7 +25,7 @@
   font-weight: 400;
   line-height: 1.1;
   color: var(--text-primary);
-  margin-bottom: 32px;
+  margin-bottom: var(--space-32);
   letter-spacing: -0.04em;
 }
 
@@ -34,13 +34,13 @@
   color: var(--text-secondary);
   line-height: 1.7;
   max-width: 500px;
-  margin-bottom: 40px;
+  margin-bottom: var(--space-40);
 }
 
 .portfolio-hero-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-24);
 }
 
 /* Editorial Collage */
@@ -98,7 +98,7 @@
 
 /* 2. Navigation Chips */
 .portfolio-nav-section {
-  padding: 40px 0;
+  padding: var(--space-40) 0;
   position: relative;
   z-index: 10;
   background: var(--bg-primary);
@@ -108,12 +108,12 @@
 .filter-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-12);
   justify-content: center;
 }
 
 .filter-chip {
-  padding: 10px 24px;
+  padding: 10px var(--space-24);
   border-radius: 30px;
   background: transparent;
   border: 1px solid var(--glass-border);
@@ -140,22 +140,22 @@
 .featured-story-section {
   position: relative;
   width: 100%;
-  padding-top: 140px;
-  padding-bottom: 140px;
+  padding-top: var(--space-140);
+  padding-bottom: var(--space-140);
   background-color: var(--bg-primary);
   z-index: 20;
   isolation: isolate;
 }
 
 .featured-story-header {
-  margin-bottom: 100px;
+  margin-bottom: var(--space-120);
 }
 
 .featured-story-header .section-subtitle {
   color: var(--text-secondary);
   font-size: 18px;
   max-width: 700px;
-  margin: 16px auto 0;
+  margin: var(--space-16) auto 0;
   line-height: 1.6;
 }
 
@@ -231,7 +231,7 @@
   z-index: 10;
   width: 95%; /* Premium breathing room */
   max-width: 1400px;
-  padding: 64px; /* Increased internal padding */
+  padding: var(--space-64); /* Increased internal padding */
   background: var(--bg-card);
   border-radius: 32px;
   border: 1px solid var(--glass-border);
@@ -240,12 +240,12 @@
 .story-essence {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 64px;
+  margin: 0 auto var(--space-64);
   position: relative;
 }
 
 .essence-quote-icon {
-  margin: 0 auto 24px;
+  margin: 0 auto var(--space-24);
   opacity: 0.5;
 }
 
@@ -260,7 +260,7 @@
 .story-project-content-grid {
   display: grid;
   grid-template-columns: 45% 1fr; /* Image 45%, Content ~55% */
-  gap: 64px; /* Increased gap */
+  gap: var(--space-64); /* Increased gap */
   align-items: center;
 }
 
@@ -274,7 +274,7 @@
 .story-mockup-wrapper {
   border-radius: 24px;
   overflow: hidden;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-24);
   border: 1px solid var(--glass-border);
   width: 100%;
   aspect-ratio: 4/3; /* Consistent aspect ratio */
@@ -290,11 +290,11 @@
 .story-tech-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-12);
 }
 
 .tech-chip {
-  padding: 6px 16px;
+  padding: 6px var(--space-16);
   border-radius: 30px;
   border: 1px solid;
   font-size: 13px;
@@ -302,7 +302,7 @@
 }
 
 .story-meta {
-  margin-bottom: 32px;
+  margin-bottom: var(--space-32);
 }
 
 .story-industry {
@@ -312,7 +312,7 @@
   letter-spacing: 0.1em;
   color: var(--text-secondary);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-8);
 }
 
 .story-title {
@@ -323,7 +323,7 @@
 }
 
 .story-text-block {
-  margin-bottom: 24px;
+  margin-bottom: var(--space-24);
 }
 
 .story-subtitle {
@@ -331,7 +331,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-secondary);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-8);
 }
 
 .story-text-block p {
@@ -342,9 +342,9 @@
 
 .story-metrics {
   display: flex;
-  gap: 32px;
-  margin: 32px 0 40px;
-  padding: 32px 0;
+  gap: var(--space-32);
+  margin: var(--space-32) 0 var(--space-40);
+  padding: var(--space-32) 0;
   border-top: 1px solid var(--glass-border);
   border-bottom: 1px solid var(--glass-border);
 }
@@ -352,7 +352,7 @@
 .story-metric-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-8);
 }
 
 .metric-value {
@@ -373,14 +373,14 @@
 
 /* 4. Interstitial Testimonial */
 .interstitial-testimonial {
-  padding: 120px 0;
+  padding: var(--space-120) 0;
   background: var(--bg-surface);
 }
 
 .testimonial-block {
   max-width: 800px;
   margin: 0 auto;
-  padding: 60px;
+  padding: var(--space-64);
   text-align: center;
   border: 1px solid var(--glass-border);
 }
@@ -391,7 +391,7 @@
   font-weight: 400;
   color: var(--text-primary);
   line-height: 1.5;
-  margin-bottom: 40px;
+  margin-bottom: var(--space-40);
   font-style: italic;
 }
 
@@ -399,7 +399,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: var(--space-16);
 }
 
 .author-img {
@@ -428,7 +428,7 @@
 
 /* 5. Masonry Gallery */
 .portfolio-gallery-section {
-  padding: 120px 0;
+  padding: var(--space-120) 0;
   background: var(--bg-primary);
 }
 
@@ -436,8 +436,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 250px;
-  gap: 24px;
-  margin-top: 60px;
+  gap: var(--space-24);
+  margin-top: var(--space-64);
 }
 
 .gallery-item {
@@ -475,7 +475,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 32px;
+  padding: var(--space-32);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -487,7 +487,7 @@
 .gallery-overlay-content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-8);
 }
 
 .gallery-industry, .gallery-category {
@@ -512,7 +512,7 @@
 .gallery-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-8);
   color: #fff;
   font-weight: 500;
 }
@@ -520,15 +520,15 @@
 
 /* 6. Process Section */
 .portfolio-process-section {
-  padding: 120px 0;
+  padding: var(--space-120) 0;
   background: var(--bg-surface);
 }
 
 .process-timeline-container {
-  margin-top: 80px;
+  margin-top: var(--space-80);
   position: relative;
   overflow-x: auto;
-  padding-bottom: 40px;
+  padding-bottom: var(--space-40);
 }
 
 .process-steps {
@@ -542,7 +542,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-16);
   position: relative;
   z-index: 10;
   transition: transform 0.3s ease;
@@ -583,24 +583,24 @@
 
 /* 7. Tech Panels */
 .tech-panels-section {
-  padding: 120px 0;
+  padding: var(--space-120) 0;
   background: var(--bg-primary);
 }
 
 .tech-groups-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  margin-top: 60px;
+  gap: var(--space-24);
+  margin-top: var(--space-64);
 }
 
 .tech-group-panel {
-  padding: 32px 24px;
+  padding: var(--space-32) var(--space-24);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-16);
   transition: transform 0.4s ease;
 }
 
@@ -610,7 +610,7 @@
 
 .tech-group-icon-wrapper {
   color: var(--brand-cyan);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-8);
 }
 
 .tech-group-title {
@@ -628,7 +628,7 @@
 
 /* 8. Recognition Stats */
 .recognition-section {
-  padding: 100px 0;
+  padding: var(--space-120) 0;
   background: var(--bg-surface);
   border-top: 1px solid var(--glass-border);
   border-bottom: 1px solid var(--glass-border);
@@ -638,14 +638,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 40px;
+  gap: var(--space-40);
 }
 
 .recognition-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-12);
 }
 
 .recognition-value {
@@ -663,74 +663,319 @@
 }
 
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
+/* ---------------------------------------------------
+   Tablet Adjustments (769px - 1024px)
+--------------------------------------------------- */
+@media (max-width: 1024px) and (min-width: 769px) {
   .portfolio-hero-grid,
   .story-project-content-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: var(--space-48);
   }
+  .portfolio-hero-content { text-align: center; }
+  .portfolio-hero-desc { margin: 0 auto var(--space-40); }
+  .portfolio-hero-actions { justify-content: center; }
   
-  .portfolio-hero-content {
-    text-align: center;
-  }
-  
-  .portfolio-hero-desc {
-    margin: 0 auto 40px;
-  }
-  
-  .portfolio-hero-actions {
-    justify-content: center;
-  }
-  
-  .story-mockup-wrapper {
-    aspect-ratio: 16/9;
-  }
+  .story-mockup-wrapper { aspect-ratio: 16/9; }
   
   .story-project-card {
-    padding: 40px 32px;
+    padding: var(--space-40) var(--space-32);
     height: auto;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
   }
-  
-  .story-essence {
-    margin-bottom: 40px;
-  }
+  .story-essence { margin-bottom: var(--space-40); }
 }
 
+/* ---------------------------------------------------
+   PREMIUM MOBILE EXPERIENCE (< 768px)
+   Editorial Journal Layout
+--------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Mobile: Single-column layout. Remove sticky behavior. */
-  .featured-story-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+  /* Global Resets */
+  .portfolio-hero, .portfolio-nav-section, .featured-story-section,
+  .interstitial-testimonial, .portfolio-gallery-section, 
+  .portfolio-process-section, .tech-panels-section, .recognition-section {
+    padding: var(--space-80) 0;
   }
+  
+  .portfolio-hero { padding-top: var(--space-120); padding-bottom: var(--space-32); min-height: auto; }
 
-  .story-project-wrapper {
-    position: relative; /* Remove sticky */
+  /* 1. HERO - Recomposed Collage */
+  .portfolio-hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-40);
+  }
+  .portfolio-hero-title {
+    font-size: clamp(34px, 8vw, 40px);
+    text-align: left;
+    margin-bottom: var(--space-20);
+  }
+  .portfolio-hero-desc {
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: var(--space-32);
+  }
+  .portfolio-hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-16);
+  }
+  .portfolio-hero-actions .btn-primary { width: 100%; justify-content: center; }
+  
+  .portfolio-hero-visual { height: 420px; }
+  .editorial-collage:hover .collage-img { transform: none; }
+  
+  .collage-workspace { width: 100%; top: 0; right: 0; height: 260px; z-index: 1; }
+  .collage-dashboard { width: 70%; bottom: 20px; right: 20px; left: auto; height: 200px; z-index: 2; border: 4px solid var(--bg-primary); }
+  .collage-mobile { display: none; } /* Removed to reduce clutter as requested */
+
+  /* 2. FILTER CHIPS - Horizontal Carousel */
+  .filter-carousel-mobile {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--space-12);
+    padding: 0 var(--space-20) var(--space-24);
+    margin: 0 calc(-1 * var(--space-20));
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  .filter-carousel-mobile::-webkit-scrollbar { display: none; }
+  .filter-chip { scroll-snap-align: center; white-space: nowrap; }
+  .filter-chip:hover { border-color: var(--glass-border); color: var(--text-secondary); }
+
+  /* 3. FEATURED CASE STUDIES - Sequential Editorial Flow */
+  .featured-story-header { margin-bottom: var(--space-40); }
+  
+  .editorial-story-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-80); /* Generous breathing room */
+  }
+  
+  .mobile-story-wrapper {
+    position: relative; /* Break the sticky */
     top: auto;
     height: auto;
-    padding: 60px 0;
     box-shadow: none;
-    border-top: none;
-    border-bottom: 1px solid var(--glass-border);
+    border: none;
+    background: transparent;
+    padding: 0;
   }
   
   .story-project-card {
-    width: 100%;
-    padding: 0 24px;
+    padding: 0;
     border: none;
-    border-radius: 0;
     background: transparent;
-    max-height: none;
-    overflow: visible;
+    max-width: 100%;
+    border-radius: 0;
   }
 
-  .testimonial-block {
-    padding: 32px 24px;
+  .story-project-content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+
+  .story-mockup-wrapper {
+    border-radius: 20px;
+    margin-bottom: var(--space-16);
+    aspect-ratio: 4/5; /* Portrait crops for mobile storytelling */
   }
   
-  .collage-workspace { width: 100%; top: 0; right: 0; }
-  .collage-dashboard { display: none; }
-  .collage-mobile { display: none; }
+  .story-narrative-side {
+    padding: 0;
+  }
+
+  .story-meta { margin-bottom: var(--space-24); }
+  .story-title { font-size: 28px; line-height: 1.3; }
+  
+  .story-essence-mobile {
+    margin-bottom: var(--space-32);
+    padding-left: var(--space-16);
+    border-left: 2px solid var(--brand-cyan);
+  }
+  
+  .theme-purple .story-essence-mobile { border-color: var(--brand-purple); }
+  .theme-emerald .story-essence-mobile { border-color: #10b981; }
+
+  .essence-text-mobile {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  .story-text-block p { font-size: 16px; margin-bottom: var(--space-24); }
+  
+  .metrics-mobile {
+    flex-direction: column;
+    gap: var(--space-24);
+    padding: var(--space-24) 0;
+    margin: var(--space-16) 0 var(--space-32);
+  }
+  
+  .story-cta { width: 100%; justify-content: center; }
+
+  /* 4. TESTIMONIALS - Swipe Carousel */
+  .testimonials-carousel-section {
+    padding: var(--space-80) 0;
+    background: var(--bg-surface);
+  }
+  .testimonials-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--space-20);
+    padding: 0 var(--space-20) var(--space-40);
+    margin: 0 calc(-1 * var(--space-20));
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .testimonials-carousel::-webkit-scrollbar { display: none; }
+  
+  .mobile-testimonial-card {
+    scroll-snap-align: center;
+    flex: 0 0 90%;
+    padding: var(--space-32) var(--space-24);
+    border-radius: 24px;
+    text-align: left;
+    margin: 0;
+  }
+  .testimonial-quote { font-size: 20px; margin-bottom: var(--space-32); }
+  .testimonial-author { justify-content: flex-start; }
+
+  /* 5. PROJECT GALLERY - Static Vertical Stack */
+  .mobile-gallery-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-40);
+    margin-top: var(--space-40);
+  }
+  
+  .gallery-item-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    border-radius: 0; /* Removing card container look */
+  }
+  
+  .gallery-item-mobile .gallery-img {
+    border-radius: 20px;
+    aspect-ratio: 4/3;
+  }
+  
+  .gallery-item:hover .gallery-img { transform: none; }
+  
+  .gallery-details-static {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding: 0 var(--space-8);
+  }
+  
+  .gallery-meta-static {
+    display: flex;
+    gap: var(--space-12);
+  }
+  
+  .gallery-meta-static span {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+  }
+  
+  .gallery-title-static {
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  .gallery-item-mobile .gallery-link { color: var(--brand-cyan); margin-top: var(--space-8); }
+
+  /* 6. PROCESS - Vertical Stepper */
+  .process-timeline-container { margin-top: var(--space-40); overflow-x: hidden; padding-bottom: 0; }
+  .process-line { display: none; }
+  .vertical-process {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 100%;
+    gap: 0;
+    padding-left: var(--space-24);
+  }
+  .vertical-process .process-step { flex-direction: row; align-items: center; gap: var(--space-24); }
+  .vertical-process .process-step:hover { transform: none; }
+  .vertical-process .process-step-title { font-size: 18px; }
+  .vertical-arrow {
+    height: 40px; width: 48px;
+    display: flex; justify-content: center; align-items: center; margin: var(--space-8) 0;
+  }
+  .vertical-line { width: 2px; height: 100%; background: var(--glass-border); }
+
+  /* 7. TECHNOLOGIES - Vertical Accordion */
+  .tech-accordion-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    margin-top: var(--space-40);
+  }
+  
+  .tech-group-panel {
+    padding: var(--space-24);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .tech-group-panel:hover { transform: none; }
+  
+  .tech-group-panel.active { background: var(--bg-card); border-color: var(--brand-cyan); }
+  
+  .tech-group-header-mobile {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: var(--space-16);
+  }
+  
+  .tech-group-icon-wrapper { margin-bottom: 0; }
+  .tech-group-title { font-size: 18px; margin: 0; }
+  
+  .tech-expand-icon { margin-left: auto; transition: transform 0.3s ease; color: var(--text-secondary); }
+  .tech-expand-icon.rotated { transform: rotate(90deg); }
+  
+  .tech-group-desc-wrapper { overflow: hidden; }
+  .tech-group-desc { padding-top: var(--space-16); margin: 0; }
+
+  /* 8. RECOGNITION - Horizontal Carousel */
+  .recognition-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--space-20);
+    padding: 0 var(--space-20) var(--space-40);
+    margin: 0 calc(-1 * var(--space-20));
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  .recognition-carousel::-webkit-scrollbar { display: none; }
+  
+  .recognition-carousel .recognition-stat {
+    scroll-snap-align: center;
+    flex: 0 0 60%;
+    padding: var(--space-32) var(--space-24);
+    background: var(--bg-card);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+  }
 }

@@ -16,7 +16,11 @@ const projectsData = [
     ],
     device: 'laptop', // laptop or phone
     alignment: 'left', // text on left or right
-    theme: 'theme-indigo' // signature color accent
+    theme: 'theme-indigo', // signature color accent
+    images: [
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
+    ]
   },
   {
     name: 'Nexus Health Portal',
@@ -30,7 +34,11 @@ const projectsData = [
     ],
     device: 'phone',
     alignment: 'right',
-    theme: 'theme-purple'
+    theme: 'theme-purple',
+    images: [
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+    ]
   },
   {
     name: 'FinFlow Enterprise',
@@ -44,18 +52,33 @@ const projectsData = [
     ],
     device: 'laptop',
     alignment: 'left',
-    theme: 'theme-cyan'
+    theme: 'theme-cyan',
+    images: [
+      'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
+    ]
   }
 ];
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, index, isMobile }) => {
   return (
     <div className={`editorial-project-wrapper ${project.theme}`}>
       {/* Background Aurora Lighting for emotion */}
-      <div className="project-aurora-bg"></div>
+      {!isMobile && <div className="project-aurora-bg"></div>}
       
       <div className={`editorial-project-card ${project.alignment === 'right' ? 'reverse-layout' : ''}`}>
         
+        {isMobile && (
+          <div className="mobile-portfolio-visual">
+            <div className="mobile-swipe-carousel">
+              {project.images.map((img, i) => (
+                <img key={i} src={img} alt={`${project.name} preview ${i+1}`} className="mobile-carousel-image" />
+              ))}
+            </div>
+            <div className="mobile-swipe-hint">Swipe to view more</div>
+          </div>
+        )}
+
         {/* Text Content */}
         <div className="editorial-content">
           <div className="editorial-meta">
@@ -97,53 +120,55 @@ const ProjectCard = ({ project, index }) => {
           </a>
         </div>
         
-        {/* Visual Content (CSS Device Mockups) */}
-        <div className="editorial-visual">
-          {project.device === 'laptop' ? (
-            <div className="device-laptop">
-              <div className="laptop-screen">
-                <div className="laptop-ui">
-                  <div className="laptop-ui-header"></div>
-                  <div className="laptop-ui-body">
-                    <div className="laptop-ui-sidebar"></div>
-                    <div className="laptop-ui-main">
-                      <div className="laptop-ui-card top"></div>
-                      <div className="laptop-ui-grid">
-                        <div className="laptop-ui-card"></div>
-                        <div className="laptop-ui-card"></div>
+        {/* Visual Content (CSS Device Mockups for Desktop) */}
+        {!isMobile && (
+          <div className="editorial-visual">
+            {project.device === 'laptop' ? (
+              <div className="device-laptop">
+                <div className="laptop-screen">
+                  <div className="laptop-ui">
+                    <div className="laptop-ui-header"></div>
+                    <div className="laptop-ui-body">
+                      <div className="laptop-ui-sidebar"></div>
+                      <div className="laptop-ui-main">
+                        <div className="laptop-ui-card top"></div>
+                        <div className="laptop-ui-grid">
+                          <div className="laptop-ui-card"></div>
+                          <div className="laptop-ui-card"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="laptop-base">
+                  <div className="laptop-trackpad"></div>
+                </div>
               </div>
-              <div className="laptop-base">
-                <div className="laptop-trackpad"></div>
-              </div>
-            </div>
-          ) : (
-            <div className="device-phone-group">
-              <div className="device-phone phone-back">
-                <div className="phone-screen">
-                  <div className="phone-ui">
-                    <div className="phone-ui-header"></div>
-                    <div className="phone-ui-card large"></div>
-                    <div className="phone-ui-card small"></div>
-                    <div className="phone-ui-card small"></div>
+            ) : (
+              <div className="device-phone-group">
+                <div className="device-phone phone-back">
+                  <div className="phone-screen">
+                    <div className="phone-ui">
+                      <div className="phone-ui-header"></div>
+                      <div className="phone-ui-card large"></div>
+                      <div className="phone-ui-card small"></div>
+                      <div className="phone-ui-card small"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="device-phone phone-front">
+                  <div className="phone-screen">
+                    <div className="phone-ui dark">
+                      <div className="phone-ui-header"></div>
+                      <div className="phone-ui-chart"></div>
+                      <div className="phone-ui-card medium"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="device-phone phone-front">
-                <div className="phone-screen">
-                  <div className="phone-ui dark">
-                    <div className="phone-ui-header"></div>
-                    <div className="phone-ui-chart"></div>
-                    <div className="phone-ui-card medium"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
         
       </div>
     </div>
@@ -151,6 +176,16 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const FeaturedProjects = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const mQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mQuery.matches);
+    const handleResize = (e) => setIsMobile(e.matches);
+    mQuery.addEventListener('change', handleResize);
+    return () => mQuery.removeEventListener('change', handleResize);
+  }, []);
+
   return (
     <section className="selected-work-section" id="work">
       <div className="container">
@@ -160,9 +195,9 @@ const FeaturedProjects = () => {
         </div>
       </div>
       
-      <div className="sticky-stack-container">
+      <div className={`sticky-stack-container ${isMobile ? 'mobile-linear-stack' : ''}`}>
         {projectsData.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
+          <ProjectCard key={index} project={project} index={index} isMobile={isMobile} />
         ))}
       </div>
     </section>

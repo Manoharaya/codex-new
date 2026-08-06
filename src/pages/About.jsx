@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Lightbulb, Code2, Users, Handshake, Link, Mail } from 'lucide-react';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
@@ -119,9 +119,21 @@ const Counter = ({ from, to, duration, suffix }) => {
 };
 
 const About = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [expandedValueIndex, setExpandedValueIndex] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const mQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mQuery.matches);
+    const handleResize = (e) => setIsMobile(e.matches);
+    mQuery.addEventListener('change', handleResize);
+    return () => mQuery.removeEventListener('change', handleResize);
   }, []);
+
+  const handleValueTap = (index) => {
+    setExpandedValueIndex(expandedValueIndex === index ? null : index);
+  };
 
   const { scrollYProgress } = useScroll();
   const scaleY = useSpring(scrollYProgress, {
@@ -144,6 +156,26 @@ const About = () => {
         <div className="aurora-blob aurora-cyan about-hero-aurora2"></div>
         
         <div className="container about-hero-container">
+          
+          {isMobile && (
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="about-hero-visual mobile-visual-first"
+            >
+              <div className="about-hero-image-wrapper glass-card overflow-hidden">
+                <motion.img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  alt="Workspace Collaboration" 
+                  className="about-hero-image"
+                  animate={{ scale: [1, 1.03, 1] }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                />
+              </div>
+            </motion.div>
+          )}
+
           <div className="about-hero-content">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -163,20 +195,22 @@ const About = () => {
             </motion.p>
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="about-hero-visual"
-          >
-            <div className="about-hero-image-wrapper glass-card">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                alt="Workspace Collaboration" 
-                className="about-hero-image"
-              />
-            </div>
-          </motion.div>
+          {!isMobile && (
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="about-hero-visual"
+            >
+              <div className="about-hero-image-wrapper glass-card">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  alt="Workspace Collaboration" 
+                  className="about-hero-image"
+                />
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -195,7 +229,12 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="timeline-item"
               >
-                <div className="timeline-node"></div>
+                <motion.div className="timeline-node"
+                  initial={isMobile ? { scale: 0 } : false}
+                  whileInView={isMobile ? { scale: 1 } : false}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20, delay: isMobile ? 0.2 : 0 }}
+                ></motion.div>
                 <div className="timeline-content">
                   <span className="timeline-phase">{item.phase}</span>
                   <h3 className="timeline-title">{item.title}</h3>
@@ -212,27 +251,48 @@ const About = () => {
         <div className="aurora-blob aurora-magenta about-values-aurora"></div>
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-subtitle">OUR VALUES</span>
+            <span className="section-subtitle text-gradient">OUR VALUES</span>
             <h2 className="section-title">What Drives Us Forward.</h2>
           </div>
           
-          <div className="values-grid">
-            {valuesData.map((value, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="value-card glass-card"
-              >
-                <div className="value-icon-wrapper">
-                  {value.icon}
-                </div>
-                <h3 className="value-title">{value.title}</h3>
-                <p className="value-desc">{value.desc}</p>
-              </motion.div>
-            ))}
+          <div className={`values-grid ${isMobile ? 'values-accordion' : ''}`}>
+            {valuesData.map((value, index) => {
+              const isExpanded = isMobile && expandedValueIndex === index;
+              return (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
+                  className={`value-card glass-card ${isExpanded ? 'active' : ''}`}
+                  onClick={() => isMobile && handleValueTap(index)}
+                >
+                  <div className="value-header-mobile">
+                    <motion.div 
+                      className="value-icon-wrapper"
+                      animate={isExpanded ? { rotate: 5, scale: 1.1, backgroundColor: 'var(--brand-purple)', color: '#fff' } : { rotate: 0, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {value.icon}
+                    </motion.div>
+                    {isMobile && <h3 className="value-title-mobile">{value.title}</h3>}
+                  </div>
+                  
+                  {!isMobile && <h3 className="value-title">{value.title}</h3>}
+                  
+                  {(!isMobile || isExpanded) && (
+                    <motion.div 
+                      className="value-desc-wrapper"
+                      initial={isMobile ? { height: 0, opacity: 0 } : false}
+                      animate={isMobile ? { height: 'auto', opacity: 1 } : false}
+                    >
+                      <p className="value-desc">{value.desc}</p>
+                    </motion.div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -241,31 +301,39 @@ const About = () => {
       <section className="about-team-section">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-subtitle">THE TEAM</span>
+            <span className="section-subtitle text-gradient">THE TEAM</span>
             <h2 className="section-title">Meet the Minds Behind <br/>CodexNeural.</h2>
           </div>
           
-          <div className="team-grid">
+          <div className={`team-grid ${isMobile ? 'team-carousel' : ''}`}>
             {teamData.map((member, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: isMobile ? 0 : index * 0.1 }}
                 className={`team-card glass-card ${member.theme}`}
               >
                 <div className="team-image-wrapper">
                   <img src={member.image} alt={member.name} className="team-image" />
-                  <div className="team-socials">
-                    <a href="#" className="social-icon"><Link size={18} /></a>
-                    <a href="#" className="social-icon"><Mail size={18} /></a>
-                  </div>
+                  {!isMobile && (
+                    <div className="team-socials">
+                      <a href="#" className="social-icon"><Link size={18} /></a>
+                      <a href="#" className="social-icon"><Mail size={18} /></a>
+                    </div>
+                  )}
                 </div>
                 <div className="team-info">
                   <h3 className="team-name">{member.name}</h3>
                   <p className="team-role">{member.role}</p>
                   <p className="team-bio">{member.bio}</p>
+                  {isMobile && (
+                    <div className="mobile-team-socials">
+                      <a href="#" className="mobile-social-icon"><Link size={16} /></a>
+                      <a href="#" className="mobile-social-icon"><Mail size={16} /></a>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -276,15 +344,15 @@ const About = () => {
       {/* 5. Company Statistics */}
       <section className="about-stats-section">
         <div className="container">
-          <div className="about-stats-grid">
+          <div className={`about-stats-grid ${isMobile ? 'stats-carousel' : ''}`}>
             {statsData.map((stat, index) => (
               <motion.div 
                 key={index} 
-                className="about-stat-card"
+                className="about-stat-card glass-card"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
               >
                 <Counter from={0} to={stat.value} duration={2.5} suffix={stat.suffix} />
                 <p className="about-stat-label">{stat.label}</p>
@@ -298,19 +366,38 @@ const About = () => {
       <section className="about-culture-section">
         <div className="container">
           <div className="culture-grid">
-            <motion.div 
-              className="culture-visual glass-card"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                alt="Working Culture" 
-                className="culture-image" 
-              />
-            </motion.div>
+            
+            {isMobile && (
+              <motion.div 
+                className="culture-visual mobile-culture-visual"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Working Culture" 
+                  className="culture-image" 
+                />
+              </motion.div>
+            )}
+
+            {!isMobile && (
+              <motion.div 
+                className="culture-visual glass-card"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Working Culture" 
+                  className="culture-image" 
+                />
+              </motion.div>
+            )}
             
             <div className="culture-content">
               <motion.div 
@@ -322,28 +409,55 @@ const About = () => {
               >
                 <h3 className="culture-title">Collaboration</h3>
                 <p className="culture-desc">We believe the best products are built when engineering, design, and business strategy sit at the same table.</p>
+                {isMobile && (
+                  <motion.div 
+                    className="culture-accent-divider bg-purple"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 32 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                  ></motion.div>
+                )}
               </motion.div>
               
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                transition={{ duration: 0.6, delay: isMobile ? 0 : 0.1 }}
                 className="culture-block"
               >
                 <h3 className="culture-title">Continuous Learning</h3>
                 <p className="culture-desc">Technology moves fast. We allocate dedicated time for our teams to experiment with new frameworks, AI models, and architectural patterns.</p>
+                {isMobile && (
+                  <motion.div 
+                    className="culture-accent-divider bg-cyan"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 32 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                  ></motion.div>
+                )}
               </motion.div>
               
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: isMobile ? 0 : 0.2 }}
                 className="culture-block"
               >
                 <h3 className="culture-title">Innovation</h3>
                 <p className="culture-desc">We don't just follow best practices; we aim to set them. Our internal R&D ensures our clients always get cutting-edge solutions.</p>
+                {isMobile && (
+                  <motion.div 
+                    className="culture-accent-divider bg-emerald"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 32 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                  ></motion.div>
+                )}
               </motion.div>
             </div>
           </div>

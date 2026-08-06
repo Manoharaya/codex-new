@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, CheckCircle2, ChevronRight, Monitor, Smartphone, 
@@ -185,8 +185,17 @@ const engagementModels = [
 
 
 const ServicesPage = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [expandedServiceId, setExpandedServiceId] = useState(null);
+  const [expandedTechCategory, setExpandedTechCategory] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const mQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mQuery.matches);
+    const handleResize = (e) => setIsMobile(e.matches);
+    mQuery.addEventListener('change', handleResize);
+    return () => mQuery.removeEventListener('change', handleResize);
   }, []);
 
   return (
@@ -250,17 +259,21 @@ const ServicesPage = () => {
                     <div className="eco-line short"></div>
                   </div>
                 </div>
-                <div className="eco-layer eco-layer-widget glass-card">
-                  <BrainCircuit size={24} className="eco-widget-icon" />
-                  <div className="eco-widget-lines">
-                    <div className="eco-line"></div>
-                    <div className="eco-line short"></div>
-                  </div>
-                </div>
-                <div className="eco-layer eco-layer-cloud glass-card">
-                  <Cloud size={20} className="eco-cloud-icon" />
-                  <span className="eco-cloud-text">Syncing...</span>
-                </div>
+                {!isMobile && (
+                  <>
+                    <div className="eco-layer eco-layer-widget glass-card">
+                      <BrainCircuit size={24} className="eco-widget-icon" />
+                      <div className="eco-widget-lines">
+                        <div className="eco-line"></div>
+                        <div className="eco-line short"></div>
+                      </div>
+                    </div>
+                    <div className="eco-layer eco-layer-cloud glass-card">
+                      <Cloud size={20} className="eco-cloud-icon" />
+                      <span className="eco-cloud-text">Syncing...</span>
+                    </div>
+                  </>
+                )}
               </motion.div>
             </div>
           </div>
@@ -277,7 +290,7 @@ const ServicesPage = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="intro-title">What We Build</h2>
+            <h2 className="intro-title text-gradient">What We Build</h2>
             <p className="intro-desc">
               Every business has different challenges. Our services are designed around solving problems, improving operations, and creating long-term digital value.
             </p>
@@ -285,75 +298,103 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* 3. Service Stories (Alternating Sections) */}
-      <div className="service-stories-container">
-        {servicesData.map((service, index) => (
-          <section key={service.id} id={service.id} className={`service-story-section ${service.theme} ${service.layout}`}>
-            <div className="service-story-aurora"></div>
-            <div className="container">
-              <div className="service-story-grid">
-                <div className="service-story-content">
-                  <motion.h3 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="story-title"
-                  >
-                    {service.title}
-                  </motion.h3>
-                  <motion.p 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="story-desc"
-                  >
-                    {service.description}
-                  </motion.p>
+      {/* 3. Service Stories (Alternating Sections Desktop / Carousel Mobile) */}
+      <div className={`service-stories-container ${isMobile ? 'services-carousel-mobile' : ''}`}>
+        {servicesData.map((service, index) => {
+          const isExpanded = isMobile && expandedServiceId === service.id;
+          return (
+            <section key={service.id} id={service.id} className={`service-story-section ${service.theme} ${isMobile ? 'mobile-service-card' : service.layout}`}>
+              {!isMobile && <div className="service-story-aurora"></div>}
+              <div className="container">
+                <div className="service-story-grid">
                   
-                  <motion.ul 
-                    className="story-features-list"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
-                    {service.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="story-feature-item">
-                        <CheckCircle2 size={18} className="story-feature-icon" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </motion.ul>
-                  
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                  >
-                    <a href="#contact" className="story-cta-link">
-                      {service.cta} <ArrowRight size={16} />
-                    </a>
-                  </motion.div>
-                </div>
-                
-                <motion.div 
-                  className="service-story-visual"
-                  initial={{ opacity: 0, scale: 0.95, x: service.layout === 'image-right' ? 40 : -40 }}
-                  whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <div className="story-image-wrapper glass-card">
-                    <img src={service.image} alt={service.title} className="story-image" />
+                  {isMobile && (
+                    <motion.div 
+                      className="service-story-visual"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="story-image-wrapper glass-card">
+                        <img src={service.image} alt={service.title} className="story-image" />
+                      </div>
+                    </motion.div>
+                  )}
+
+                  <div className="service-story-content">
+                    <motion.h3 
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="story-title"
+                    >
+                      {service.title}
+                    </motion.h3>
+                    
+                    <motion.p 
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="story-desc"
+                    >
+                      {service.description}
+                    </motion.p>
+                    
+                    {(!isMobile || isExpanded) && (
+                      <motion.div
+                        className="service-expandable-content"
+                        initial={isMobile ? { height: 0, opacity: 0 } : false}
+                        animate={isMobile ? { height: 'auto', opacity: 1 } : false}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <ul className="story-features-list">
+                          {service.features.map((feature, fIndex) => (
+                            <li key={fIndex} className="story-feature-item">
+                              <CheckCircle2 size={18} className="story-feature-icon" />
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="story-cta-wrapper">
+                          <a href="#contact" className="story-cta-link">
+                            {service.cta} <ArrowRight size={16} />
+                          </a>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {isMobile && (
+                      <button 
+                        className="service-expand-btn"
+                        onClick={() => setExpandedServiceId(isExpanded ? null : service.id)}
+                      >
+                        {isExpanded ? 'Less Details' : 'Expand Details'} 
+                        <ChevronRight size={16} className={`expand-icon ${isExpanded ? 'rotated' : ''}`} />
+                      </button>
+                    )}
                   </div>
-                </motion.div>
+                  
+                  {!isMobile && (
+                    <motion.div 
+                      className="service-story-visual"
+                      initial={{ opacity: 0, scale: 0.95, x: service.layout === 'image-right' ? 40 : -40 }}
+                      whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="story-image-wrapper glass-card">
+                        <img src={service.image} alt={service.title} className="story-image" />
+                      </div>
+                    </motion.div>
+                  )}
+
+                </div>
               </div>
-            </div>
-          </section>
-        ))}
+            </section>
+          );
+        })}
       </div>
 
       {/* 4. Process Section (How We Deliver) */}
@@ -365,22 +406,22 @@ const ServicesPage = () => {
           
           <div className="process-timeline-container">
             <div className="process-line"></div>
-            <div className="process-steps">
+            <div className={`process-steps ${isMobile ? 'vertical-process' : ''}`}>
               {processData.map((step, index) => (
                 <React.Fragment key={step.id}>
                   <motion.div 
                     className="process-step"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true, margin: isMobile ? "-50px" : "0px" }}
+                    transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
                   >
                     <div className="process-step-number">{step.id}</div>
                     <div className="process-step-title">{step.title}</div>
                   </motion.div>
                   {index < processData.length - 1 && (
-                    <div className="process-arrow">
-                      <ChevronRight size={16} />
+                    <div className={`process-arrow ${isMobile ? 'vertical-arrow' : ''}`}>
+                      {isMobile ? <div className="vertical-line"></div> : <ChevronRight size={16} />}
                     </div>
                   )}
                 </React.Fragment>
@@ -398,7 +439,7 @@ const ServicesPage = () => {
             <h2 className="section-title">Industries We Serve</h2>
           </div>
           
-          <div className="industries-grid">
+          <div className={`industries-grid ${isMobile ? 'industries-carousel-mobile' : ''}`}>
             {industriesData.map((industry, index) => (
               <motion.div 
                 key={index}
@@ -406,7 +447,7 @@ const ServicesPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
+                transition={{ duration: 0.5, delay: isMobile ? 0 : (index % 3) * 0.1 }}
               >
                 <div className="industry-icon">{industry.icon}</div>
                 <h4 className="industry-name">{industry.name}</h4>
@@ -423,27 +464,40 @@ const ServicesPage = () => {
             <h2 className="section-title">Technology Ecosystem</h2>
           </div>
           
-          <div className="tech-panels-grid">
-            {techStackData.map((group, index) => (
-              <motion.div 
-                key={index}
-                className="tech-panel glass-card"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="tech-panel-header">
-                  {group.icon}
-                  <h4 className="tech-panel-title">{group.category}</h4>
-                </div>
-                <div className="tech-tags">
-                  {group.technologies.map((tech, tIndex) => (
-                    <span key={tIndex} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+          <div className={`tech-panels-grid ${isMobile ? 'tech-accordion-mobile' : ''}`}>
+            {techStackData.map((group, index) => {
+              const isExpanded = isMobile && expandedTechCategory === index;
+              return (
+                <motion.div 
+                  key={index}
+                  className={`tech-panel glass-card ${isExpanded ? 'active' : ''}`}
+                  initial={{ opacity: 0, scale: isMobile ? 1 : 0.95, y: isMobile ? 20 : 0 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
+                  onClick={() => isMobile && setExpandedTechCategory(isExpanded ? null : index)}
+                >
+                  <div className="tech-panel-header">
+                    {group.icon}
+                    <h4 className="tech-panel-title">{group.category}</h4>
+                    {isMobile && <ChevronRight size={16} className={`tech-expand-icon ${isExpanded ? 'rotated' : ''}`} />}
+                  </div>
+                  {(!isMobile || isExpanded) && (
+                    <motion.div 
+                      className="tech-tags-wrapper"
+                      initial={isMobile ? { height: 0, opacity: 0 } : false}
+                      animate={isMobile ? { height: 'auto', opacity: 1 } : false}
+                    >
+                      <div className="tech-tags">
+                        {group.technologies.map((tech, tIndex) => (
+                          <span key={tIndex} className="tech-tag">{tech}</span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -452,19 +506,39 @@ const ServicesPage = () => {
       <section className="why-choose-section">
         <div className="container">
           <div className="why-choose-grid">
-            <motion.div 
-              className="why-choose-visual glass-card"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                alt="CodexNeural Team" 
-                className="why-choose-image"
-              />
-            </motion.div>
+            {isMobile && (
+              <motion.div 
+                className="why-choose-visual mobile-visual-first"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="glass-card image-wrapper-inner">
+                  <img 
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                    alt="CodexNeural Team" 
+                    className="why-choose-image"
+                  />
+                </div>
+              </motion.div>
+            )}
+
+            {!isMobile && (
+              <motion.div 
+                className="why-choose-visual glass-card"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="CodexNeural Team" 
+                  className="why-choose-image"
+                />
+              </motion.div>
+            )}
             
             <div className="why-choose-content">
               <motion.h2 
@@ -507,7 +581,7 @@ const ServicesPage = () => {
             <h2 className="section-title">Client Engagement Models</h2>
           </div>
           
-          <div className="engagement-grid">
+          <div className={`engagement-grid ${isMobile ? 'engagement-carousel-mobile' : ''}`}>
             {engagementModels.map((model, index) => (
               <motion.div 
                 key={index}
@@ -515,7 +589,7 @@ const ServicesPage = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: isMobile ? 0 : index * 0.1 }}
               >
                 <div className="engagement-header">
                   <h3 className="engagement-title">{model.title}</h3>

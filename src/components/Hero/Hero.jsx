@@ -24,6 +24,7 @@ const checkpoints = {
 
 const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef(null);
   
   // Animation States
@@ -38,70 +39,79 @@ const Hero = () => {
   const packetControls = useAnimation();
 
   useEffect(() => {
+    const mQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mQuery.matches);
+    const handleResize = (e) => setIsMobile(e.matches);
+    mQuery.addEventListener('change', handleResize);
+    return () => mQuery.removeEventListener('change', handleResize);
+  }, []);
+
+  useEffect(() => {
     let isMounted = true;
     
     const runSequence = async () => {
-      // Small delay before starting first loop
       await new Promise(r => setTimeout(r, 1000));
       
       while (isMounted) {
+        const m = window.matchMedia('(max-width: 768px)').matches;
+        
         // Reset
-        await packetControls.set({ x: "80%", y: "90%", opacity: 0, scale: 0.5 });
+        await packetControls.set(
+          m ? { x: "50%", y: "0%", opacity: 0, scale: 0.5 } 
+            : { x: "80%", y: "90%", opacity: 0, scale: 0.5 }
+        );
         setNotifyActive(false);
         setRevenue(14200);
         
-        // 1. Frontend (User Request)
+        // 1. Frontend
         setActiveStage('frontend');
-        await packetControls.start({ x: "80%", y: "90%", opacity: 1, scale: 1, transition: { duration: 0.4 } });
-        await packetControls.start({ x: "50%", y: "60%", transition: { duration: 1.2, ease: "easeInOut" } });
+        await packetControls.start({ opacity: 1, scale: 1, transition: { duration: 0.4 } });
+        await packetControls.start(m ? { x: "50%", y: "20%", transition: { duration: 1.2 } } : { x: "50%", y: "60%", transition: { duration: 1.2, ease: "easeInOut" } });
         setDashActive(true);
         
-        // 2. Backend (API / Business Logic)
+        // 2. Backend
         setActiveStage('backend');
-        await packetControls.start({ x: "90%", y: "15%", transition: { duration: 1.4, ease: "easeInOut" } });
+        await packetControls.start(m ? { x: "50%", y: "40%", transition: { duration: 1.2 } } : { x: "90%", y: "15%", transition: { duration: 1.4, ease: "easeInOut" } });
         setDashActive(false);
         setRevenue(prev => prev + 15);
         
-        // 3. AI Processing
+        // 3. AI
         setActiveStage('ai');
-        await packetControls.start({ x: "20%", y: "5%", transition: { duration: 1.6, ease: "easeInOut" } });
+        await packetControls.start(m ? { x: "50%", y: "60%", transition: { duration: 1.2 } } : { x: "20%", y: "5%", transition: { duration: 1.6, ease: "easeInOut" } });
         setAiActive(true);
-        await new Promise(r => setTimeout(r, 1000)); // Process time
+        await new Promise(r => setTimeout(r, 1000));
         setAiActive(false);
         
         // 4. Database
         setActiveStage('db');
-        await packetControls.start({ x: "90%", y: "50%", transition: { duration: 1.5, ease: "easeInOut" } });
+        await packetControls.start(m ? { x: "50%", y: "80%", transition: { duration: 1.2 } } : { x: "90%", y: "50%", transition: { duration: 1.5, ease: "easeInOut" } });
         setDbActive(true);
-        await new Promise(r => setTimeout(r, 800)); // Sync time
+        await new Promise(r => setTimeout(r, 800));
         setDbActive(false);
         
-        // 5. Cloud Infrastructure
+        // 5. Cloud
         setActiveStage('cloud');
-        await packetControls.start({ x: "5%", y: "75%", transition: { duration: 1.6, ease: "easeInOut" } });
+        await packetControls.start(m ? { x: "50%", y: "90%", transition: { duration: 1.2 } } : { x: "5%", y: "75%", transition: { duration: 1.6, ease: "easeInOut" } });
         setCloudActive(true);
-        await new Promise(r => setTimeout(r, 600)); // Deploy time
+        await new Promise(r => setTimeout(r, 600));
         setCloudActive(false);
         
-        // 6. Live Response
+        // 6. Response
         setActiveStage('response');
-        await packetControls.start({ x: "40%", y: "50%", transition: { duration: 1.2, ease: "easeInOut" } });
+        await packetControls.start(m ? { x: "50%", y: "100%", transition: { duration: 1.2 } } : { x: "40%", y: "50%", transition: { duration: 1.2, ease: "easeInOut" } });
         setDashActive(true);
         setNotifyActive(true);
         setRevenue(prev => prev + 45);
         
-        // End packet
         await packetControls.start({ opacity: 0, scale: 0.5, transition: { duration: 0.4 } });
         setActiveStage(null);
         
-        // Wait for next loop
         await new Promise(r => setTimeout(r, 4000));
         setDashActive(false);
       }
     };
 
     runSequence();
-    
     return () => { isMounted = false; };
   }, [packetControls]);
 
@@ -204,8 +214,9 @@ const Hero = () => {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.5 }}
                     style={{ 
-                      left: checkpoints[activeStage].x, 
-                      top: checkpoints[activeStage].y 
+                      left: isMobile ? "50%" : checkpoints[activeStage].x, 
+                      top: isMobile ? "10%" : checkpoints[activeStage].y,
+                      transform: isMobile ? "translateX(-50%)" : "none"
                     }}
                   >
                     {checkpoints[activeStage].text}
@@ -268,53 +279,57 @@ const Hero = () => {
             </motion.div>
 
             {/* Mobile App Mockup */}
-            <motion.div 
-              className="mockup-mobile premium-glass ambient-float-1"
-              style={{ transform: `translate(${mobileOffset.x}px, ${mobileOffset.y}px) rotate(-3deg)` }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="mobile-notch"></div>
-              <div className="mobile-header">
-                <span className="mobile-time">9:41</span>
-                <div className="mobile-icons"><Activity size={10} /><ShieldCheck size={10} /></div>
-              </div>
-              <div className="mobile-card large">
-                <Brain size={48} className="mobile-hero-icon" />
-                <div className="mobile-card-text">AI Neural Model</div>
-              </div>
-              <div className="mobile-grid">
-                <div className="mobile-card small">
-                  <Zap size={20} className="mobile-small-icon" />
-                  <div className="mobile-small-text">99% Fast</div>
+            {!isMobile && (
+              <motion.div 
+                className="mockup-mobile premium-glass ambient-float-1"
+                style={{ transform: `translate(${mobileOffset.x}px, ${mobileOffset.y}px) rotate(-3deg)` }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="mobile-notch"></div>
+                <div className="mobile-header">
+                  <span className="mobile-time">9:41</span>
+                  <div className="mobile-icons"><Activity size={10} /><ShieldCheck size={10} /></div>
                 </div>
-                <div className="mobile-card small">
-                  <Users size={20} className="mobile-small-icon" />
-                  <div className="mobile-small-text">Online</div>
+                <div className="mobile-card large">
+                  <Brain size={48} className="mobile-hero-icon" />
+                  <div className="mobile-card-text">AI Neural Model</div>
                 </div>
-              </div>
-              <div className="mobile-tab-bar">
-                <span className="tab-dot active"></span>
-                <span className="tab-dot"></span>
-                <span className="tab-dot"></span>
-              </div>
-            </motion.div>
+                <div className="mobile-grid">
+                  <div className="mobile-card small">
+                    <Zap size={20} className="mobile-small-icon" />
+                    <div className="mobile-small-text">99% Fast</div>
+                  </div>
+                  <div className="mobile-card small">
+                    <Users size={20} className="mobile-small-icon" />
+                    <div className="mobile-small-text">Online</div>
+                  </div>
+                </div>
+                <div className="mobile-tab-bar">
+                  <span className="tab-dot active"></span>
+                  <span className="tab-dot"></span>
+                  <span className="tab-dot"></span>
+                </div>
+              </motion.div>
+            )}
 
             {/* Analytics Widget */}
-            <motion.div 
-              className="mockup-widget analytics-widget premium-glass ambient-float-2"
-              style={{ transform: `translate(${analyticsOffset.x}px, ${analyticsOffset.y}px) rotate(2deg)` }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="widget-icon-wrapper cyan"><BarChart2 size={16} /></div>
-              <div className="widget-content">
-                <div className="widget-title">Revenue</div>
-                <div className="widget-value">+${revenue.toLocaleString()}</div>
-              </div>
-            </motion.div>
+            {!isMobile && (
+              <motion.div 
+                className="mockup-widget analytics-widget premium-glass ambient-float-2"
+                style={{ transform: `translate(${analyticsOffset.x}px, ${analyticsOffset.y}px) rotate(2deg)` }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="widget-icon-wrapper cyan"><BarChart2 size={16} /></div>
+                <div className="widget-content">
+                  <div className="widget-title">Revenue</div>
+                  <div className="widget-value">+${revenue.toLocaleString()}</div>
+                </div>
+              </motion.div>
+            )}
 
             {/* AI Assistant Widget */}
             <motion.div 
@@ -333,19 +348,21 @@ const Hero = () => {
             </motion.div>
 
             {/* Database Widget */}
-            <motion.div 
-              className={`mockup-widget db-widget premium-glass ambient-float-2 ${dbActive ? 'db-active' : ''}`}
-              style={{ transform: `translate(${dbOffset.x}px, ${dbOffset.y}px) rotate(1deg)` }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="widget-icon-wrapper indigo"><HardDrive size={16} /></div>
-              <div className="widget-content">
-                <div className="widget-title">Primary DB</div>
-                <div className={`widget-value ${dbActive ? 'syncing' : ''}`}>{dbActive ? 'Syncing...' : 'Connected'}</div>
-              </div>
-            </motion.div>
+            {!isMobile && (
+              <motion.div 
+                className={`mockup-widget db-widget premium-glass ambient-float-2 ${dbActive ? 'db-active' : ''}`}
+                style={{ transform: `translate(${dbOffset.x}px, ${dbOffset.y}px) rotate(1deg)` }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="widget-icon-wrapper indigo"><HardDrive size={16} /></div>
+                <div className="widget-content">
+                  <div className="widget-title">Primary DB</div>
+                  <div className={`widget-value ${dbActive ? 'syncing' : ''}`}>{dbActive ? 'Syncing...' : 'Connected'}</div>
+                </div>
+              </motion.div>
+            )}
 
             {/* Cloud Infrastructure Card */}
             <motion.div 
@@ -363,24 +380,26 @@ const Hero = () => {
             </motion.div>
 
             {/* Notification Card */}
-            <AnimatePresence>
-              {notifyActive && (
-                <motion.div 
-                  className="mockup-widget notify-widget premium-glass"
-                  style={{ transform: `translate(${notifyOffset.x}px, ${notifyOffset.y}px) rotate(-2deg)` }}
-                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.8, y: -20 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <div className="widget-icon-wrapper purple"><Bell size={16} /></div>
-                  <div className="widget-content">
-                    <div className="widget-title">Task Complete</div>
-                    <div className="widget-subtitle">Result delivered</div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {!isMobile && (
+              <AnimatePresence>
+                {notifyActive && (
+                  <motion.div 
+                    className="mockup-widget notify-widget premium-glass"
+                    style={{ transform: `translate(${notifyOffset.x}px, ${notifyOffset.y}px) rotate(-2deg)` }}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: -20 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <div className="widget-icon-wrapper purple"><Bell size={16} /></div>
+                    <div className="widget-content">
+                      <div className="widget-title">Task Complete</div>
+                      <div className="widget-subtitle">Result delivered</div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            )}
 
           </div>
         </div>

@@ -1,5 +1,5 @@
 .industries-section {
-  padding: 120px 0;
+  padding: var(--space-120) 0;
   background-color: var(--bg-primary);
   border-top: 1px solid var(--glass-border);
 }
@@ -7,14 +7,14 @@
 .industries-simple-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: var(--space-24);
 }
 
 .industry-simple-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 24px;
+  gap: var(--space-16);
+  padding: var(--space-24);
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);

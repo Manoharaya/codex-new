@@ -85,7 +85,7 @@ const Services = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 992);
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -107,7 +107,7 @@ const Services = () => {
           variants={containerVariants}
           className="section-header"
         >
-          <motion.span variants={itemVariants} className="section-subtitle">WHAT WE BUILD</motion.span>
+          <motion.span variants={itemVariants} className="section-subtitle text-gradient">WHAT WE BUILD</motion.span>
           <motion.h2 variants={itemVariants} className="section-title">
             We Build Digital Products That <br /> Solve Real Business Problems.
           </motion.h2>
@@ -193,9 +193,9 @@ const Services = () => {
                       </div>
                       <h3 className="service-title">{service.title}</h3>
                       <p className="service-desc">{service.desc}</p>
-                      <div className="service-link mt-auto">
+                      {/* <div className="service-link mt-auto">
                         Learn more <ArrowRight size={16} />
-                      </div>
+                      </div> */}
                     </motion.div>
                   </div>
                 ) : (

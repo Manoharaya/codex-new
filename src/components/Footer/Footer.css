@@ -1,32 +1,32 @@
 .footer {
   background: var(--bg-primary);
   border-top: 1px solid var(--glass-border);
-  padding: 80px 0 40px;
+  padding: var(--space-80) 0 var(--space-40);
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 48px;
-  padding-bottom: 64px;
+  gap: var(--space-48);
+  padding-bottom: var(--space-64);
 }
 
 .footer-brand .nav-logo-box {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-16);
 }
 
 .footer-desc {
   color: var(--text-secondary);
   font-size: 14px;
   max-width: 300px;
-  margin-top: 24px;
+  margin-top: var(--space-24);
   line-height: 1.8;
 }
 
 .footer-heading {
   font-family: 'Sora', sans-serif;
   font-size: 16px;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-24);
   color: var(--text-primary);
 }
 
@@ -34,7 +34,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-12);
 }
 
 .footer-link {
@@ -49,7 +49,7 @@
 }
 
 .footer-bottom {
-  padding-top: 32px;
+  padding-top: var(--space-32);
   border-top: 1px solid var(--glass-border);
   display: flex;
   justify-content: space-between;
@@ -61,17 +61,17 @@
 .footer-legal {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-24);
 }
 
 .legal-links {
   display: flex;
-  gap: 16px;
+  gap: var(--space-16);
 }
 
 .footer-socials {
   display: flex;
-  gap: 16px;
+  gap: var(--space-16);
 }
 
 .social-icon {
@@ -100,14 +100,14 @@
   
   .footer-bottom {
     flex-direction: column;
-    gap: 24px;
+    gap: var(--space-24);
     align-items: flex-start;
   }
   
   .footer-legal {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: var(--space-8);
   }
 }
 

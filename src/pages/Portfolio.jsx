@@ -112,9 +112,17 @@ const recognitionStats = [
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [isMobile, setIsMobile] = useState(false);
+  const [expandedTechCategory, setExpandedTechCategory] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const filteredGallery = activeCategory === "All" 
@@ -169,7 +177,7 @@ const Portfolio = () => {
               >
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workspace" className="collage-img collage-workspace glass-card" />
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard" className="collage-img collage-dashboard glass-card" />
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mobile UI" className="collage-img collage-mobile glass-card" />
+                {!isMobile && <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mobile UI" className="collage-img collage-mobile glass-card" />}
               </motion.div>
             </div>
           </div>
@@ -179,7 +187,7 @@ const Portfolio = () => {
       {/* 2. Navigation Chips */}
       <section className="portfolio-nav-section" id="featured">
         <div className="container">
-          <div className="filter-chips">
+          <div className={`filter-chips ${isMobile ? 'filter-carousel-mobile' : ''}`}>
             {categories.map(cat => (
               <button 
                 key={cat}
@@ -210,10 +218,10 @@ const Portfolio = () => {
           </motion.div>
         </div>
 
-        <div className="sticky-story-container">
+        <div className={isMobile ? "editorial-story-container" : "sticky-story-container"}>
           {featuredProjects.map((project, index) => (
-            <div key={project.id} className={`story-project-wrapper ${project.theme}`}>
-              <div className="story-aurora-bg"></div>
+            <div key={project.id} className={`story-project-wrapper ${project.theme} ${isMobile ? 'mobile-story-wrapper' : ''}`}>
+              {!isMobile && <div className="story-aurora-bg"></div>}
               <div className="container">
                 <motion.div 
                   className="story-project-card glass-card"
@@ -223,31 +231,41 @@ const Portfolio = () => {
                   transition={{ duration: 0.8 }}
                 >
                   
-                  {/* Essence Statement */}
-                  <div className="story-essence">
-                    <Quote className="essence-quote-icon" size={32} />
-                    <h2 className="essence-text">"{project.essence}"</h2>
-                  </div>
+                  {/* Essence Statement (Top on Desktop, Hidden on Mobile for brevity or placed below) */}
+                  {!isMobile && (
+                    <div className="story-essence">
+                      <Quote className="essence-quote-icon" size={32} />
+                      <h2 className="essence-text">"{project.essence}"</h2>
+                    </div>
+                  )}
 
                   <div className="story-project-content-grid">
-                    {/* Left: Mockup & Tech */}
+                    {/* Visual Side */}
                     <div className="story-visual-side">
                       <div className="story-mockup-wrapper">
-                        <img src={project.image} alt={project.title} className="story-mockup-img" />
+                        <img src={project.image} alt={project.title} className="story-mockup-img" loading="lazy" />
                       </div>
-                      <div className="story-tech-chips">
-                        {project.technologies.map(tech => (
-                          <span key={tech} className="tech-chip">{tech}</span>
-                        ))}
-                      </div>
+                      {!isMobile && (
+                        <div className="story-tech-chips">
+                          {project.technologies.map(tech => (
+                            <span key={tech} className="tech-chip">{tech}</span>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
-                    {/* Right: Story & Metrics */}
+                    {/* Narrative Side */}
                     <div className="story-narrative-side">
                       <div className="story-meta">
                         <span className="story-industry">{project.industry}</span>
                         <h3 className="story-title">{project.title}</h3>
                       </div>
+                      
+                      {isMobile && (
+                        <div className="story-essence-mobile">
+                          <p className="essence-text-mobile">"{project.essence}"</p>
+                        </div>
+                      )}
                       
                       <div className="story-text-block">
                         <h4 className="story-subtitle">The Challenge</h4>
@@ -258,8 +276,16 @@ const Portfolio = () => {
                         <h4 className="story-subtitle">The Solution</h4>
                         <p>{project.solution}</p>
                       </div>
+
+                      {isMobile && (
+                        <div className="story-tech-chips" style={{ marginBottom: '32px' }}>
+                          {project.technologies.map(tech => (
+                            <span key={tech} className="tech-chip">{tech}</span>
+                          ))}
+                        </div>
+                      )}
                       
-                      <div className="story-metrics">
+                      <div className={`story-metrics ${isMobile ? 'metrics-mobile' : ''}`}>
                         {project.metrics.map((metric, mIndex) => (
                           <div key={mIndex} className="story-metric-item">
                             <span className="metric-value">{metric.value}</span>
@@ -281,30 +307,35 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Testimonial 1 */}
-      <section className="interstitial-testimonial">
+      {/* Testimonial Section - Carousel on Mobile, Interstitial on Desktop */}
+      <section className={`interstitial-testimonial ${isMobile ? 'testimonials-carousel-section' : ''}`}>
         <div className="container">
-          <div className="testimonial-block glass-card">
-            <h3 className="testimonial-quote">"{testimonials[0].quote}"</h3>
-            <div className="testimonial-author">
-              <img src={testimonials[0].image} alt={testimonials[0].name} className="author-img" />
-              <div className="author-info">
-                <span className="author-name">{testimonials[0].name}</span>
-                <span className="author-role">{testimonials[0].role}</span>
+          <div className={isMobile ? "testimonials-carousel" : ""}>
+            {/* Desktop only shows Testimonial 0 here, Mobile shows both in carousel */}
+            {(!isMobile ? [testimonials[0]] : testimonials).map((testimonial, idx) => (
+              <div key={idx} className={`testimonial-block glass-card ${isMobile ? 'mobile-testimonial-card' : ''}`}>
+                <h3 className="testimonial-quote">"{testimonial.quote}"</h3>
+                <div className="testimonial-author">
+                  <img src={testimonial.image} alt={testimonial.name} className="author-img" loading="lazy" />
+                  <div className="author-info">
+                    <span className="author-name">{testimonial.name}</span>
+                    <span className="author-role">{testimonial.role}</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Masonry Project Gallery */}
+      {/* 4. Project Gallery */}
       <section className="portfolio-gallery-section">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">More Digital Experiences</h2>
           </div>
           
-          <motion.div layout className="masonry-gallery">
+          <motion.div layout className={isMobile ? "mobile-gallery-stack" : "masonry-gallery"}>
             <AnimatePresence>
               {filteredGallery.map((project) => (
                 <motion.div 
@@ -314,19 +345,31 @@ const Portfolio = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
                   key={project.id}
-                  className={`gallery-item ${project.type}`}
+                  className={`gallery-item ${isMobile ? 'gallery-item-mobile' : project.type}`}
                 >
-                  <img src={project.image} alt={project.title} className="gallery-img" />
-                  <div className="gallery-overlay">
-                    <div className="gallery-overlay-content">
-                      <span className="gallery-industry">{project.industry}</span>
-                      <h3 className="gallery-title">{project.title}</h3>
-                      <span className="gallery-category">{project.category}</span>
+                  <img src={project.image} alt={project.title} className="gallery-img" loading="lazy" />
+                  
+                  {isMobile ? (
+                    <div className="gallery-details-static">
+                      <div className="gallery-meta-static">
+                        <span className="gallery-industry">{project.industry}</span>
+                        <span className="gallery-category">{project.category}</span>
+                      </div>
+                      <h3 className="gallery-title-static">{project.title}</h3>
+                      <span className="gallery-link">View Project <ArrowUpRight size={18} /></span>
                     </div>
-                    <div className="gallery-overlay-action">
-                      <span className="gallery-link">View Project <ArrowUpRight size={20} /></span>
+                  ) : (
+                    <div className="gallery-overlay">
+                      <div className="gallery-overlay-content">
+                        <span className="gallery-industry">{project.industry}</span>
+                        <h3 className="gallery-title">{project.title}</h3>
+                        <span className="gallery-category">{project.category}</span>
+                      </div>
+                      <div className="gallery-overlay-action">
+                        <span className="gallery-link">View Project <ArrowUpRight size={20} /></span>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -343,22 +386,22 @@ const Portfolio = () => {
           
           <div className="process-timeline-container">
             <div className="process-line"></div>
-            <div className="process-steps">
+            <div className={`process-steps ${isMobile ? 'vertical-process' : ''}`}>
               {processData.map((step, index) => (
                 <React.Fragment key={step.id}>
                   <motion.div 
                     className="process-step"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true, margin: isMobile ? "-50px" : "0px" }}
+                    transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
                   >
                     <div className="process-step-number">{step.id}</div>
                     <div className="process-step-title">{step.title}</div>
                   </motion.div>
                   {index < processData.length - 1 && (
-                    <div className="process-arrow">
-                      <ChevronRight size={16} />
+                    <div className={`process-arrow ${isMobile ? 'vertical-arrow' : ''}`}>
+                      {isMobile ? <div className="vertical-line"></div> : <ChevronRight size={16} />}
                     </div>
                   )}
                 </React.Fragment>
@@ -368,21 +411,23 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Testimonial 2 */}
-      <section className="interstitial-testimonial">
-        <div className="container">
-          <div className="testimonial-block glass-card">
-            <h3 className="testimonial-quote">"{testimonials[1].quote}"</h3>
-            <div className="testimonial-author">
-              <img src={testimonials[1].image} alt={testimonials[1].name} className="author-img" />
-              <div className="author-info">
-                <span className="author-name">{testimonials[1].name}</span>
-                <span className="author-role">{testimonials[1].role}</span>
+      {/* Testimonial 2 (Desktop only, Mobile shows both in the first carousel) */}
+      {!isMobile && (
+        <section className="interstitial-testimonial">
+          <div className="container">
+            <div className="testimonial-block glass-card">
+              <h3 className="testimonial-quote">"{testimonials[1].quote}"</h3>
+              <div className="testimonial-author">
+                <img src={testimonials[1].image} alt={testimonials[1].name} className="author-img" loading="lazy" />
+                <div className="author-info">
+                  <span className="author-name">{testimonials[1].name}</span>
+                  <span className="author-role">{testimonials[1].role}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 6. Technologies Grouped Panels */}
       <section className="tech-panels-section">
@@ -391,21 +436,38 @@ const Portfolio = () => {
             <h2 className="section-title">Powered By</h2>
           </div>
           
-          <div className="tech-groups-grid">
-            {techGroups.map((group, index) => (
-              <motion.div 
-                key={index}
-                className="tech-group-panel glass-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="tech-group-icon-wrapper">{group.icon}</div>
-                <h4 className="tech-group-title">{group.category}</h4>
-                <p className="tech-group-desc">{group.desc}</p>
-              </motion.div>
-            ))}
+          <div className={`tech-groups-grid ${isMobile ? 'tech-accordion-mobile' : ''}`}>
+            {techGroups.map((group, index) => {
+              const isExpanded = isMobile && expandedTechCategory === index;
+              return (
+                <motion.div 
+                  key={index}
+                  className={`tech-group-panel glass-card ${isExpanded ? 'active' : ''}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
+                  onClick={() => isMobile && setExpandedTechCategory(isExpanded ? null : index)}
+                >
+                  <div className="tech-group-header-mobile">
+                    <div className="tech-group-icon-wrapper">{group.icon}</div>
+                    <h4 className="tech-group-title">{group.category}</h4>
+                    {isMobile && <ChevronRight size={16} className={`tech-expand-icon ${isExpanded ? 'rotated' : ''}`} />}
+                  </div>
+                  
+                  {(!isMobile || isExpanded) && (
+                    <motion.div 
+                      className="tech-group-desc-wrapper"
+                      initial={isMobile ? { height: 0, opacity: 0 } : false}
+                      animate={isMobile ? { height: 'auto', opacity: 1 } : false}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="tech-group-desc">{group.desc}</p>
+                    </motion.div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -413,7 +475,7 @@ const Portfolio = () => {
       {/* 7. Recognition Stats */}
       <section className="recognition-section">
         <div className="container">
-          <div className="recognition-grid">
+          <div className={`recognition-grid ${isMobile ? 'recognition-carousel' : ''}`}>
             {recognitionStats.map((stat, index) => (
               <motion.div 
                 key={index}
@@ -421,7 +483,7 @@ const Portfolio = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
               >
                 <span className="recognition-value">{stat.value}</span>
                 <span className="recognition-label">{stat.label}</span>
