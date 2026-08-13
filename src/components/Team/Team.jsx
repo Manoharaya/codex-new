@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
-import { Briefcase, Code, Globe, User } from 'lucide-react';
+import { Linkedin, Github, User } from 'lucide-react';
 import './Team.css';
 
 const teamData = [
@@ -9,19 +9,57 @@ const teamData = [
     name: 'Aman Yadav',
     role: 'Advisor & Data Analysis Specialist',
     badges: ['Advisor', 'Data'],
-    desc: 'Providing strategic guidance and extracting actionable insights from complex datasets. Driving data-driven decision making and business intelligence.'
+    desc: 'Providing strategic guidance and extracting actionable insights from complex datasets. Driving data-driven decision making and business intelligence.',
+    linkedin: '#',
+    github: '#'
   },
   {
     name: 'Manohar Singh',
     role: 'Founder & CEO',
     badges: ['Founding Member', 'CEO'],
-    desc: 'Leading strategic vision and operational excellence. Orchestrating business development, client relations, and day-to-day company operations.'
+    desc: 'Leading strategic vision and operational excellence. Orchestrating business development, client relations, and day-to-day company operations.',
+    linkedin: 'https://www.linkedin.com/in/manohar-cn',
+    github: 'https://github.com/Manoharaya'
   },
   {
     name: 'Anuj Pokhrel',
-    role: 'CTO & Lead Architect',
-    badges: ['Core Team', 'Engineering'],
-    desc: 'Architecting scalable solutions and overseeing technical strategy. Ensuring high performance and robust systems architecture.'
+    role: 'CTO & Backend Developer',
+    badges: ['Founding Member', 'CTO'],
+    desc: 'Architecting scalable backend systems and leading technical strategy. Building robust server infrastructure with focus on security, performance, and reliability.',
+    linkedin: 'https://www.linkedin.com/in/anujpokharel2468',
+    github: 'https://github.com/Anuj12Pokharel'
+  },
+  {
+    name: 'Rahul Sah',
+    role: 'Backend Specialist',
+    badges: ['Core Team', 'Backend'],
+    desc: 'Specializing in the development of robust, scalable backend architectures. Ensuring high performance and seamless server-side integration.',
+    linkedin: 'https://www.linkedin.com/in/rahul-kumar-sah-b77885148/',
+    github: 'https://github.com/rahul-4321/'
+  },
+  {
+    name: 'Anjali Singh',
+    role: 'Frontend Developer & UI/UX Designer',
+    badges: ['Core Team', 'Design'],
+    desc: 'Crafting responsive, performant user interfaces with modern frameworks. Designing intuitive user experiences and transforming them into pixel-perfect, interactive implementations.',
+    linkedin: 'https://www.linkedin.com/in/anjali-singh-11138b271/',
+    github: 'https://github.com/Anjalisingh44'
+  },
+  {
+    name: 'Priti Gupta',
+    role: 'SEO Specialist',
+    badges: ['Marketing', 'SEO'],
+    desc: 'Optimizing digital presence and search visibility. Implementing data-driven SEO strategies to drive organic growth and improve search rankings.',
+    linkedin: 'https://www.linkedin.com/in/priti-gupta-1b5a68217',
+    github: 'https://github.com/priteegupta'
+  },
+  {
+    name: 'Bibek Sah',
+    role: 'Automation Engineer',
+    badges: ['Core Team', 'DevOps'],
+    desc: 'Building intelligent automation pipelines and CI/CD workflows. Streamlining development processes through infrastructure as code and DevOps practices.',
+    linkedin: 'https://www.linkedin.com/in/bibek-shah-8b460b2bb/',
+    github: 'https://github.com/bibekshah220'
   }
 ];
 
@@ -99,9 +137,16 @@ const Team = () => {
                     <div className="team-desc">
                       <p>{member.desc}</p>
                       <div className="team-socials">
-                        <a href="#" className="social-link"><Briefcase size={18} /></a>
-                        <a href="#" className="social-link"><Code size={18} /></a>
-                        <a href="#" className="social-link"><Globe size={18} /></a>
+                        {member.linkedin && member.linkedin !== '#' && (
+                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="social-link" aria-label={`${member.name} LinkedIn`}>
+                            <Linkedin size={18} />
+                          </a>
+                        )}
+                        {member.github && member.github !== '#' && (
+                          <a href={member.github} target="_blank" rel="noopener noreferrer" className="social-link" aria-label={`${member.name} GitHub`}>
+                            <Github size={18} />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>

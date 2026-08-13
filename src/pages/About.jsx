@@ -48,31 +48,52 @@ const valuesData = [
 
 const teamData = [
   {
-    name: "Aarav Sharma",
-    role: "Founder & Chief Executive Officer",
-    bio: "Leads company vision, innovation and strategic growth. Passionate about AI integration.",
+    name: "Manohar Singh",
+    role: "Founder & CEO",
+    bio: "Leading strategic vision and operational excellence. Orchestrating business development, client relations, and day-to-day company operations.",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     theme: "theme-purple"
   },
   {
-    name: "Priya Mehta",
-    role: "Chief Technology Officer",
-    bio: "Architecting scalable software and cloud solutions. Champion of engineering excellence.",
+    name: "Anuj Pokhrel",
+    role: "CTO & Backend Developer",
+    bio: "Architecting scalable backend systems and leading technical strategy. Building robust server infrastructure with focus on security, performance, and reliability.",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     theme: "theme-cyan"
   },
   {
-    name: "Rohan Kapoor",
-    role: "Lead UI/UX Designer",
-    bio: "Designing intuitive digital experiences focused on usability and human psychology.",
+    name: "Aman Yadav",
+    role: "Advisor & Data Analysis Specialist",
+    bio: "Providing strategic guidance and extracting actionable insights from complex datasets. Driving data-driven decision making and business intelligence.",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     theme: "theme-magenta"
   },
   {
-    name: "Ananya Verma",
-    role: "AI & Full Stack Engineer",
-    bio: "Building intelligent applications powered by modern AI technologies and solid architecture.",
+    name: "Rahul Sah",
+    role: "Backend Specialist",
+    bio: "Specializing in the development of robust, scalable backend architectures. Ensuring high performance and seamless server-side integration.",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    theme: "theme-indigo"
+  },
+  {
+    name: "Anjali Singh",
+    role: "Frontend Developer & UI/UX Designer",
+    bio: "Crafting responsive, performant user interfaces with modern frameworks. Designing intuitive user experiences and transforming them into pixel-perfect, interactive implementations.",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    theme: "theme-purple"
+  },
+  {
+    name: "Priti Gupta",
+    role: "SEO Specialist",
+    bio: "Optimizing digital presence and search visibility. Implementing data-driven SEO strategies to drive organic growth and improve search rankings.",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    theme: "theme-cyan"
+  },
+  {
+    name: "Bibek Sah",
+    role: "Automation Engineer",
+    bio: "Building intelligent automation pipelines and CI/CD workflows. Streamlining development processes through infrastructure as code and DevOps practices.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     theme: "theme-indigo"
   }
 ];

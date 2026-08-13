@@ -14,43 +14,43 @@ const Footer = () => {
               <span className="nav-brand-sub">NEURAL</span>
             </div>
             <p className="footer-desc">
-              We engineer digital products that solve complex business problems.
+              A distributed collective of systems engineers and designers. We build durable, high-integrity digital infrastructure for long-term value, not short-term hype.
             </p>
           </div>
           
           <div>
             <h4 className="footer-heading">Company</h4>
             <ul className="footer-links">
-              <li><a href="#" className="footer-link">About</a></li>
-              <li><a href="#" className="footer-link">Careers</a></li>
-              <li><a href="#" className="footer-link">Blog</a></li>
+              <li><a href="/about" className="footer-link">About</a></li>
+              <li><a href="/services" className="footer-link">Services</a></li>
+              <li><a href="/portfolio" className="footer-link">Portfolio</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-links">
-              <li><a href="#" className="footer-link">AI Solutions</a></li>
-              <li><a href="#" className="footer-link">Enterprise Software</a></li>
-              <li><a href="#" className="footer-link">Cloud Engineering</a></li>
-              <li><a href="#" className="footer-link">UI/UX Design</a></li>
+              <li><a href="/services" className="footer-link">Website Development</a></li>
+              <li><a href="/services" className="footer-link">App Development</a></li>
+              <li><a href="/services" className="footer-link">Software Engineering</a></li>
+              <li><a href="/services" className="footer-link">UI/UX Design</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
-              <li><a href="#" className="footer-link">Documentation</a></li>
-              <li><a href="#" className="footer-link">Case Studies</a></li>
-              <li><a href="#" className="footer-link">System Status</a></li>
+              <li><a href="/contact" className="footer-link">Contact Us</a></li>
+              <li><a href="/portfolio" className="footer-link">Case Studies</a></li>
+              <li><a href="#" className="footer-link">HQ: Kathmandu, Nepal</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="footer-heading">Contact</h4>
+            <h4 className="footer-heading">Transmission</h4>
             <ul className="footer-links">
-              <li><a href="#" className="footer-link">hello@codexneural.com</a></li>
-              <li><a href="#" className="footer-link">+1 (555) 123-4567</a></li>
+              <li><a href="mailto:connect@codexneural.com" className="footer-link">connect@codexneural.com</a></li>
+              <li><a href="https://wa.me/9779840327185" target="_blank" rel="noopener noreferrer" className="footer-link">+977 9840327185</a></li>
             </ul>
           </div>
         </div>

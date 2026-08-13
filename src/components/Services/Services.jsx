@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  BrainCircuit, 
-  Code2, 
   Globe, 
   Smartphone, 
-  Cloud, 
-  PenTool,
+  Terminal, 
+  Layers, 
+  Zap, 
+  Share2, 
+  Palette, 
+  FileText, 
+  Cpu,
   ArrowRight,
   ChevronDown
 } from 'lucide-react';
@@ -15,52 +18,76 @@ import './Services.css';
 
 const servicesData = [
   {
-    icon: <BrainCircuit size={32} strokeWidth={1.5} />,
-    title: 'AI Solutions',
-    desc: 'Integrate intelligent automation and predictive analytics into your business workflows.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
-    headline: 'Unlocking Data Potential',
-    supporting: 'Harness machine learning models to accelerate operational efficiency.'
-  },
-  {
-    icon: <Code2 size={32} strokeWidth={1.5} />,
-    title: 'Custom Software',
-    desc: 'Scalable, enterprise-grade software engineered specifically for your complex operational needs.',
-    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800',
-    headline: 'Architecting the Future',
-    supporting: 'Robust internal tools and platforms built for true scalability.'
-  },
-  {
     icon: <Globe size={32} strokeWidth={1.5} />,
-    title: 'Web Applications',
-    desc: 'High-performance, secure web applications built on modern JavaScript and Python stacks.',
+    title: 'Website Development',
+    desc: 'Highly functional & visually appealing website designed to meet your need.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    headline: 'Digital Experiences',
-    supporting: 'Blazing-fast SaaS products engineered for maximum retention.'
+    headline: 'High-Performance Web Solutions',
+    supporting: 'Tailored websites engineered for speed, scalability, and seamless user interaction.'
   },
   {
     icon: <Smartphone size={32} strokeWidth={1.5} />,
-    title: 'Mobile Apps',
-    desc: 'Native and cross-platform mobile experiences designed for speed and user engagement.',
+    title: 'App Development',
+    desc: 'Innovative and user-friendly mobile application designed to engage users.',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800',
-    headline: 'In Your Hands',
-    supporting: 'Intuitive iOS and Android applications that users love to engage with.'
+    headline: 'Mobile Innovation',
+    supporting: 'Feature-rich iOS and Android mobile apps crafted for modern digital experiences.'
   },
   {
-    icon: <Cloud size={32} strokeWidth={1.5} />,
-    title: 'Cloud & DevOps',
-    desc: 'Robust cloud infrastructure deployment, CI/CD pipelines, and continuous monitoring.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-    headline: 'Unbreakable Infrastructure',
-    supporting: 'Zero-downtime deployments backed by automated monitoring grids.'
+    icon: <Terminal size={32} strokeWidth={1.5} />,
+    title: 'System/Software Development',
+    desc: 'System/software developed according to your business needs.',
+    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800',
+    headline: 'Enterprise Systems',
+    supporting: 'Robust internal tools and scalable software architectures built for enterprise requirements.'
   },
   {
-    icon: <PenTool size={32} strokeWidth={1.5} />,
+    icon: <Layers size={32} strokeWidth={1.5} />,
     title: 'UI/UX Design',
-    desc: 'Data-driven interface design focused on reducing friction and increasing user retention.',
+    desc: 'Design eye-catching UI/UX interfaces for effortless user interaction.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800',
-    headline: 'Form Follows Function',
-    supporting: 'Pixel-perfect wireframing and prototyping rooted in user psychology.'
+    headline: 'Form & Function',
+    supporting: 'User-centered design systems and intuitive interfaces that boost engagement and clarity.'
+  },
+  {
+    icon: <Zap size={32} strokeWidth={1.5} />,
+    title: 'Search Engine Optimization (SEO)',
+    desc: 'Custom SEO solutions for enhanced search engine visibility and growth.',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
+    headline: 'Search Dominance',
+    supporting: 'Data-driven SEO techniques that increase search visibility and drive organic traffic.'
+  },
+  {
+    icon: <Share2 size={32} strokeWidth={1.5} />,
+    title: 'Social Media Marketing (SMM)',
+    desc: 'Build a strong online presence and engage with your targeted audience.',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
+    headline: 'Audience Engagement',
+    supporting: 'Targeted social media campaigns designed to grow brand presence and customer loyalty.'
+  },
+  {
+    icon: <Palette size={32} strokeWidth={1.5} />,
+    title: 'Graphic Design',
+    desc: "Designs that Speak Your Brand's Narrative and Connect with Your Audience.",
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800',
+    headline: 'Visual Identity',
+    supporting: 'Compelling visual branding materials that resonate with your target market.'
+  },
+  {
+    icon: <FileText size={32} strokeWidth={1.5} />,
+    title: 'Content Writing',
+    desc: 'Engaging and meaningful content to connect with your audience.',
+    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800',
+    headline: 'Strategic Copywriting',
+    supporting: 'Clear, compelling text crafted to communicate value and convert visitors.'
+  },
+  {
+    icon: <Cpu size={32} strokeWidth={1.5} />,
+    title: 'Blockchain & Web3 Development',
+    desc: 'Building decentralized, secure, and transparent solutions for the next generation of the web.',
+    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800',
+    headline: 'Next-Gen Web3',
+    supporting: 'Decentralized platforms, smart contracts, and Web3 infrastructure built for security.'
   }
 ];
 

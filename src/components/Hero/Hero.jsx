@@ -152,7 +152,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              Engineering <span className="text-gradient">Intelligent Software</span> for Businesses That Refuse to Stay Ordinary.
+              Engineering the <span className="text-gradient">invisible system</span>
             </motion.h1>
             
             <motion.p 
@@ -161,7 +161,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              CodexNeural designs and develops AI-powered applications, scalable cloud platforms, enterprise software, and digital products that help businesses automate, innovate, and grow.
+              We build infrastructure that survives growth. Complexity is not a feature; clarity is the only metric. Intelligence requires architecture, not just code.
             </motion.p>
             
             <motion.div 
