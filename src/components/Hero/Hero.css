@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(100px, 10vh, 120px) 0 var(--space-80);
+  padding: clamp(80px, 5vh, 90px) 0 var(--space-80);
   overflow: hidden;
   background-color: var(--bg-primary);
 }
