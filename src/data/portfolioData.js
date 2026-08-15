@@ -12,35 +12,56 @@ export const portfolioData = [
     number: "01",
     title: "Life Science AI",
     location: "Australia",
-    category: ["AI & AUTOMATION", "WEB & SOFTWARE", "DIGITAL EXPERIENCE"],
-    shortDescription: "Building the digital ecosystem behind an AI-driven Australian business.",
-    fullDescription: "Codex Neural worked across the digital presence of Life Science AI, including its web experience, AI initiatives, autonomous agent systems and ongoing digital communication.",
+    category: ["WEB & SOFTWARE", "DIGITAL EXPERIENCE"],
+    shortDescription: "Building the digital ecosystem behind an ambitious Australian business.",
+    fullDescription: "Codex Neural worked across the digital presence of Life Science AI, engineering a robust web experience and managing ongoing digital communication.",
     capabilities: [
-      "AI Solutions",
-      "Agentic AI",
       "Web Development",
-      "Automation",
       "Digital Experience",
       "Social Media"
     ],
     highlightCapabilities: [
-      "12 AUTONOMOUS AGENTS",
       "WEB PLATFORM",
-      "AI AUTOMATION",
       "DIGITAL GROWTH"
     ],
     websiteUrl: "https://www.lifescienceai.com.au/",
-    aiPlatformUrl: "https://www.lifescienceaiagents.com/",
     theme: "theme-cyan",
     image: "/assets/projects/life-science-ai.png",
-    detailOverview: "Life Science AI required a comprehensive digital transformation to integrate advanced AI capabilities into their operations. We engineered a scalable web platform and deployed 12 autonomous AI agents to handle complex data operations and customer interactions.",
-    detailWhatWeBuilt: "We built a robust, high-performance web experience paired with a custom AI agent architecture. The system automates workflows, processes data efficiently, and provides a seamless digital experience for their users. We also managed their ongoing digital creative and social media presence.",
-    detailCollaboration: "We operated as their dedicated engineering and digital growth partner, aligning our technology execution with their internal business strategy and compliance requirements.",
+    detailOverview: "Life Science AI required a comprehensive digital overhaul to support their growing business. We engineered a scalable web platform to act as the primary touchpoint for their users.",
+    detailWhatWeBuilt: "We built a high-performance web experience focused on intuitive navigation and clear messaging. In addition to the technical build, we also managed their ongoing digital creative and social media presence.",
+    detailCollaboration: "We operated as their dedicated digital partner, aligning our execution with their internal business strategy and compliance requirements.",
+    detailNextStep: "Ready to elevate your digital presence?"
+  },
+  {
+    id: "life-science-ai-agents",
+    number: "02",
+    title: "Life Science AI Agents",
+    location: "Australia",
+    category: ["AI & AUTOMATION", "WEB & SOFTWARE"],
+    shortDescription: "Engineering an autonomous AI platform to scale business intelligence.",
+    fullDescription: "We developed a robust AI infrastructure featuring multiple autonomous agents designed to handle complex data operations, streamline workflows, and enhance operational efficiency.",
+    capabilities: [
+      "AI Solutions",
+      "Agentic AI",
+      "Automation",
+      "Software Development"
+    ],
+    highlightCapabilities: [
+      "12 AUTONOMOUS AGENTS",
+      "AI AUTOMATION",
+      "SCALABLE PLATFORM"
+    ],
+    websiteUrl: "https://www.lifescienceaiagents.com/",
+    theme: "theme-blue",
+    image: "/assets/projects/life-science-ai-agents.png",
+    detailOverview: "As part of their broader digital ecosystem, we architected a specialized AI platform capable of automating critical business functions and data processing.",
+    detailWhatWeBuilt: "We engineered an intelligent system and deployed 12 specialized, autonomous AI agents. These agents handle everything from customer interactions to complex internal data routing, drastically reducing manual overhead.",
+    detailCollaboration: "We collaborated closely with the client's subject matter experts to train and deploy these agents, ensuring they perfectly aligned with strict industry requirements.",
     detailNextStep: "Ready to explore how AI can transform your operations?"
   },
   {
     id: "giving-heart",
-    number: "02",
+    number: "03",
     title: "Giving Heart Co.",
     location: "Australia",
     category: ["E-COMMERCE", "WEB & SOFTWARE", "DIGITAL EXPERIENCE"],
@@ -63,7 +84,7 @@ export const portfolioData = [
   },
   {
     id: "hamrojobs",
-    number: "03",
+    number: "04",
     title: "HamroJobs",
     location: "Nepal",
     category: ["WEB & SOFTWARE", "DIGITAL EXPERIENCE"],
