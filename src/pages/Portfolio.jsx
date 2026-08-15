@@ -1,25 +1,17 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import SEO from '../components/SEO/SEO';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
 import PortfolioHero from '../components/Portfolio/PortfolioHero';
-import PortfolioFilter from '../components/Portfolio/PortfolioFilter';
 import PortfolioFeatured from '../components/Portfolio/PortfolioFeatured';
 import PortfolioShowcase from '../components/Portfolio/PortfolioShowcase';
 import PortfolioCapability from '../components/Portfolio/PortfolioCapability';
 import PortfolioGlobal from '../components/Portfolio/PortfolioGlobal';
-import { portfolioData, portfolioCategories } from '../data/portfolioData';
+import { portfolioData } from '../data/portfolioData';
 
 const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState("ALL");
-
-  const filteredProjects = useMemo(() => {
-    if (activeCategory === "ALL") return portfolioData;
-    return portfolioData.filter(project => project.category.includes(activeCategory));
-  }, [activeCategory]);
-
   // Separate the featured project (Life Science AI) from the rest for layout purposes
-  const featuredProject = filteredProjects.find(p => p.id === 'life-science-ai');
-  const showcaseProjects = filteredProjects.filter(p => p.id !== 'life-science-ai');
+  const featuredProject = portfolioData.find(p => p.id === 'life-science-ai');
+  const showcaseProjects = portfolioData.filter(p => p.id !== 'life-science-ai');
 
   return (
     <>
@@ -31,11 +23,6 @@ const Portfolio = () => {
       <div className="portfolio-page-wrapper">
         <PortfolioHero />
         
-        <PortfolioFilter 
-          activeCategory={activeCategory} 
-          setActiveCategory={setActiveCategory} 
-        />
-
         {/* Featured Project */}
         {featuredProject && (
           <PortfolioFeatured project={featuredProject} />
