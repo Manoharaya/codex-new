@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, PenTool, Code2, ShieldCheck, Rocket, TrendingUp } from 'lucide-react';
 import './Process.css';
@@ -52,6 +52,15 @@ const itemVariants = {
 };
 
 const Process = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 992);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className="process-section">
       <div className="container">
@@ -77,11 +86,11 @@ const Process = () => {
         >
           <motion.div 
             className="timeline-line"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
+            initial={isMobile ? { scaleY: 0 } : { scaleX: 0 }}
+            whileInView={isMobile ? { scaleY: 1 } : { scaleX: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            style={{ originX: 0 }}
+            style={isMobile ? { originY: 0 } : { originX: 0 }}
           ></motion.div>
           
           <div className="timeline-steps">
