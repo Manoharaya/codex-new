@@ -33,10 +33,25 @@ const PortfolioFeatured = ({ project }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="portfolio-section-title"
+            className="portfolio-section-title text-gradient"
           >
-            Digital Systems Delivered
+            Digital Systems Delivered.
           </motion.h2>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            style={{ 
+              height: '1px', 
+              background: 'var(--border-color)', 
+              width: '100%', 
+              position: 'absolute', 
+              bottom: 0, 
+              left: 0,
+              transformOrigin: 'left'
+            }}
+          />
         </div>
 
         <motion.div 

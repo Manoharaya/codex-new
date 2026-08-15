@@ -1,6 +1,6 @@
 /* Portfolio Hero */
 .portfolio-hero {
-  padding: 160px 0 100px;
+  padding: 160px 0 60px;
   position: relative;
   overflow: hidden;
 }
@@ -99,13 +99,13 @@
 
 /* Portfolio Featured */
 .portfolio-featured {
-  padding: 100px 0;
+  padding: 60px 0 100px;
 }
 
 .portfolio-section-header {
-  margin-bottom: 80px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 40px;
   padding-bottom: 24px;
+  position: relative;
 }
 
 .portfolio-section-title {
