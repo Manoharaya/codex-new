@@ -255,8 +255,8 @@ const About = () => {
 
               <div className="abt-global-img-wrap">
                 <img 
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Global technology network" 
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Global technology team collaborating" 
                   className="abt-global-img"
                 />
               </div>
