@@ -4,6 +4,22 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './PortfolioComponents.css';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+};
+
 const PortfolioShowcase = ({ projects }) => {
   if (!projects || projects.length === 0) return null;
 
@@ -17,59 +33,71 @@ const PortfolioShowcase = ({ projects }) => {
             return (
               <motion.div 
                 key={project.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
                 className={`portfolio-showcase-row ${isReversed ? 'reversed' : ''}`}
               >
                 {/* Visual */}
-                <div className={`portfolio-showcase-visual ${project.theme}`}>
-                  <img 
+                <motion.div variants={itemVariants} className={`portfolio-showcase-visual ${project.theme}`}>
+                  <motion.img 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     src={project.image} 
                     alt={project.title} 
                     className="portfolio-showcase-img"
                     loading="lazy"
                   />
-                </div>
+                </motion.div>
 
                 {/* Content */}
                 <div className="portfolio-showcase-content">
-                  <div className="portfolio-project-meta">
+                  <motion.div variants={itemVariants} className="portfolio-project-meta">
                     <span className="portfolio-project-number">{project.number}</span>
                     <h2 className="portfolio-project-title">{project.title}</h2>
-                  </div>
+                  </motion.div>
                   
-                  <div className="portfolio-project-location">
+                  <motion.div variants={itemVariants} className="portfolio-project-location">
                     <span>{project.location}</span>
-                  </div>
+                  </motion.div>
 
-                  <h3 className="portfolio-showcase-headline">"{project.shortDescription}"</h3>
-                  
-                  <div className="portfolio-showcase-capabilities">
-                    <span className="portfolio-cap-label">Capabilities:</span>
+                  <motion.h3 variants={itemVariants} className="portfolio-showcase-headline">
+                    {project.shortDescription}
+                  </motion.h3>
+
+                  <motion.div variants={itemVariants}>
+                    <span className="portfolio-cap-label">Core Capabilities</span>
                     <ul className="portfolio-cap-list">
-                      {project.capabilities.map((cap, idx) => (
+                      {project.capabilities.slice(0, 4).map((cap, idx) => (
                         <li key={idx}>{cap}</li>
                       ))}
                     </ul>
-                  </div>
+                  </motion.div>
 
-                  <div className="portfolio-project-actions">
-                    <Link to={`/portfolio/${project.id}`} className="btn-primary">
-                      View Project <ArrowRight size={16} />
-                    </Link>
-                    {project.websiteUrl && (
-                      <a 
-                        href={project.websiteUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn-tertiary"
+                  <motion.div variants={itemVariants} className="portfolio-project-actions">
+                    <Link to={`/portfolio/${project.id}`}>
+                      <motion.button 
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="btn-primary"
                       >
-                        Visit Website <ArrowUpRight size={16} />
+                        View Project <ArrowRight size={16} />
+                      </motion.button>
+                    </Link>
+                    
+                    {project.websiteUrl && (
+                      <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer">
+                        <motion.button 
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="btn-outline"
+                        >
+                          Live Site <ArrowUpRight size={16} />
+                        </motion.button>
                       </a>
                     )}
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             );
