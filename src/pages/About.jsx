@@ -131,8 +131,8 @@ const About = () => {
               className="abt-hero-visual"
             >
               <img 
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                alt="Technology engineering and systems" 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                alt="Technology engineering team" 
                 className="abt-img-main"
               />
               <div className="abt-hero-accent-line"></div>
@@ -248,6 +248,14 @@ const About = () => {
             >
               <h2>Built Across <span className="text-gradient">Borders.</span></h2>
               <p>Codex Neural is already delivering digital products and intelligent systems across international markets.</p>
+
+              <div className="abt-global-img-wrap">
+                <img 
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Global technology network" 
+                  className="abt-global-img"
+                />
+              </div>
             </motion.div>
 
             <motion.div 
