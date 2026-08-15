@@ -75,11 +75,24 @@ const Process = () => {
           variants={containerVariants}
           className="process-timeline"
         >
-          <div className="timeline-line"></div>
+          <motion.div 
+            className="timeline-line"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            style={{ originX: 0 }}
+          ></motion.div>
           
           <div className="timeline-steps">
             {processSteps.map((step, index) => (
-              <motion.div key={index} variants={itemVariants} className="process-step">
+              <motion.div 
+                key={index} 
+                variants={itemVariants} 
+                className="process-step"
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <div className="step-number">0{index + 1}</div>
                 <div className="step-icon">
                   {step.icon}
