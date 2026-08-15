@@ -1,60 +1,79 @@
 export const caseStudiesData = [
   {
-    slug: "novahealth-diagnostics-ai",
-    title: "NovaHealth Diagnostics",
+    slug: "life-science-ai-agents",
+    title: "Life Science AI Agents",
     category: "AI & AUTOMATION",
-    industry: "Healthcare",
-    heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
-    essence: "Reducing manual patient data operations from hours to minutes through intelligent AI automation.",
-    challenge: "NovaHealth was overwhelmed by manual patient intake and diagnostic sorting. Their staff spent 60% of their time on administrative data entry rather than patient care, leading to massive bottlenecks and potential critical errors in diagnostic routing.",
-    approach: "We recognized that traditional OCR wouldn't be enough for complex medical records. We architected a solution that combined strict security protocols with advanced Large Language Models capable of understanding clinical context, ensuring both speed and compliance.",
-    solution: "We engineered an intelligent, HIPAA-compliant ecosystem powered by custom LLMs and OCR. The system automatically ingests, categorizes, and routes patient documents, while an intuitive clinical dashboard provides doctors with instant, AI-summarized patient histories.",
-    technologies: ["React", "Python", "OpenAI", "AWS HIPAA", "PostgreSQL"],
-    services: ["AI Solutions", "Software Development", "Cloud Engineering"],
+    industry: "AI Technology",
+    heroImage: "/assets/projects/life-science-ai-agents.png",
+    essence: "Architecting an autonomous AI platform to scale complex business intelligence.",
+    challenge: "The client faced significant operational bottlenecks handling complex data routing and customer interactions, requiring an automated solution that didn't compromise on accuracy or strict industry compliance.",
+    approach: "We recognized that simple chatbot integrations would be insufficient. We architected a network of autonomous agents, each specialized in a specific business function, governed by a central orchestration layer to ensure seamless data flow.",
+    solution: "We engineered and deployed 12 specialized, autonomous AI agents. These intelligent agents handle complex workflows independently, drastically reducing manual administrative overhead and scaling business intelligence securely.",
+    technologies: ["React", "Python", "LLMs", "Agentic Architecture", "Cloud Infrastructure"],
+    services: ["AI Solutions", "Agentic AI", "Automation", "Software Development"],
     metrics: [
-      { value: "400%", label: "Processing Speed" },
-      { value: "60%", label: "Admin Time Saved" },
-      { value: "99.9%", label: "Data Accuracy" }
-    ],
-    theme: "theme-purple"
-  },
-  {
-    slug: "nexus-global-banking-cloud",
-    title: "Nexus Global Banking",
-    category: "CLOUD & DEVOPS",
-    industry: "Finance",
-    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
-    essence: "Transforming a fragmented legacy banking platform into a unified, scalable cloud-first ecosystem.",
-    challenge: "Nexus Global was operating on a 15-year-old monolithic architecture that was slow to scale and difficult to maintain. Customer experience was suffering due to app crashes, slow load times, and a deeply fragmented user interface across different banking products.",
-    approach: "A rip-and-replace strategy was too risky for an active banking system. Instead, we utilized the strangler fig pattern, gradually breaking down the monolith into microservices while building a modern, unified design system for the frontend.",
-    solution: "We orchestrated a complete digital transformation. We broke down the monolith into microservices, built a unified design system, and deployed a blazing-fast React Native mobile application alongside a Next.js web portal, completely revitalizing their digital presence.",
-    technologies: ["Next.js", "React Native", "Go", "Docker", "Azure"],
-    services: ["Web Development", "Mobile App Development", "Cloud Engineering"],
-    metrics: [
-      { value: "3x", label: "Faster Load Times" },
-      { value: "85%", label: "Mobile Adoption" },
-      { value: "0", label: "Downtime (YTD)" }
+      { value: "12", label: "Autonomous Agents" },
+      { value: "80%", label: "Manual Overhead Reduced" },
+      { value: "100%", label: "Secure Operations" }
     ],
     theme: "theme-blue"
   },
   {
-    slug: "aerofleet-logistics-software",
-    title: "AeroFleet Logistics",
-    category: "SOFTWARE",
-    industry: "Enterprise",
-    heroImage: "https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
-    essence: "Engineering a real-time global supply chain tracker capable of processing millions of data points daily.",
-    challenge: "AeroFleet struggled with supply chain visibility. Their global fleet generated massive amounts of telemetry data, but their existing systems couldn't process or visualize it in real-time, resulting in severe logistical delays and wasted fuel.",
-    approach: "The core issue was data ingestion limits and rendering performance. We designed a highly resilient event-driven cloud architecture for the backend, paired with WebGL on the frontend to handle rendering thousands of real-time nodes without browser freezing.",
-    solution: "We built a high-performance cloud architecture capable of ingesting millions of IoT data points per second. We paired this with a stunning WebGL-powered tracking dashboard that gives dispatchers real-time, predictive insights into global fleet movements.",
-    technologies: ["Vue.js", "Node.js", "AWS IoT", "MongoDB", "WebGL"],
-    services: ["Software Development", "Cloud Engineering", "UI/UX Design"],
+    slug: "life-science-ai",
+    title: "Life Science AI",
+    category: "WEB",
+    industry: "Healthcare / Biotech",
+    heroImage: "/assets/projects/life-science-ai.png",
+    essence: "Engineering a scalable digital ecosystem for an ambitious healthcare brand.",
+    challenge: "Life Science AI needed a unified digital presence capable of acting as the central hub for their growing business and user base, requiring both a robust technical architecture and a clear, authoritative brand narrative.",
+    approach: "We approached the build with scalability and performance in mind. We established a strict design system and leveraged modern web frameworks to ensure the platform could evolve alongside their rapid business growth.",
+    solution: "We engineered a high-performance web platform focused on intuitive navigation and seamless user experience. Beyond the core platform build, we established a comprehensive digital strategy to manage their ongoing market communication.",
+    technologies: ["React", "Next.js", "TailwindCSS", "Vercel", "Framer Motion"],
+    services: ["Web Development", "Digital Experience", "Social Media"],
     metrics: [
-      { value: "2M+", label: "Events/Second" },
-      { value: "15%", label: "Fuel Saved" },
-      { value: "30%", label: "Delivery Speed" }
+      { value: "100%", label: "Platform Uptime" },
+      { value: "3x", label: "Faster Load Times" },
+      { value: "Unified", label: "Brand Strategy" }
     ],
-    theme: "theme-emerald"
+    theme: "theme-cyan"
+  },
+  {
+    slug: "giving-heart",
+    title: "Giving Heart Co.",
+    category: "E-COMMERCE",
+    industry: "Retail",
+    heroImage: "/assets/projects/giving-heart.png",
+    essence: "Creating a seamless, purpose-driven digital commerce experience.",
+    challenge: "Giving Heart Co. required a digital storefront that matched the premium, personal nature of their physical gifting products, demanding a high-conversion platform that also effectively told their brand story.",
+    approach: "Our focus was entirely on reducing friction. We mapped the user journey from discovery to checkout, optimizing every touchpoint for speed, clarity, and visual elegance.",
+    solution: "We developed a fast, responsive e-commerce platform centered around a frictionless checkout flow and premium UX design. We integrated robust inventory management and executed a cohesive digital content strategy to drive growth.",
+    technologies: ["Shopify Plus", "React", "Node.js", "Stripe", "PostgreSQL"],
+    services: ["E-Commerce", "Web Development", "UI/UX", "Social Media"],
+    metrics: [
+      { value: "45%", label: "Increase in CVR" },
+      { value: "Integrated", label: "Inventory System" },
+      { value: "Premium", label: "Brand UX" }
+    ],
+    theme: "theme-magenta"
+  },
+  {
+    slug: "hamrojobs",
+    title: "HamroJobs",
+    category: "SOFTWARE",
+    industry: "HR Tech",
+    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+    essence: "Engineering a modern digital platform connecting employers and job seekers in Nepal.",
+    challenge: "The local recruitment landscape suffered from fragmented, slow, and outdated platforms, creating friction for both companies looking to hire and candidates searching for career opportunities.",
+    approach: "We adopted a user-centric development methodology, conducting extensive testing to ensure the interface was immediately intuitive for both enterprise HR teams and everyday job seekers.",
+    solution: "We partnered with HamroJobs to build a scalable, high-performance software platform from the ground up. The system features advanced search filtering, dedicated employer dashboards, and clean application workflows optimized for speed.",
+    technologies: ["React", "Express", "MongoDB", "Elasticsearch", "AWS"],
+    services: ["Web Platform", "Software Development", "UI/UX", "Business Platform"],
+    metrics: [
+      { value: "10x", label: "Faster Search" },
+      { value: "Seamless", label: "Apply Workflows" },
+      { value: "Scalable", label: "Data Architecture" }
+    ],
+    theme: "theme-indigo"
   }
 ];
 
