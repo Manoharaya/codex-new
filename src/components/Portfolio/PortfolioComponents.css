@@ -387,27 +387,77 @@ button.btn-outline:hover {
 
 .portfolio-global-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .portfolio-global-card {
+  position: relative;
   padding: 40px;
   border: 1px solid var(--border-color);
   border-radius: 16px;
   background-color: var(--bg-secondary);
   text-align: left;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portfolio-global-card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(0, 194, 255, 0.05), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.portfolio-global-card:hover .portfolio-global-card-glow {
+  opacity: 1;
+}
+
+.portfolio-global-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-global-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
 }
 
 .portfolio-global-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
   color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
-.portfolio-global-card p {
+.portfolio-global-caps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
   font-size: 0.875rem;
   color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.portfolio-global-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
 }
 
 /* Responsive Overrides */
@@ -435,6 +485,10 @@ button.btn-outline:hover {
 @media (max-width: 768px) {
   .portfolio-hero {
     padding: 120px 0 60px;
+  }
+
+  .portfolio-global-grid {
+    grid-template-columns: 1fr;
   }
 
   .portfolio-project-actions {
