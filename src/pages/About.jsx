@@ -157,10 +157,9 @@ const About = () => {
               "Software & Digital Products",
               "E-Commerce Projects Delivered"
             ].map((item, index) => (
-              <React.Fragment key={index}>
-                <span className="abt-cred-item text-gradient">{item}</span>
-                <span className="abt-cred-dot"></span>
-              </React.Fragment>
+              <div className="abt-cred-card" key={index}>
+                <span className="text-gradient">{item}</span>
+              </div>
             ))}
           </div>
         </div>
