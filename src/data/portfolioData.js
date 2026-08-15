@@ -55,7 +55,7 @@ export const portfolioData = [
     ],
     websiteUrl: "https://www.givingheart.com.au/",
     theme: "theme-magenta",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+    image: "/assets/projects/giving-heart.png",
     detailOverview: "Giving Heart Co. needed a digital storefront that was as thoughtful and premium as their gifting products. We focused on creating an intuitive, high-conversion e-commerce platform that tells their brand story.",
     detailWhatWeBuilt: "We engineered a fast, responsive e-commerce platform with a focus on UX design, seamless checkout flows, and robust inventory management integration. In addition to the technical build, we executed their digital content and social media strategy.",
     detailCollaboration: "Working closely with their founding team, we translated their physical brand ethos into a digital environment, ensuring every touchpoint felt personal and premium.",
