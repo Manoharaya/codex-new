@@ -46,8 +46,8 @@ const PortfolioHero = () => {
             className="portfolio-hero-visual-wrapper"
           >
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-              alt="Engineering Team Collaborating" 
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+              alt="Digital Systems and Business Technology" 
               className="portfolio-hero-image" 
             />
             <div className="portfolio-hero-glow"></div>
