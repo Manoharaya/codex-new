@@ -6,7 +6,7 @@ import './Stats.css';
 const statsData = [
   { label: 'Projects Delivered', value: 17, suffix: '+' },
   { label: 'Client Satisfaction', value: 5, suffix: '+' },
-  { label: 'Countries Served', value: 4, suffix: '+' }
+  { label: 'Countries Served', value: 2, suffix: '' }
 ];
 
 const Counter = ({ from, to, duration, suffix }) => {
