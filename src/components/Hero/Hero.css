@@ -31,12 +31,12 @@
   display: none;
 }
 
-/* Layout Container - Humanized spacing */
 .hero-container {
   position: relative;
   z-index: 10;
   width: 100%;
   max-width: 1200px;
+  margin-top: -8vh; /* Shift content up to reduce the visual gap */
 }
 
 .hero-content {
