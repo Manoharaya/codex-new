@@ -109,7 +109,7 @@ const About = () => {
               animate="show"
               className="abt-hero-content"
             >
-              <motion.span variants={fadeUp} className="abt-eyebrow text-gradient">ABOUT CODEX NEURAL</motion.span>
+              {/* <motion.span variants={fadeUp} className="abt-eyebrow text-gradient">ABOUT CODEX NEURAL</motion.span> */}
               <motion.h1 variants={fadeUp} className="abt-headline">Building the <span className="text-gradient">systems</span> behind ambitious businesses.</motion.h1>
               <motion.p variants={fadeUp} className="abt-supporting">
                 Codex Neural builds intelligent digital systems, software products, and infrastructure for businesses that need technology to perform, scale, and evolve.

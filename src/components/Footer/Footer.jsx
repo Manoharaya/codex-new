@@ -10,22 +10,6 @@ const Footer = () => {
 
   return (
     <footer className="footer" id="footer">
-      {/* Premium CTA Banner */}
-      {!isContactPage && !isServicesPage && (
-        <div className="footer-cta-banner">
-          <div className="container">
-            <div className="footer-cta-content">
-              <div className="footer-cta-text">
-                <h2>Ready to scale?</h2>
-                <p>Let's architect your next digital leap with precision engineering.</p>
-              </div>
-              <Link to="/contact" className="btn-premium">
-                Get in Touch <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
 
       <div className="container">
         <div className="footer-content">
