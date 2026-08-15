@@ -13,15 +13,14 @@
 .abt-eyebrow {
   display: inline-block;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--primary-color);
   margin-bottom: 1.25rem;
   text-transform: uppercase;
 }
 
 .abt-section-header {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
   max-width: 800px;
 }
 
@@ -34,7 +33,7 @@
 }
 
 .abt-section-header h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
@@ -79,13 +78,6 @@
 
 .abt-supporting {
   font-size: clamp(1.125rem, 2vw, 1.35rem);
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.abt-secondary {
-  font-size: 1.125rem;
   color: var(--text-secondary);
   margin-bottom: 2.5rem;
   line-height: 1.6;
@@ -104,12 +96,18 @@
   overflow: hidden;
   aspect-ratio: 4/3;
   box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
 }
 
 .abt-img-main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.abt-hero-visual:hover .abt-img-main {
+  transform: scale(1.05);
 }
 
 .abt-hero-accent-line {
@@ -118,11 +116,11 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-cyan));
+  background: var(--gradient-purple-cyan);
 }
 
 /* ==========================================================================
-   7. CREDIBILITY STRIP
+   2. CREDIBILITY STRIP
    ========================================================================== */
 .abt-credibility {
   padding: 3rem 0;
@@ -141,8 +139,7 @@
 
 .abt-cred-item {
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 
@@ -150,98 +147,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--primary-color);
-}
-
-/* ==========================================================================
-   2 & 8. SPLIT LAYOUTS (PEOPLE / HOW WE WORK)
-   ========================================================================== */
-.abt-people-tech, .abt-how {
-  padding: 7rem 0;
-  background: var(--bg-primary);
-}
-
-.abt-how {
-  background: var(--bg-secondary);
-}
-
-.abt-split-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.abt-split-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.abt-split-text h2 {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.abt-split-text p {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-.abt-image-container {
-  width: 100%;
-  border-radius: 1rem;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  aspect-ratio: 4/3;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.4s ease;
-}
-
-.abt-image-container:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-}
-
-.abt-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.abt-principles-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-
-.abt-principle {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.abt-principle-icon {
-  color: var(--primary-color);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.abt-principle h3 {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.abt-principle p {
-  font-size: 1rem;
-  margin: 0;
+  background: var(--text-secondary);
+  opacity: 0.5;
 }
 
 /* ==========================================================================
@@ -249,8 +156,7 @@
    ========================================================================== */
 .abt-journey {
   padding: 7rem 0;
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
+  background: var(--bg-primary);
 }
 
 .abt-timeline-wrapper {
@@ -280,9 +186,9 @@
   height: 16px;
   border-radius: 50%;
   background: var(--bg-primary);
-  border: 3px solid var(--primary-color);
+  border: 3px solid var(--brand-cyan);
   z-index: 2;
-  box-shadow: 0 0 0 4px var(--bg-secondary);
+  box-shadow: 0 0 0 4px var(--bg-primary);
 }
 
 .abt-timeline-line {
@@ -291,7 +197,7 @@
   left: 16px;
   width: calc(100% + 2rem - 16px);
   height: 2px;
-  background: var(--border-color);
+  background: linear-gradient(90deg, var(--brand-cyan), var(--border-color));
   z-index: 1;
   transform: translateY(-50%);
 }
@@ -306,7 +212,6 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--primary-color);
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
@@ -329,46 +234,53 @@
    ========================================================================== */
 .abt-values {
   padding: 7rem 0;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
 }
 
 .abt-values-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
 .abt-value-card {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 1rem;
-  padding: 2.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .abt-value-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+  border-color: rgba(99,102,241, 0.3);
 }
 
-.abt-value-icon {
+.abt-value-icon-wrap {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-color);
-  transition: color 0.3s ease;
+}
+
+.abt-value-icon {
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
 .abt-value-card:hover .abt-value-icon {
-  color: var(--accent-cyan);
+  transform: scale(1.1);
 }
 
 .abt-value-title {
@@ -378,19 +290,39 @@
 }
 
 .abt-value-desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
 /* ==========================================================================
-   5. REAL CLIENT / GLOBAL DELIVERY
+   5. GLOBAL DELIVERY
    ========================================================================== */
 .abt-global {
   padding: 7rem 0;
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-primary);
+}
+
+.abt-global-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.abt-global-text h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.abt-global-text p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .abt-global-cards {
@@ -400,13 +332,18 @@
 }
 
 .abt-global-card {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 1rem;
-  padding: 3rem;
+  padding: 2.5rem;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease;
+}
+
+.abt-global-card:hover {
+  transform: translateY(-4px);
 }
 
 .abt-global-map-accent {
@@ -416,14 +353,17 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, rgba(99,102,241,0) 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, rgba(99,102,241,0) 70%);
   pointer-events: none;
+}
+
+.abt-global-map-accent.alt {
+  background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, rgba(6,182,212,0) 70%);
 }
 
 .abt-global-card h3 {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--primary-color);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -437,7 +377,7 @@
 }
 
 .abt-global-card p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -447,14 +387,15 @@
    ========================================================================== */
 .abt-team-section {
   padding: 7rem 0;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
 }
 
 .abt-team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -471,7 +412,7 @@
   border-radius: 1rem;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 .abt-team-photo-wrap img {
@@ -489,8 +430,6 @@
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -519,7 +458,7 @@
 
 .abt-social-btn:hover {
   transform: scale(1.1);
-  background: var(--primary-color);
+  background: var(--brand-purple);
   color: white;
 }
 
@@ -537,8 +476,7 @@
 
 .abt-team-role {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--primary-color);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
@@ -551,7 +489,7 @@
 }
 
 /* ==========================================================================
-   9. FINAL CTA
+   7. FINAL CTA
    ========================================================================== */
 .abt-final-cta {
   padding: 5rem 0 8rem;
@@ -567,6 +505,21 @@
   max-width: 800px;
   margin: 0 auto;
   box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.abt-cta-bg-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100px;
+  background: var(--gradient-purple-cyan);
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 .abt-cta-box h2 {
@@ -576,6 +529,8 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .abt-cta-box p {
@@ -586,6 +541,8 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .abt-cta-actions {
@@ -593,7 +550,10 @@
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
+
 
 /* ==========================================================================
    RESPONSIVE LAYOUTS
@@ -601,19 +561,11 @@
 
 @media (max-width: 1024px) {
   .abt-hero-grid,
-  .abt-split-layout {
+  .abt-global-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
   
-  .reverse-on-mobile .abt-split-text {
-    order: 2;
-  }
-  
-  .reverse-on-mobile .abt-split-visual {
-    order: 1;
-  }
-
   .abt-timeline-wrapper {
     flex-direction: column;
     gap: 2.5rem;
@@ -637,14 +589,17 @@
     width: 2px;
     height: calc(100% + 2.5rem - 16px);
     transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--brand-cyan), var(--border-color));
   }
 
-  /* Hide line on last item in vertical mode */
   .abt-timeline-item:last-child .abt-timeline-line {
     display: none;
   }
 
-  .abt-values-grid,
+  .abt-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .abt-global-cards,
   .abt-team-grid {
     gap: 1.5rem;
@@ -653,10 +608,8 @@
 
 @media (max-width: 768px) {
   .abt-hero,
-  .abt-people-tech,
   .abt-journey,
   .abt-values,
-  .abt-how,
   .abt-global,
   .abt-team-section {
     padding: 5rem 0;
@@ -686,7 +639,6 @@
     display: none;
   }
 
-  /* Make team socials always visible or easily accessible on mobile */
   .abt-team-photo-wrap {
     aspect-ratio: 1/1;
   }

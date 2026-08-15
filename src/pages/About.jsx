@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Mail, Zap, Shield, Users, Handshake, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Mail, Zap, Shield, Users, Handshake } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO/SEO';
 import './About.css';
@@ -17,6 +17,33 @@ const MANOHAR_LINKEDIN_URL = "#";
 const MANOHAR_EMAIL = "mailto:hello@codexneural.com";
 const PRITI_LINKEDIN_URL = "#";
 const PRITI_EMAIL = "mailto:hello@codexneural.com";
+
+// Animation Variants
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 50, damping: 15 }
+  }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  show: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { type: "spring", stiffness: 50, damping: 15 }
+  }
+};
 
 const About = () => {
   useEffect(() => {
@@ -44,10 +71,10 @@ const About = () => {
   ];
 
   const values = [
-    { icon: <Zap size={24} />, title: "Innovation", desc: "Always exploring better ways to solve problems and push the boundaries of what's possible." },
-    { icon: <Shield size={24} />, title: "Engineering Excellence", desc: "Scalable, secure, maintainable software built with precision and strong technical discipline." },
-    { icon: <Users size={24} />, title: "User First", desc: "Every interface begins with understanding the people who use it and the problems they need solved." },
-    { icon: <Handshake size={24} />, title: "Long-Term Partnerships", desc: "We believe successful technology is built through collaboration, trust, and continued improvement." }
+    { icon: <Zap size={24} />, title: "Innovation", desc: "Exploring better ways to solve problems and push the boundaries." },
+    { icon: <Shield size={24} />, title: "Engineering", desc: "Scalable, secure, maintainable software built with technical discipline." },
+    { icon: <Users size={24} />, title: "User First", desc: "Interfaces that understand the people who use them." },
+    { icon: <Handshake size={24} />, title: "Partnership", desc: "Successful technology is built through collaboration and trust." }
   ];
 
   const team = [
@@ -63,9 +90,9 @@ const About = () => {
     {
       id: "priti",
       name: "Priti Gupta",
-      role: "CO-FOUNDER / CONTENT STRATEGIST",
+      role: "CO-FOUNDER / STRATEGIST",
       image: "/images/priti.jpg",
-      desc: "Shaping content strategy, brand communication, digital storytelling, and the way Codex Neural communicates complex technology with clarity.",
+      desc: "Shaping content strategy, brand communication, digital storytelling, and technology clarity.",
       linkedin: PRITI_LINKEDIN_URL,
       email: PRITI_EMAIL
     }
@@ -85,33 +112,30 @@ const About = () => {
         <div className="container">
           <div className="abt-hero-grid">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              variants={staggerContainer}
+              initial="hidden"
+              animate="show"
               className="abt-hero-content"
             >
-              <span className="abt-eyebrow">ABOUT CODEX NEURAL</span>
-              <h1 className="abt-headline">Building the systems behind ambitious businesses.</h1>
-              <p className="abt-supporting">
+              <motion.span variants={fadeUp} className="abt-eyebrow text-gradient">ABOUT CODEX NEURAL</motion.span>
+              <motion.h1 variants={fadeUp} className="abt-headline">Building the <span className="text-gradient">systems</span> behind ambitious businesses.</motion.h1>
+              <motion.p variants={fadeUp} className="abt-supporting">
                 Codex Neural builds intelligent digital systems, software products, and infrastructure for businesses that need technology to perform, scale, and evolve.
-              </p>
-              <p className="abt-secondary">
-                From strategy to engineering, we turn complex requirements into clear, reliable digital solutions.
-              </p>
-              <div className="abt-hero-actions">
+              </motion.p>
+              <motion.div variants={fadeUp} className="abt-hero-actions">
                 <Link to="/contact" className="btn-primary">
                   Start Your Project <ArrowRight size={16} />
                 </Link>
                 <Link to="/portfolio" className="btn-secondary">
                   Explore Our Work <ArrowRight size={16} />
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, scale: 0.95, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, type: "spring" }}
               className="abt-hero-visual"
             >
               <img 
@@ -125,50 +149,23 @@ const About = () => {
         </div>
       </section>
 
-      {/* 7. CREDIBILITY STRIP */}
+      {/* 2. CREDIBILITY STRIP */}
       <section className="abt-credibility">
         <div className="container">
-          <div className="abt-cred-strip">
-            <span className="abt-cred-item">AI Agent Systems</span>
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="abt-cred-strip"
+          >
+            <span className="abt-cred-item text-gradient">AI Agent Systems</span>
             <span className="abt-cred-dot"></span>
-            <span className="abt-cred-item">International Client Delivery</span>
+            <span className="abt-cred-item text-gradient">International Client Delivery</span>
             <span className="abt-cred-dot"></span>
-            <span className="abt-cred-item">Australia + Nepal</span>
+            <span className="abt-cred-item text-gradient">Australia + Nepal</span>
             <span className="abt-cred-dot"></span>
-            <span className="abt-cred-item">Software & Digital Products</span>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. PEOPLE BEHIND THE TECHNOLOGY */}
-      <section className="abt-people-tech">
-        <div className="container">
-          <div className="abt-split-layout reverse-on-mobile">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="abt-split-text"
-            >
-              <h2>People Behind Every Intelligent Solution.</h2>
-              <p>
-                At Codex Neural, we believe that world-class software requires more than just code. It requires a synthesis of robust engineering, intuitive design, thoughtful strategy, and deep business understanding.
-              </p>
-              <p>
-                Our solutions are driven by a cross-functional understanding of how technology must adapt to serve real human needs and business objectives.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="abt-split-visual"
-            >
-              <div className="abt-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team collaboration" />
-              </div>
-            </motion.div>
-          </div>
+            <span className="abt-cred-item text-gradient">Software & Digital Products</span>
+          </motion.div>
         </div>
       </section>
 
@@ -176,23 +173,39 @@ const About = () => {
       <section className="abt-journey">
         <div className="container">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
             className="abt-timeline-wrapper"
           >
             {timeline.map((item, index) => (
-              <div key={index} className="abt-timeline-item">
+              <motion.div variants={fadeUp} key={index} className="abt-timeline-item">
                 <div className="abt-timeline-indicator">
-                  <div className="abt-timeline-dot"></div>
-                  {index !== timeline.length - 1 && <div className="abt-timeline-line"></div>}
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ type: "spring", delay: 0.2 * index }}
+                    viewport={{ once: true }}
+                    className="abt-timeline-dot"
+                  ></motion.div>
+                  {index !== timeline.length - 1 && (
+                    <motion.div 
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3 * index }}
+                      viewport={{ once: true }}
+                      style={{ originX: 0 }}
+                      className="abt-timeline-line"
+                    ></motion.div>
+                  )}
                 </div>
                 <div className="abt-timeline-content">
-                  <span className="abt-timeline-label">{item.label}</span>
+                  <span className="abt-timeline-label text-gradient">{item.label}</span>
                   <h3 className="abt-timeline-title">{item.title}</h3>
                   <p className="abt-timeline-desc">{item.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
@@ -201,109 +214,70 @@ const About = () => {
       {/* 4. WHAT DRIVES US FORWARD */}
       <section className="abt-values">
         <div className="container">
-          <div className="abt-section-header">
-            <h2>What Drives Us Forward.</h2>
-          </div>
-          <div className="abt-values-grid">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="abt-section-header center"
+          >
+            <h2>What Drives Us <span className="text-gradient">Forward.</span></h2>
+            <p>Our core engineering values.</p>
+          </motion.div>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="abt-values-grid"
+          >
             {values.map((val, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="abt-value-card"
-              >
-                <div className="abt-value-icon">{val.icon}</div>
+              <motion.div variants={scaleIn} key={idx} className="abt-value-card">
+                <div className="abt-value-icon-wrap">
+                  <div className="abt-value-icon">{val.icon}</div>
+                </div>
                 <h3 className="abt-value-title">{val.title}</h3>
                 <p className="abt-value-desc">{val.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 8. HOW WE WORK */}
-      <section className="abt-how">
-        <div className="container">
-          <div className="abt-split-layout">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="abt-split-visual"
-            >
-              <div className="abt-image-container">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Engineering and Architecture" />
-              </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="abt-split-text"
-            >
-              <h2>How We Work.</h2>
-              <div className="abt-principles-list">
-                <div className="abt-principle">
-                  <CheckCircle2 size={24} className="abt-principle-icon" />
-                  <div>
-                    <h3>Collaboration</h3>
-                    <p>Engineering, design, and business strategy work best when they sit at the same table.</p>
-                  </div>
-                </div>
-                <div className="abt-principle">
-                  <CheckCircle2 size={24} className="abt-principle-icon" />
-                  <div>
-                    <h3>Continuous Learning</h3>
-                    <p>We continuously improve our tools, frameworks, and architectural thinking as technology evolves.</p>
-                  </div>
-                </div>
-                <div className="abt-principle">
-                  <CheckCircle2 size={24} className="abt-principle-icon" />
-                  <div>
-                    <h3>Innovation</h3>
-                    <p>We focus on practical innovation that creates measurable value, not technology for novelty's sake.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. REAL CLIENT / GLOBAL DELIVERY */}
+      {/* 5. GLOBAL DELIVERY */}
       <section className="abt-global">
         <div className="container">
-          <div className="abt-section-header">
-            <h2>Built Across Borders.</h2>
-            <p>Codex Neural is already delivering digital products and intelligent systems across international markets.</p>
-          </div>
-          
-          <div className="abt-global-cards">
+          <div className="abt-global-layout">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="abt-global-card"
+              className="abt-global-text"
             >
-              <div className="abt-global-map-accent"></div>
-              <h3>AUSTRALIA</h3>
-              <h4>AI & Digital Systems</h4>
-              <p>12 AI agents and multiple websites delivered for an Australian client.</p>
+              <h2>Built Across <span className="text-gradient">Borders.</span></h2>
+              <p>Codex Neural is already delivering digital products and intelligent systems across international markets.</p>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="show"
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="abt-global-card"
+              className="abt-global-cards"
             >
-              <div className="abt-global-map-accent"></div>
-              <h3>NEPAL</h3>
-              <h4>Digital Solutions</h4>
-              <p>Software and digital solutions delivered for a Nepal-based client.</p>
+              <motion.div variants={fadeUp} className="abt-global-card">
+                <div className="abt-global-map-accent"></div>
+                <h3 className="text-gradient">AUSTRALIA</h3>
+                <h4>AI & Digital Systems</h4>
+                <p>12 AI agents and multiple websites delivered for an Australian client.</p>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="abt-global-card">
+                <div className="abt-global-map-accent alt"></div>
+                <h3 className="text-gradient">NEPAL</h3>
+                <h4>Digital Solutions</h4>
+                <p>Software and digital solutions delivered for a Nepal-based client.</p>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -312,18 +286,27 @@ const About = () => {
       {/* 6. TEAM */}
       <section className="abt-team-section">
         <div className="container">
-          <div className="abt-section-header center">
-            <span className="abt-eyebrow">THE TEAM</span>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="abt-section-header center"
+          >
+            <span className="abt-eyebrow text-gradient">THE TEAM</span>
             <h2>Meet the Minds Behind Codex Neural.</h2>
-          </div>
+          </motion.div>
 
-          <div className="abt-team-grid">
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="abt-team-grid"
+          >
             {team.map((member) => (
               <motion.div 
+                variants={fadeUp}
                 key={member.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 className="abt-team-card"
                 onMouseEnter={() => setActiveProfile(member.id)}
                 onMouseLeave={() => setActiveProfile(null)}
@@ -335,9 +318,9 @@ const About = () => {
                   <AnimatePresence>
                     {(activeProfile === member.id || window.innerWidth <= 768) && (
                       <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                        animate={{ opacity: 1, backdropFilter: "blur(4px)" }}
+                        exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
                         className="abt-team-overlay"
                       >
                         <div className="abt-team-socials">
@@ -355,34 +338,33 @@ const About = () => {
                 
                 <div className="abt-team-info">
                   <h3>{member.name}</h3>
-                  <span className="abt-team-role">{member.role}</span>
+                  <span className="abt-team-role text-gradient">{member.role}</span>
                   <p>{member.desc}</p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 9. FINAL CTA */}
+      {/* 7. FINAL CTA */}
       <section className="abt-final-cta">
         <div className="container">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 40 }}
             viewport={{ once: true }}
             className="abt-cta-box"
           >
-            <h2>Ready to Build Something Exceptional?</h2>
+            <div className="abt-cta-bg-glow"></div>
+            <h2>Ready to Build Something <span className="text-gradient">Exceptional?</span></h2>
             <p>
               Whether you're launching an AI startup, modernizing enterprise software, or building your next digital product, we're ready to help.
             </p>
             <div className="abt-cta-actions">
               <Link to="/contact" className="btn-primary">
                 Start Your Project <ArrowRight size={16} />
-              </Link>
-              <Link to="/contact" className="btn-secondary">
-                Talk to Us <ArrowRight size={16} />
               </Link>
             </div>
           </motion.div>
