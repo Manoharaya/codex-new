@@ -74,7 +74,7 @@ const About = () => {
       id: "manohar",
       name: "Manohar Singh",
       role: "FOUNDER & CEO",
-      image: "/images/manohar.jpg",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       desc: "Leading strategic vision, business development, client relationships, and company operations.",
       linkedin: MANOHAR_LINKEDIN_URL,
       email: MANOHAR_EMAIL
@@ -83,7 +83,7 @@ const About = () => {
       id: "priti",
       name: "Priti Gupta",
       role: "CO-FOUNDER / STRATEGIST",
-      image: "/images/priti.jpg",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       desc: "Shaping content strategy, brand communication, digital storytelling, and technology clarity.",
       linkedin: PRITI_LINKEDIN_URL,
       email: PRITI_EMAIL

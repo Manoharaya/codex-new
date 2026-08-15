@@ -401,16 +401,26 @@
 
 .abt-team-card-hz {
   position: relative;
-  background: var(--bg-primary);
+  background: transparent;
   border-radius: 2rem;
   padding: 2rem;
   display: flex;
   align-items: center;
   gap: 2.5rem;
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1;
+}
+
+.abt-team-card-hz::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 2rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  z-index: 0;
+  transition: border-color 0.3s ease;
 }
 
 .abt-team-card-hz::before {
@@ -427,6 +437,9 @@
 .abt-team-card-hz:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+}
+
+.abt-team-card-hz:hover::after {
   border-color: transparent;
 }
 
@@ -442,6 +455,7 @@
   border-radius: 1.5rem;
   overflow: hidden;
   background: var(--bg-secondary);
+  z-index: 1;
 }
 
 .abt-team-photo-wrap-hz img {
@@ -498,6 +512,8 @@
 .abt-team-info-hz {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .abt-team-name-hz {
