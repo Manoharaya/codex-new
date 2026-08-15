@@ -5,8 +5,36 @@
   overflow: hidden;
 }
 
+.portfolio-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
 .portfolio-hero-content {
   max-width: 800px;
+}
+
+.portfolio-hero-visual-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4/3;
+}
+
+.portfolio-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1));
+  pointer-events: none;
 }
 
 .portfolio-eyebrow {
@@ -373,6 +401,7 @@ button.btn-outline:hover {
 
 /* Responsive Overrides */
 @media (max-width: 992px) {
+  .portfolio-hero-grid,
   .portfolio-featured-layout,
   .portfolio-showcase-row {
     grid-template-columns: 1fr;
