@@ -51,10 +51,6 @@
   color: var(--text-primary);
   line-height: 1;
   letter-spacing: -0.04em;
-  background: var(--gradient-magenta-indigo);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .stat-label {

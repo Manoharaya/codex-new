@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <div className="home page-wrapper">
-      <SEO 
+      <SEO
         title="Home"
         description="Codex Neural engineers premium digital products. We specialize in AI solutions, custom enterprise software, and scalable web and mobile applications."
         url="/"
@@ -50,6 +50,7 @@ const Home = () => {
       </div>
       <div className="chapter-portfolio">
         {/* <FeaturedProjects /> */}
+        <Stats />
         <Process />
       </div>
       <div className="chapter-tech">
@@ -58,7 +59,6 @@ const Home = () => {
       <div className="chapter-about">
         <Industries />
         <Testimonials />
-        <Stats />
       </div>
       <div className="chapter-hero">
         <FinalCTA />

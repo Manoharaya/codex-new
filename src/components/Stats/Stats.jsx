@@ -4,10 +4,9 @@ import { useRef } from 'react';
 import './Stats.css';
 
 const statsData = [
-  { label: 'Projects Delivered', value: 150, suffix: '+' },
-  { label: 'Years Combined Experience', value: 40, suffix: '+' },
-  { label: 'Client Satisfaction', value: 99, suffix: '%' },
-  { label: 'Countries Served', value: 12, suffix: '' }
+  { label: 'Projects Delivered', value: 17, suffix: '+' },
+  { label: 'Client Satisfaction', value: 5, suffix: '+' },
+  { label: 'Countries Served', value: 4, suffix: '+' }
 ];
 
 const Counter = ({ from, to, duration, suffix }) => {
