@@ -102,6 +102,19 @@
   padding: 100px 0;
 }
 
+.portfolio-section-header {
+  margin-bottom: 80px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 24px;
+}
+
+.portfolio-section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
 .portfolio-featured-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
