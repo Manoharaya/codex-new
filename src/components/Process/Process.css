@@ -1,0 +1,120 @@
+.process-section {
+  padding: var(--space-120) 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.process-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-40) 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(111, 63, 245, 0.3), transparent);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 140px;
+  position: relative;
+}
+
+.step-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--brand-purple);
+  margin-bottom: var(--space-16);
+  letter-spacing: 1px;
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  margin-bottom: var(--space-24);
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.process-step:hover .step-icon {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.1);
+  color: var(--brand-purple);
+  box-shadow: var(--shadow-hover);
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-8);
+}
+
+.step-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .timeline-line {
+    top: 0;
+    bottom: 0;
+    left: 32px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, rgba(111, 63, 245, 0.3), transparent);
+    transform: none;
+  }
+  
+  .timeline-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-48);
+  }
+  
+  .process-step {
+    flex-direction: row;
+    width: 100%;
+    text-align: left;
+    gap: var(--space-24);
+  }
+  
+  .step-number {
+    position: absolute;
+    left: 80px;
+    top: -20px;
+    margin-bottom: 0;
+  }
+  
+  .step-icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+}

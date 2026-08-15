@@ -1,0 +1,526 @@
+/* Container */
+.cloud-engineering-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  width: 100%;
+  height: 100%;
+  padding: var(--space-24);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Header */
+.cloud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.cloud-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-accent);
+  letter-spacing: 1px;
+}
+
+.cloud-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  letter-spacing: 0.5px;
+}
+
+.cloud-status-badge .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.cloud-status-badge .status-dot.animating {
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Pipeline */
+.cloud-pipeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-24);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .cloud-pipeline {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pipeline-connector {
+  flex-grow: 1;
+  height: 2px;
+  background: var(--glass-border);
+  margin: 0 var(--space-12);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  transform: translateY(-8px);
+}
+
+.pipeline-connector-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--brand-accent);
+  width: 0%;
+  transition: width 0.8s ease-in-out;
+}
+
+.pipeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+  position: relative;
+}
+
+.pipeline-step.active, .pipeline-step.completed {
+  opacity: 1;
+}
+
+.pipeline-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.pipeline-step.active .pipeline-icon-wrapper {
+  color: #20D8FF;
+  border-color: rgba(32, 216, 255, 0.4);
+  box-shadow: 0 0 20px rgba(32, 216, 255, 0.2);
+  background: rgba(32, 216, 255, 0.05);
+}
+
+.pipeline-step.completed .pipeline-icon-wrapper {
+  color: var(--brand-accent);
+  border-color: rgba(111, 63, 245, 0.4);
+  background: rgba(111, 63, 245, 0.05);
+}
+
+.step-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.pipeline-step.active .step-label {
+  color: #20D8FF;
+}
+
+.pipeline-step.completed .step-label {
+  color: var(--brand-accent);
+}
+
+.step-check {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  background: var(--bg-card);
+  border-radius: 50%;
+  color: #10B981;
+  border: 2px solid var(--bg-card);
+}
+
+/* Cloud Environment */
+.cloud-environment {
+  flex-grow: 1;
+  background: linear-gradient(135deg, rgba(111, 63, 245, 0.04), rgba(32, 216, 255, 0.02));
+  border: 1px solid rgba(111, 63, 245, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cloud-environment.deploy-pulse {
+  animation: deploy-flash 1s ease-out;
+}
+
+@keyframes deploy-flash {
+  0% { box-shadow: 0 0 0 rgba(111, 63, 245, 0); border-color: rgba(111, 63, 245, 0.1); }
+  20% { box-shadow: 0 0 40px rgba(111, 63, 245, 0.3); border-color: rgba(111, 63, 245, 0.6); }
+  100% { box-shadow: 0 0 0 rgba(111, 63, 245, 0); border-color: rgba(111, 63, 245, 0.1); }
+}
+
+[data-theme='light'] .cloud-environment {
+  background: linear-gradient(135deg, rgba(111, 63, 245, 0.02), rgba(32, 216, 255, 0.01));
+  box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.env-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-24);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.8;
+}
+
+.env-telemetry-mini {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
+}
+
+.env-telemetry-mini .pulse {
+  width: 4px;
+  height: 4px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: pulse-green 2s infinite;
+}
+
+.env-telemetry-mini .divider {
+  opacity: 0.4;
+  margin: 0 2px;
+}
+
+.env-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-16);
+  flex-grow: 1;
+}
+
+.service-module {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.service-module.service-primary {
+  border-color: rgba(111, 63, 245, 0.3);
+  box-shadow: inset 0 0 20px rgba(111, 63, 245, 0.05);
+}
+
+.service-module.service-secondary {
+  /* Inherits standard styling but can highlight active states slightly */
+}
+
+.service-module.service-supporting {
+  opacity: 0.9;
+}
+
+.service-module.healthy {
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.service-module.service-primary.healthy {
+  border-color: rgba(111, 63, 245, 0.4);
+}
+
+.service-module.scaling {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 20px rgba(111, 63, 245, 0.15);
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(111, 63, 245, 0.05) 100%);
+}
+
+.service-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-traffic {
+  font-size: 9px;
+  font-family: monospace;
+  font-weight: 600;
+  color: #20D8FF;
+  background: rgba(32, 216, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.service-icon {
+  color: var(--text-secondary);
+  transition: color 0.4s ease;
+}
+
+.service-module.healthy .service-icon {
+  color: var(--brand-accent);
+}
+
+.service-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.service-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.service-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.4s ease;
+}
+
+.service-status .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  transition: background 0.4s ease;
+}
+
+.service-status.healthy {
+  color: var(--text-primary);
+}
+
+.service-status.healthy .dot {
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+}
+
+.service-instances {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--glass-bg);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 12px;
+  border: 1px solid var(--glass-border);
+}
+
+.scale-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(90deg, var(--brand-accent), #20D8FF);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(111, 63, 245, 0.3);
+}
+
+/* Observability */
+.observability-section {
+  display: flex;
+  gap: var(--space-16);
+  height: 90px;
+}
+
+.telemetry-panel {
+  flex: 3;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-24);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.telemetry-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.telemetry-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.telemetry-value {
+  font-size: 16px;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.telemetry-value.highlight {
+  color: #20D8FF;
+}
+
+.telemetry-graph {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 24px;
+  width: 50px;
+  margin-left: 8px;
+}
+
+.graph-bar {
+  flex: 1;
+  background: var(--text-secondary);
+  border-radius: 1px 1px 0 0;
+  opacity: 0.2;
+  transition: height 0.4s ease, background 0.4s ease, opacity 0.4s ease;
+}
+
+.graph-bar.active {
+  background: var(--brand-accent);
+  opacity: 0.8;
+}
+
+.graph-bar.highlight {
+  background: #20D8FF;
+  opacity: 1;
+}
+
+.health-panel {
+  flex: 2;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-24);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.health-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.4s ease;
+}
+
+.health-title.healthy {
+  color: #10B981;
+}
+
+.health-subtitle {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+
+
+/* Mobile Recomposition */
+@media (max-width: 834px) {
+  .cloud-engineering-container {
+    padding: var(--space-16) 0;
+    gap: var(--space-24);
+  }
+  
+  .cloud-pipeline {
+    padding: var(--space-16);
+  }
+
+  .step-label {
+    font-size: 9px;
+  }
+
+  .pipeline-icon-wrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .pipeline-icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .env-services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+  
+  .observability-section {
+    flex-direction: column;
+    height: auto;
+    gap: var(--space-12);
+  }
+  
+  .telemetry-panel {
+    padding: var(--space-16);
+    justify-content: space-between;
+  }
+  
+  .health-panel {
+    padding: var(--space-16);
+  }
+  
+  .mobile-hidden {
+    display: none !important;
+  }
+}

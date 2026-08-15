@@ -1,0 +1,102 @@
+.team-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-32);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.team-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  transition: var(--transition-bouncy);
+  transform-style: preserve-3d;
+}
+
+.team-card:hover {
+  border-color: rgba(111, 63, 245, 0.4);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.team-image-placeholder {
+  height: 250px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(9, 9, 11, 0) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--glass-border);
+  transform: translateZ(20px);
+  color: var(--text-secondary);
+}
+
+.team-card-content {
+  padding: var(--space-40);
+  transform: translateZ(40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.team-badges {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+  flex-wrap: wrap;
+}
+
+.team-badge {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: var(--space-4) 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var(--glass-border);
+}
+
+.team-name {
+  font-size: 24px;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+.team-role {
+  color: var(--brand-purple);
+  font-size: 14px;
+  margin-bottom: var(--space-20);
+  font-weight: 500;
+}
+
+.team-desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.team-socials {
+  display: flex;
+  gap: var(--space-16);
+  margin-top: var(--space-24);
+}
+
+.social-link {
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  display: inline-flex;
+}
+
+.social-link:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
