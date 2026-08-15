@@ -143,21 +143,26 @@ const About = () => {
 
       {/* 2. CREDIBILITY STRIP */}
       <section className="abt-credibility">
-        <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="abt-cred-strip"
-          >
-            <span className="abt-cred-item text-gradient">AI Agent Systems</span>
-            <span className="abt-cred-dot"></span>
-            <span className="abt-cred-item text-gradient">International Client Delivery</span>
-            <span className="abt-cred-dot"></span>
-            <span className="abt-cred-item text-gradient">Australia + Nepal</span>
-            <span className="abt-cred-dot"></span>
-            <span className="abt-cred-item text-gradient">Software & Digital Products</span>
-          </motion.div>
+        <div className="abt-cred-marquee-wrapper">
+          <div className="abt-cred-strip">
+            {[
+              "AI Agent Systems",
+              "International Client Delivery",
+              "Australia + Nepal",
+              "Software & Digital Products",
+              "E-Commerce Projects Delivered",
+              "AI Agent Systems",
+              "International Client Delivery",
+              "Australia + Nepal",
+              "Software & Digital Products",
+              "E-Commerce Projects Delivered"
+            ].map((item, index) => (
+              <React.Fragment key={index}>
+                <span className="abt-cred-item text-gradient">{item}</span>
+                <span className="abt-cred-dot"></span>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </section>
 
