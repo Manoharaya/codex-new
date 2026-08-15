@@ -47,7 +47,7 @@ export const caseStudiesData = [
     challenge: "Giving Heart Co. required a digital storefront that matched the premium, personal nature of their physical gifting products, demanding a high-conversion platform that also effectively told their brand story.",
     approach: "Our focus was entirely on reducing friction. We mapped the user journey from discovery to checkout, optimizing every touchpoint for speed, clarity, and visual elegance.",
     solution: "We developed a fast, responsive e-commerce platform centered around a frictionless checkout flow and premium UX design. We integrated robust inventory management and executed a cohesive digital content strategy to drive growth.",
-    technologies: ["Shopify Plus", "React", "Node.js", "Stripe", "PostgreSQL"],
+    technologies: ["Next.js", "React", "Node.js", "Stripe", "PostgreSQL"],
     services: ["E-Commerce", "Web Development", "UI/UX", "Social Media"],
     metrics: [
       { value: "45%", label: "Increase in CVR" },
