@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Mail, Zap, Shield, Users, Handshake } from 'lucide-react';
+import { ArrowRight, Mail, Zap, Shield, Users, Handshake, Link2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO/SEO';
 import './About.css';
-
-const LinkedinIcon = ({ size = 20 }) => (
-  <svg xmlns="http://www.svg.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-  </svg>
-);
 
 const MANOHAR_LINKEDIN_URL = "#";
 const MANOHAR_EMAIL = "mailto:hello@codexneural.com";
@@ -307,38 +299,26 @@ const About = () => {
               <motion.div 
                 variants={fadeUp}
                 key={member.id}
-                className="abt-team-card"
-                onMouseEnter={() => setActiveProfile(member.id)}
-                onMouseLeave={() => setActiveProfile(null)}
-                onClick={() => setActiveProfile(activeProfile === member.id ? null : member.id)}
+                className="abt-team-card-hz"
               >
-                <div className="abt-team-photo-wrap">
+                <div className="abt-team-photo-wrap-hz">
                   <img src={member.image} alt={member.name} />
                   
-                  <AnimatePresence>
-                    {(activeProfile === member.id || window.innerWidth <= 768) && (
-                      <motion.div 
-                        initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                        animate={{ opacity: 1, backdropFilter: "blur(4px)" }}
-                        exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                        className="abt-team-overlay"
-                      >
-                        <div className="abt-team-socials">
-                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="abt-social-btn" aria-label="LinkedIn" onClick={(e) => e.stopPropagation()}>
-                            <LinkedinIcon size={20} />
-                          </a>
-                          <a href={member.email} className="abt-social-btn" aria-label="Email" onClick={(e) => e.stopPropagation()}>
-                            <Mail size={20} />
-                          </a>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div className="abt-team-overlay-hz">
+                    <div className="abt-team-socials-hz">
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="abt-social-btn-hz" aria-label="Website">
+                        <Link2 size={20} />
+                      </a>
+                      <a href={member.email} className="abt-social-btn-hz" aria-label="Email">
+                        <Mail size={20} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="abt-team-info">
-                  <h3>{member.name}</h3>
-                  <span className="abt-team-role text-gradient">{member.role}</span>
+                <div className="abt-team-info-hz">
+                  <h3 className="abt-team-name-hz">{member.name}</h3>
+                  <span className="abt-team-role-hz">{member.role}</span>
                   <p>{member.desc}</p>
                 </div>
               </motion.div>
