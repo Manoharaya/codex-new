@@ -1,0 +1,232 @@
+.project-detail-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* Nav */
+.project-detail-nav {
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 72px; /* Adjust based on navbar height */
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 40;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+}
+
+/* Hero */
+.project-hero {
+  padding: 80px 0;
+}
+
+.project-hero-content {
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.project-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.project-number {
+  font-family: monospace;
+  font-size: 1.125rem;
+  color: var(--primary-color);
+}
+
+.project-location {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.project-subtitle {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+.project-hero-visual {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 21/9;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.project-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content */
+.project-content-section {
+  padding: 60px 0 100px;
+}
+
+.project-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+
+/* Sidebar */
+.project-sidebar {
+  position: sticky;
+  top: 150px;
+  align-self: start;
+}
+
+.sidebar-block {
+  margin-bottom: 40px;
+}
+
+.sidebar-block h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-block li {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.links-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  transition: opacity 0.2s ease;
+}
+
+.external-link:hover {
+  opacity: 0.8;
+}
+
+/* Main Content */
+.content-block {
+  margin-bottom: 60px;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.content-block p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.highlight-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.highlight-tag {
+  font-size: 0.875rem;
+  padding: 8px 16px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Next Step */
+.project-next-step {
+  padding: 100px 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+.project-next-step h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .project-content-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .project-sidebar {
+    position: relative;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-hero-visual {
+    aspect-ratio: 16/9;
+  }
+  
+  .project-sidebar {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
