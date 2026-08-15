@@ -32,7 +32,7 @@ export const portfolioData = [
     websiteUrl: "https://www.lifescienceai.com.au/",
     aiPlatformUrl: "https://www.lifescienceaiagents.com/",
     theme: "theme-cyan",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+    image: "/assets/projects/life-science-ai.png",
     detailOverview: "Life Science AI required a comprehensive digital transformation to integrate advanced AI capabilities into their operations. We engineered a scalable web platform and deployed 12 autonomous AI agents to handle complex data operations and customer interactions.",
     detailWhatWeBuilt: "We built a robust, high-performance web experience paired with a custom AI agent architecture. The system automates workflows, processes data efficiently, and provides a seamless digital experience for their users. We also managed their ongoing digital creative and social media presence.",
     detailCollaboration: "We operated as their dedicated engineering and digital growth partner, aligning our technology execution with their internal business strategy and compliance requirements.",
