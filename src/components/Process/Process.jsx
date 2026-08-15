@@ -62,9 +62,9 @@ const Process = () => {
           variants={containerVariants}
           className="section-header text-center"
         >
-          <motion.span variants={itemVariants} className="section-subtitle">HOW WE WORK</motion.span>
+          <motion.span variants={itemVariants} className="section-subtitle text-gradient">HOW WE WORK</motion.span>
           <motion.h2 variants={itemVariants} className="section-title">
-            The Engineering Process
+            The <span className="text-gradient">Engineering Process</span>
           </motion.h2>
         </motion.div>
         
