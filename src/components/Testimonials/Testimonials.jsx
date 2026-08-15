@@ -5,19 +5,22 @@ import './Testimonials.css';
 
 const testimonialData = [
   {
-    quote: "CodexNeural didn't just build our platform; they engineered a scalable infrastructure that allowed us to handle a 400% increase in user traffic without a single point of failure. They are true product engineers.",
-    name: "Sarah Jenkins",
-    role: "Chief Technology Officer",
-    company: "FinTech Elevate",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    quote:
+      "CodexNeural didn't just build our platform; they engineered a scalable infrastructure that allowed us to handle a 400% increase in user traffic without a single point of failure. They are true product engineers.",
+    name: "Dr. Yulianna Shiikha",
+    role: "CEO & Founder",
+    company: "Life Science Ai",
+    image: "/yulianna-profile.png",
   },
   {
-    quote: "Their engineering team feels like an internal extension of our own. The AI architecture they designed reduced our processing time by 80% while maintaining absolute compliance and security.",
+    quote:
+      "Their engineering team feels like an internal extension of our own. The AI architecture they designed reduced our processing time by 80% while maintaining absolute compliance and security.",
     name: "Marcus Chen",
     role: "VP of Engineering",
     company: "HealthSync",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800"
-  }
+    image:
+      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800",
+  },
 ];
 
 const Testimonials = () => {

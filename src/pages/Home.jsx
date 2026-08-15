@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero/Hero';
 import Services from '../components/Services/Services';
 import WhyUs from '../components/WhyUs/WhyUs';
-import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects';
+// import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects';
 import Process from '../components/Process/Process';
 import TechStack from '../components/TechStack/TechStack';
 import Industries from '../components/Industries/Industries';
@@ -49,7 +49,7 @@ const Home = () => {
         <WhyUs />
       </div>
       <div className="chapter-portfolio">
-        <FeaturedProjects />
+        {/* <FeaturedProjects /> */}
         <Process />
       </div>
       <div className="chapter-tech">
