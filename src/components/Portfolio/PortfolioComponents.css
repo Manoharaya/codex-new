@@ -386,10 +386,9 @@ button.btn-outline:hover {
 }
 
 .portfolio-global-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
 }
 
 .portfolio-global-card {
@@ -397,7 +396,6 @@ button.btn-outline:hover {
   border: 1px solid var(--border-color);
   border-radius: 16px;
   background-color: var(--bg-secondary);
-  min-width: 300px;
   text-align: left;
 }
 
@@ -437,14 +435,6 @@ button.btn-outline:hover {
 @media (max-width: 768px) {
   .portfolio-hero {
     padding: 120px 0 60px;
-  }
-  
-  .portfolio-global-grid {
-    flex-direction: column;
-  }
-  
-  .portfolio-global-card {
-    min-width: 100%;
   }
 
   .portfolio-project-actions {

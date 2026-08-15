@@ -13,7 +13,7 @@ const PortfolioGlobal = () => {
           className="portfolio-global-content"
         >
           <h2 className="portfolio-global-title">Built across <span className="text-gradient">borders.</span></h2>
-          <p className="portfolio-global-subtitle">Client work delivered across Australia and Nepal.</p>
+          <p className="portfolio-global-subtitle">Client work delivered across 4 global regions.</p>
           
           <div className="portfolio-global-grid">
             <div className="portfolio-global-card">
@@ -22,7 +22,15 @@ const PortfolioGlobal = () => {
             </div>
             <div className="portfolio-global-card">
               <h3>NEPAL</h3>
-              <p>Web Platforms · Software</p>
+              <p>Web Platforms · Software Development</p>
+            </div>
+            <div className="portfolio-global-card">
+              <h3>UNITED STATES</h3>
+              <p>SaaS Solutions · Tech Partnerships</p>
+            </div>
+            <div className="portfolio-global-card">
+              <h3>UNITED KINGDOM</h3>
+              <p>Digital Transformation · UI/UX</p>
             </div>
           </div>
         </motion.div>
