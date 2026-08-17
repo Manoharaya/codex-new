@@ -1,494 +1,368 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Lightbulb, Code2, Users, Handshake, Link, Mail } from 'lucide-react';
-import FinalCTA from '../components/FinalCTA/FinalCTA';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Mail, Zap, Shield, Users, Handshake, Link2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO/SEO';
 import './About.css';
 
-const timelineData = [
-  {
-    phase: "Our Beginning",
-    title: "Solving Complexity",
-    desc: "CodexNeural started with a vision of solving business problems through technology. We saw companies struggling with disjointed legacy systems and knew we could engineer better, faster, and more scalable solutions."
-  },
-  {
-    phase: "Our Philosophy",
-    title: "Engineering Value",
-    desc: "Technology should simplify complexity. Design should improve experiences. Engineering should create long-term value. We refuse to build software just for the sake of writing code."
-  },
-  {
-    phase: "Today",
-    title: "Intelligent Products",
-    desc: "Building AI-powered products, enterprise software, cloud solutions, and digital experiences for forward-thinking businesses across the globe."
+const MANOHAR_LINKEDIN_URL = "#";
+const MANOHAR_EMAIL = "mailto:hello@codexneural.com";
+const PRITI_LINKEDIN_URL = "#";
+const PRITI_EMAIL = "mailto:hello@codexneural.com";
+
+// Animation Variants
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
   }
-];
+};
 
-const valuesData = [
-  {
-    icon: <Lightbulb size={32} strokeWidth={1.5} />,
-    title: "Innovation",
-    desc: "Always exploring better ways to solve problems and pushing the boundaries of what's possible."
-  },
-  {
-    icon: <Code2 size={32} strokeWidth={1.5} />,
-    title: "Engineering Excellence",
-    desc: "Scalable, secure and maintainable software crafted with precision and deep technical expertise."
-  },
-  {
-    icon: <Users size={32} strokeWidth={1.5} />,
-    title: "User First",
-    desc: "Every interface begins with understanding the end user. Empathy drives our design decisions."
-  },
-  {
-    icon: <Handshake size={32} strokeWidth={1.5} />,
-    title: "Long-Term Partnerships",
-    desc: "We believe in building relationships, not just delivering projects. Your success is our success."
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 50, damping: 15 }
   }
-];
+};
 
-const teamData = [
-  {
-    name: "Manohar Singh",
-    role: "Founder & CEO",
-    bio: "Leading strategic vision and operational excellence. Orchestrating business development, client relations, and day-to-day company operations.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    theme: "theme-purple"
-  },
-  {
-    name: "Anuj Pokhrel",
-    role: "CTO & Backend Developer",
-    bio: "Architecting scalable backend systems and leading technical strategy. Building robust server infrastructure with focus on security, performance, and reliability.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    theme: "theme-cyan"
-  },
-  {
-    name: "Aman Yadav",
-    role: "Advisor & Data Analysis Specialist",
-    bio: "Providing strategic guidance and extracting actionable insights from complex datasets. Driving data-driven decision making and business intelligence.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    theme: "theme-magenta"
-  },
-  {
-    name: "Rahul Sah",
-    role: "Backend Specialist",
-    bio: "Specializing in the development of robust, scalable backend architectures. Ensuring high performance and seamless server-side integration.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    theme: "theme-indigo"
-  },
-  {
-    name: "Anjali Singh",
-    role: "Frontend Developer & UI/UX Designer",
-    bio: "Crafting responsive, performant user interfaces with modern frameworks. Designing intuitive user experiences and transforming them into pixel-perfect, interactive implementations.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    theme: "theme-purple"
-  },
-  {
-    name: "Priti Gupta",
-    role: "SEO Specialist",
-    bio: "Optimizing digital presence and search visibility. Implementing data-driven SEO strategies to drive organic growth and improve search rankings.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    theme: "theme-cyan"
-  },
-  {
-    name: "Bibek Sah",
-    role: "Automation Engineer",
-    bio: "Building intelligent automation pipelines and CI/CD workflows. Streamlining development processes through infrastructure as code and DevOps practices.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    theme: "theme-indigo"
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  show: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { type: "spring", stiffness: 50, damping: 15 }
   }
-];
-
-const statsData = [
-  { label: 'Projects Delivered', value: 150, suffix: '+' },
-  { label: 'Clients Served', value: 85, suffix: '+' },
-  { label: 'Years Combined Experience', value: 40, suffix: '+' },
-  { label: 'Technologies Used', value: 24, suffix: '' }
-];
-
-const Counter = ({ from, to, duration, suffix }) => {
-  const [count, setCount] = React.useState(from);
-  const nodeRef = React.useRef(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          let startTimestamp = null;
-          const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-            const easeOut = progress * (2 - progress);
-            setCount(Math.floor(easeOut * (to - from) + from));
-            if (progress < 1) window.requestAnimationFrame(step);
-          };
-          window.requestAnimationFrame(step);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (nodeRef.current) observer.observe(nodeRef.current);
-    return () => observer.disconnect();
-  }, [from, to, duration]);
-
-  return (
-    <span ref={nodeRef} className="about-stat-number">
-      {count}{suffix}
-    </span>
-  );
 };
 
 const About = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [expandedValueIndex, setExpandedValueIndex] = useState(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    const mQuery = window.matchMedia('(max-width: 768px)');
-    setIsMobile(mQuery.matches);
-    const handleResize = (e) => setIsMobile(e.matches);
-    mQuery.addEventListener('change', handleResize);
-    return () => mQuery.removeEventListener('change', handleResize);
   }, []);
 
-  const handleValueTap = (index) => {
-    setExpandedValueIndex(expandedValueIndex === index ? null : index);
+  const [activeProfile, setActiveProfile] = useState(null);
+
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Codex Neural",
+    "description": "Codex Neural builds intelligent digital systems, software products, and infrastructure for businesses that need technology to perform, scale, and evolve.",
+    "url": "https://www.codexneural.com/about",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Codex Neural"
+    }
   };
 
-  const { scrollYProgress } = useScroll();
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const timeline = [
+    { label: "OUR BEGINNING", title: "Solving Complexity", desc: "Started with a clear focus: simplifying complex operational problems through intelligent engineering." },
+    { label: "OUR PHILOSOPHY", title: "Engineering Value", desc: "Built a culture focused on measurable business outcomes rather than just shipping code." },
+    { label: "TODAY", title: "Intelligent Products", desc: "Delivering modern software, AI systems, and scalable infrastructure to international clients." }
+  ];
+
+  const values = [
+    { icon: <Zap size={24} />, title: "Innovation", desc: "Exploring better ways to solve problems and push the boundaries." },
+    { icon: <Shield size={24} />, title: "Engineering", desc: "Scalable, secure, maintainable software built with technical discipline." },
+    { icon: <Users size={24} />, title: "User First", desc: "Interfaces that understand the people who use them." },
+    { icon: <Handshake size={24} />, title: "Partnership", desc: "Successful technology is built through collaboration and trust." }
+  ];
+
+  const team = [
+    {
+      id: "manohar",
+      name: "Manohar Singh",
+      role: "FOUNDER & CEO",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      desc: "Leading strategic vision, business development, client relationships, and company operations.",
+      linkedin: MANOHAR_LINKEDIN_URL,
+      email: MANOHAR_EMAIL
+    },
+    {
+      id: "priti",
+      name: "Priti Gupta",
+      role: "CO-FOUNDER / STRATEGIST",
+      image: "/priti-profile.jpg",
+      desc: "Shaping content strategy, brand communication, digital storytelling, and technology clarity.",
+      linkedin: PRITI_LINKEDIN_URL,
+      email: PRITI_EMAIL
+    }
+  ];
 
   return (
-    <div className="about-page chapter-about">
+    <div className="about-page page-wrapper">
       <SEO 
-        title="About Us"
-        description="CodexNeural is a premium product engineering team built on strategy, innovation, and design. Learn about our story, values, and the people behind every intelligent solution."
+        title="About Us | Codex Neural"
+        description="Codex Neural builds intelligent digital systems, software products, and infrastructure for businesses that need technology to perform, scale, and evolve."
         url="/about"
+        schema={pageSchema}
       />
 
-      {/* 1. Hero Section */}
-      <section className="about-hero">
-        <div className="aurora-blob aurora-purple about-hero-aurora1"></div>
-        <div className="aurora-blob aurora-cyan about-hero-aurora2"></div>
-        
-        <div className="container about-hero-container">
-          
-          {isMobile && (
+      {/* 1. HERO */}
+      <section className="abt-hero">
+        <div className="container">
+          <div className="abt-hero-grid">
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="about-hero-visual mobile-visual-first"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="show"
+              className="abt-hero-content"
             >
-              <div className="about-hero-image-wrapper glass-card overflow-hidden">
-                <motion.img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                  alt="Workspace Collaboration" 
-                  className="about-hero-image"
-                  animate={{ scale: [1, 1.03, 1] }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                />
-              </div>
+              {/* <motion.span variants={fadeUp} className="abt-eyebrow text-gradient">ABOUT CODEX NEURAL</motion.span> */}
+              <motion.h1 variants={fadeUp} className="abt-headline">Building the <span className="text-gradient">systems</span> behind ambitious businesses.</motion.h1>
+              <motion.p variants={fadeUp} className="abt-supporting">
+                Codex Neural builds intelligent digital systems, software products, and infrastructure for businesses that need technology to perform, scale, and evolve.
+              </motion.p>
+              <motion.div variants={fadeUp} className="abt-hero-actions">
+                <Link to="/contact" className="btn-primary">
+                  Start Your Project <ArrowRight size={16} />
+                </Link>
+                <Link to="/portfolio" className="btn-secondary">
+                  Explore Our Work <ArrowRight size={16} />
+                </Link>
+              </motion.div>
             </motion.div>
-          )}
 
-          <div className="about-hero-content">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="about-hero-title"
-            >
-              People Behind Every <span className="text-gradient">Intelligent Solution.</span>
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="about-hero-subtitle"
-            >
-              We are engineers, designers, strategists and innovators passionate about building software that creates measurable business value. Every product we build begins with understanding people before writing code.
-            </motion.p>
-          </div>
-          
-          {!isMobile && (
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="about-hero-visual"
+              initial={{ opacity: 0, scale: 0.95, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, type: "spring" }}
+              className="abt-hero-visual"
             >
-              <div className="about-hero-image-wrapper glass-card">
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                  alt="Workspace Collaboration" 
-                  className="about-hero-image"
-                />
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                alt="Technology engineering team" 
+                className="abt-img-main"
+              />
+              <div className="abt-hero-accent-line"></div>
             </motion.div>
-          )}
+          </div>
         </div>
       </section>
 
-      {/* 2. Company Story (Timeline) */}
-      <section className="about-timeline-section">
-        <div className="container">
-          <div className="timeline-wrapper">
-            <motion.div className="timeline-progress-bar" style={{ scaleY }}></motion.div>
-            
-            {timelineData.map((item, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="timeline-item"
-              >
-                <motion.div className="timeline-node"
-                  initial={isMobile ? { scale: 0 } : false}
-                  whileInView={isMobile ? { scale: 1 } : false}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20, delay: isMobile ? 0.2 : 0 }}
-                ></motion.div>
-                <div className="timeline-content">
-                  <span className="timeline-phase">{item.phase}</span>
-                  <h3 className="timeline-title">{item.title}</h3>
-                  <p className="timeline-desc">{item.desc}</p>
-                </div>
-              </motion.div>
+      {/* 2. CREDIBILITY STRIP */}
+      <section className="abt-credibility">
+        <div className="abt-cred-marquee-wrapper">
+          <div className="abt-cred-strip">
+            {[
+              "AI Agent Systems",
+              "International Client Delivery",
+              "Australia + Nepal",
+              "Software & Digital Products",
+              "E-Commerce Projects Delivered",
+              "AI Agent Systems",
+              "International Client Delivery",
+              "Australia + Nepal",
+              "Software & Digital Products",
+              "E-Commerce Projects Delivered"
+            ].map((item, index) => (
+              <div className="abt-cred-card" key={index}>
+                <span className="text-gradient">{item}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. Our Values */}
-      <section className="about-values-section">
-        <div className="aurora-blob aurora-magenta about-values-aurora"></div>
+      {/* 3. OUR STORY / JOURNEY */}
+      <section className="abt-journey">
         <div className="container">
-          <div className="section-header text-center">
-            <span className="section-subtitle text-gradient">OUR VALUES</span>
-            <h2 className="section-title">What Drives Us Forward.</h2>
-          </div>
-          
-          <div className={`values-grid ${isMobile ? 'values-accordion' : ''}`}>
-            {valuesData.map((value, index) => {
-              const isExpanded = isMobile && expandedValueIndex === index;
-              return (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
-                  className={`value-card glass-card ${isExpanded ? 'active' : ''}`}
-                  onClick={() => isMobile && handleValueTap(index)}
-                >
-                  <div className="value-header-mobile">
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="abt-timeline-wrapper"
+          >
+            {timeline.map((item, index) => (
+              <motion.div variants={fadeUp} key={index} className="abt-timeline-item">
+                <div className="abt-timeline-indicator">
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ type: "spring", delay: 0.2 * index }}
+                    viewport={{ once: true }}
+                    className="abt-timeline-dot"
+                  ></motion.div>
+                  {index !== timeline.length - 1 && (
                     <motion.div 
-                      className="value-icon-wrapper"
-                      animate={isExpanded ? { rotate: 5, scale: 1.1, backgroundColor: 'var(--brand-purple)', color: '#fff' } : { rotate: 0, scale: 1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {value.icon}
-                    </motion.div>
-                    {isMobile && <h3 className="value-title-mobile">{value.title}</h3>}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3 * index }}
+                      viewport={{ once: true }}
+                      style={{ originX: 0 }}
+                      className="abt-timeline-line"
+                    ></motion.div>
+                  )}
+                </div>
+                <div className="abt-timeline-content">
+                  <span className="abt-timeline-label text-gradient">{item.label}</span>
+                  <h3 className="abt-timeline-title">{item.title}</h3>
+                  <p className="abt-timeline-desc">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. WHAT DRIVES US FORWARD */}
+      <section className="abt-values">
+        <div className="container">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="abt-section-header center"
+          >
+            <h2>What Drives Us <span className="text-gradient">Forward.</span></h2>
+            <p>Our core engineering values.</p>
+          </motion.div>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="abt-values-grid"
+          >
+            {values.map((val, idx) => (
+              <motion.div variants={scaleIn} key={idx} className="abt-value-card">
+                <div className="abt-value-icon-wrap">
+                  <div className="abt-value-icon">{val.icon}</div>
+                </div>
+                <h3 className="abt-value-title">{val.title}</h3>
+                <p className="abt-value-desc">{val.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 5. GLOBAL DELIVERY */}
+      <section className="abt-global">
+        <div className="container">
+          <div className="abt-global-layout">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="abt-global-text"
+            >
+              <h2>Built Across <span className="text-gradient">Borders.</span></h2>
+              <p>Codex Neural is already delivering digital products and intelligent systems across international markets.</p>
+
+              <div className="abt-global-img-wrap">
+                <img 
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Global technology team collaborating" 
+                  className="abt-global-img"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div 
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="abt-global-cards"
+            >
+              <motion.div variants={fadeUp} className="abt-global-card">
+                <div className="abt-global-map-accent"></div>
+                <h3 className="text-gradient">AUSTRALIA</h3>
+                <h4>AI & Digital Systems</h4>
+                <p>12 AI agents and multiple websites delivered for an Australian client.</p>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="abt-global-card">
+                <div className="abt-global-map-accent alt"></div>
+                <h3 className="text-gradient">NEPAL</h3>
+                <h4>Digital Solutions</h4>
+                <p>Software and digital solutions delivered for a Nepal-based client.</p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. TEAM */}
+      <section className="abt-team-section">
+        <div className="container">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="abt-section-header center"
+          >
+            <span className="abt-eyebrow text-gradient">THE TEAM</span>
+            <h2>Meet the Minds Behind Codex Neural.</h2>
+          </motion.div>
+
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="abt-team-grid"
+          >
+            {team.map((member) => (
+              <motion.div 
+                variants={fadeUp}
+                key={member.id}
+                className="abt-team-card-hz"
+              >
+                <div className="abt-team-photo-wrap-hz">
+                  <img src={member.image} alt={member.name} />
+                  
+                  <div className="abt-team-overlay-hz">
+                    <div className="abt-team-socials-hz">
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="abt-social-btn-hz" aria-label="Website">
+                        <Link2 size={20} />
+                      </a>
+                      <a href={member.email} className="abt-social-btn-hz" aria-label="Email">
+                        <Mail size={20} />
+                      </a>
+                    </div>
                   </div>
-                  
-                  {!isMobile && <h3 className="value-title">{value.title}</h3>}
-                  
-                  {(!isMobile || isExpanded) && (
-                    <motion.div 
-                      className="value-desc-wrapper"
-                      initial={isMobile ? { height: 0, opacity: 0 } : false}
-                      animate={isMobile ? { height: 'auto', opacity: 1 } : false}
-                    >
-                      <p className="value-desc">{value.desc}</p>
-                    </motion.div>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Meet Our Team */}
-      <section className="about-team-section">
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-subtitle text-gradient">THE TEAM</span>
-            <h2 className="section-title">Meet the Minds Behind <br/>CodexNeural.</h2>
-          </div>
-          
-          <div className={`team-grid ${isMobile ? 'team-carousel' : ''}`}>
-            {teamData.map((member, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: isMobile ? 0 : index * 0.1 }}
-                className={`team-card glass-card ${member.theme}`}
-              >
-                <div className="team-image-wrapper">
-                  <img src={member.image} alt={member.name} className="team-image" />
-                  {!isMobile && (
-                    <div className="team-socials">
-                      <a href="#" className="social-icon"><Link size={18} /></a>
-                      <a href="#" className="social-icon"><Mail size={18} /></a>
-                    </div>
-                  )}
                 </div>
-                <div className="team-info">
-                  <h3 className="team-name">{member.name}</h3>
-                  <p className="team-role">{member.role}</p>
-                  <p className="team-bio">{member.bio}</p>
-                  {isMobile && (
-                    <div className="mobile-team-socials">
-                      <a href="#" className="mobile-social-icon"><Link size={16} /></a>
-                      <a href="#" className="mobile-social-icon"><Mail size={16} /></a>
-                    </div>
-                  )}
+                
+                <div className="abt-team-info-hz">
+                  <h3 className="abt-team-name-hz">{member.name}</h3>
+                  <span className="abt-team-role-hz">{member.role}</span>
+                  <p>{member.desc}</p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 5. Company Statistics */}
-      <section className="about-stats-section">
+      {/* 7. FINAL CTA */}
+      <section className="abt-final-cta">
         <div className="container">
-          <div className={`about-stats-grid ${isMobile ? 'stats-carousel' : ''}`}>
-            {statsData.map((stat, index) => (
-              <motion.div 
-                key={index} 
-                className="about-stat-card glass-card"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
-              >
-                <Counter from={0} to={stat.value} duration={2.5} suffix={stat.suffix} />
-                <p className="about-stat-label">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Working Culture Split Layout */}
-      <section className="about-culture-section">
-        <div className="container">
-          <div className="culture-grid">
-            
-            {isMobile && (
-              <motion.div 
-                className="culture-visual mobile-culture-visual"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Working Culture" 
-                  className="culture-image" 
-                />
-              </motion.div>
-            )}
-
-            {!isMobile && (
-              <motion.div 
-                className="culture-visual glass-card"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Working Culture" 
-                  className="culture-image" 
-                />
-              </motion.div>
-            )}
-            
-            <div className="culture-content">
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="culture-block"
-              >
-                <h3 className="culture-title">Collaboration</h3>
-                <p className="culture-desc">We believe the best products are built when engineering, design, and business strategy sit at the same table.</p>
-                {isMobile && (
-                  <motion.div 
-                    className="culture-accent-divider bg-purple"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 32 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                  ></motion.div>
-                )}
-              </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: isMobile ? 0 : 0.1 }}
-                className="culture-block"
-              >
-                <h3 className="culture-title">Continuous Learning</h3>
-                <p className="culture-desc">Technology moves fast. We allocate dedicated time for our teams to experiment with new frameworks, AI models, and architectural patterns.</p>
-                {isMobile && (
-                  <motion.div 
-                    className="culture-accent-divider bg-cyan"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 32 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                  ></motion.div>
-                )}
-              </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: isMobile ? 0 : 0.2 }}
-                className="culture-block"
-              >
-                <h3 className="culture-title">Innovation</h3>
-                <p className="culture-desc">We don't just follow best practices; we aim to set them. Our internal R&D ensures our clients always get cutting-edge solutions.</p>
-                {isMobile && (
-                  <motion.div 
-                    className="culture-accent-divider bg-emerald"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 32 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                  ></motion.div>
-                )}
-              </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 40 }}
+            viewport={{ once: true }}
+            className="abt-cta-box"
+          >
+            <div className="abt-cta-bg-glow"></div>
+            <h2>Ready to Build Something <span className="text-gradient">Exceptional?</span></h2>
+            <p>
+              Whether you're launching an AI startup, modernizing enterprise software, or building your next digital product, we're ready to help.
+            </p>
+            <div className="abt-cta-actions">
+              <Link to="/contact" className="btn-primary">
+                Start Your Project <ArrowRight size={16} />
+              </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 7. Final CTA */}
-      <div className="chapter-hero">
-        <FinalCTA />
-      </div>
     </div>
   );
 };

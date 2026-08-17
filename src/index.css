@@ -10,6 +10,8 @@
   --brand-navy: #0B1021;
   --brand-emerald: #10B981;
   --brand-amber: #FFB020;
+  
+  --brand-accent: var(--brand-cyan);
 
   /* Dark Theme Default (Deep Backgrounds) */
   /* Instead of flat #0A0A0B, we use a rich deep navy/black base */
@@ -110,6 +112,8 @@
   
   --text-primary: #111111;
   --text-secondary: #6B7280;
+  
+  --brand-accent: var(--brand-purple);
   
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(0, 0, 0, 0.06);

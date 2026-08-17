@@ -1,56 +1,80 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Testimonials.css';
 
 const testimonialData = [
   {
-    quote: "CodexNeural didn't just build our platform; they engineered a scalable infrastructure that allowed us to handle a 400% increase in user traffic without a single point of failure. They are true product engineers.",
-    name: "Sarah Jenkins",
-    role: "Chief Technology Officer",
-    company: "FinTech Elevate",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    quote:
+      "CodexNeural didn't just build our platform; they engineered a scalable infrastructure that allowed us to handle a 400% increase in user traffic without a single point of failure. They are true product engineers.",
+    name: "Dr. Yulianna Shiikha",
+    role: "CEO & Founder",
+    company: "Life Science Ai",
+    image: "/yulianna-profile.png",
   },
   {
-    quote: "Their engineering team feels like an internal extension of our own. The AI architecture they designed reduced our processing time by 80% while maintaining absolute compliance and security.",
+    quote:
+      "Their engineering team feels like an internal extension of our own. The AI architecture they designed reduced our processing time by 80% while maintaining absolute compliance and security.",
     name: "Marcus Chen",
     role: "VP of Engineering",
     company: "HealthSync",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800"
-  }
+    image:
+      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800",
+  },
 ];
 
 const Testimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonialData.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonialData.length) % testimonialData.length);
+  };
+
   return (
     <section className="testimonials-section">
       <div className="container">
-        <div className="testimonials-carousel">
-          {testimonialData.map((testimonial, index) => (
+        <div className="testimonials-slider-wrapper">
+          <AnimatePresence mode="wait">
             <motion.div 
-              key={index}
+              key={currentIndex}
               className="testimonial-content glass-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <Quote size={48} className="quote-icon" />
               
               <h2 className="testimonial-quote">
-                "{testimonial.quote}"
+                "{testimonialData[currentIndex].quote}"
               </h2>
               
-              <div className="testimonial-author">
-                <div className="author-image-wrapper">
-                  <img src={testimonial.image} alt={testimonial.name} className="author-image" />
+              <div className="testimonial-footer">
+                <div className="testimonial-author">
+                  <div className="author-image-wrapper">
+                    <img src={testimonialData[currentIndex].image} alt={testimonialData[currentIndex].name} className="author-image" />
+                  </div>
+                  <div className="author-info">
+                    <h4 className="author-name">{testimonialData[currentIndex].name}</h4>
+                    <p className="author-role">{testimonialData[currentIndex].role}, {testimonialData[currentIndex].company}</p>
+                  </div>
                 </div>
-                <div className="author-info">
-                  <h4 className="author-name">{testimonial.name}</h4>
-                  <p className="author-role">{testimonial.role}, {testimonial.company}</p>
+
+                <div className="testimonial-nav">
+                  <button className="nav-arrow" onClick={prevTestimonial} aria-label="Previous Testimonial">
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button className="nav-arrow" onClick={nextTestimonial} aria-label="Next Testimonial">
+                    <ChevronRight size={24} />
+                  </button>
                 </div>
               </div>
             </motion.div>
-          ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>

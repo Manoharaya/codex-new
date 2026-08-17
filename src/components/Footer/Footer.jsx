@@ -1,10 +1,16 @@
 import React from 'react';
-import { MessageCircle, Globe, Hash } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { MessageCircle, Globe, Hash, ArrowRight } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
+  const location = useLocation();
+  const isContactPage = location.pathname === '/contact';
+  const isServicesPage = location.pathname.startsWith('/services');
+
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer" id="footer">
+
       <div className="container">
         <div className="footer-content">
           <div className="footer-brand">
@@ -21,27 +27,27 @@ const Footer = () => {
           <div>
             <h4 className="footer-heading">Company</h4>
             <ul className="footer-links">
-              <li><a href="/about" className="footer-link">About</a></li>
-              <li><a href="/services" className="footer-link">Services</a></li>
-              <li><a href="/portfolio" className="footer-link">Portfolio</a></li>
+              <li><Link to="/about" className="footer-link">About</Link></li>
+              <li><Link to="/services" className="footer-link">Services</Link></li>
+              <li><Link to="/portfolio" className="footer-link">Portfolio</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-links">
-              <li><a href="/services" className="footer-link">Website Development</a></li>
-              <li><a href="/services" className="footer-link">App Development</a></li>
-              <li><a href="/services" className="footer-link">Software Engineering</a></li>
-              <li><a href="/services" className="footer-link">UI/UX Design</a></li>
+              <li><Link to="/services" className="footer-link">Website Development</Link></li>
+              <li><Link to="/services" className="footer-link">App Development</Link></li>
+              <li><Link to="/services" className="footer-link">Software Engineering</Link></li>
+              <li><Link to="/services" className="footer-link">UI/UX Design</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
-              <li><a href="/contact" className="footer-link">Contact Us</a></li>
-              <li><a href="/portfolio" className="footer-link">Case Studies</a></li>
+              <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
+              <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li>
               <li><a href="#" className="footer-link">HQ: Kathmandu, Nepal</a></li>
             </ul>
           </div>
@@ -65,9 +71,9 @@ const Footer = () => {
           </div>
           
           <div className="footer-socials">
-            <a href="#" className="social-icon"><MessageCircle size={18} /></a>
-            <a href="#" className="social-icon"><Globe size={18} /></a>
-            <a href="#" className="social-icon"><Hash size={18} /></a>
+            <a href="https://www.linkedin.com/company/codex-neural/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
           </div>
         </div>
       </div>

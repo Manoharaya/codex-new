@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, Sun, Moon, Menu, X, ChevronDown, Code, Smartphone, Palette, LineChart, Database, Search } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Sun, Moon, Menu, X, ChevronDown, Code, Smartphone, Palette, LineChart, Database, Search, Brain, Layout, Hexagon, Cloud, Terminal, PenTool, Share2, FileText } from 'lucide-react';
 import './Navbar.css';
 
 const AnimatedLogo = ({ isScrolled }) => {
@@ -120,16 +120,19 @@ const AnimatedLogo = ({ isScrolled }) => {
 };
 
 const Navbar = () => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
     }
     
     const handleScroll = () => {
@@ -139,6 +142,12 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on route change automatically
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = '';
+  }, [location]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
@@ -160,6 +169,33 @@ const Navbar = () => {
     setActiveAccordion(activeAccordion === section ? null : section);
   };
 
+  const isActive = (path) => {
+    if (path === '/' && location.pathname !== '/') return false;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return location.pathname === path;
+  };
+
+  const menuVariants = {
+    hidden: { x: '100%' },
+    visible: { 
+      x: 0,
+      transition: { 
+        type: 'spring', damping: 25, stiffness: 200,
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    },
+    exit: { 
+      x: '100%',
+      transition: { type: 'spring', damping: 25, stiffness: 200 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0, transition: { type: 'spring', damping: 20, stiffness: 100 } }
+  };
+
   return (
     <nav className="navbar animate-slide-up">
       <div className="container navbar-container">
@@ -169,12 +205,12 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <div className="nav-links desktop-only">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</Link>
+          <Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>About</Link>
           
           {/* Services Megamenu Trigger */}
           <div className="nav-item has-dropdown">
-            <Link to="/services" className="nav-link flex items-center gap-1">
+            <Link to="/services" className={`nav-link ${isActive('/services') ? 'active' : ''}`}>
               Services <ChevronDown size={16} className="dropdown-icon" />
             </Link>
             
@@ -182,50 +218,98 @@ const Navbar = () => {
               <div className="megamenu-inner">
                 <div className="megamenu-column">
                   <h4 className="megamenu-title">Engineering</h4>
-                  <Link to="/services" className="megamenu-item">
-                    <div className="megamenu-icon"><Code size={20} /></div>
+                  <Link to="/services/ai-solutions" className="megamenu-item">
+                    <div className="megamenu-icon"><Brain size={20} /></div>
                     <div className="megamenu-text">
-                      <h5>Web Development</h5>
-                      <p>High-performance enterprise SaaS</p>
+                      <h5>AI Solutions</h5>
+                      <p>Neural networks & ML</p>
                     </div>
                   </Link>
-                  <Link to="/services" className="megamenu-item">
+                  <Link to="/services/software-development" className="megamenu-item">
+                    <div className="megamenu-icon"><Code size={20} /></div>
+                    <div className="megamenu-text">
+                      <h5>Enterprise Software</h5>
+                      <p>Scalable business platforms</p>
+                    </div>
+                  </Link>
+                  <Link to="/services/web-development" className="megamenu-item">
+                    <div className="megamenu-icon"><Layout size={20} /></div>
+                    <div className="megamenu-text">
+                      <h5>Website Development</h5>
+                      <p>High-performance web apps</p>
+                    </div>
+                  </Link>
+                  <Link to="/services/app-development" className="megamenu-item">
                     <div className="megamenu-icon"><Smartphone size={20} /></div>
                     <div className="megamenu-text">
                       <h5>Mobile Apps</h5>
-                      <p>Native iOS and Android experiences</p>
+                      <p>Native iOS and Android</p>
                     </div>
                   </Link>
-                  <Link to="/services" className="megamenu-item">
-                    <div className="megamenu-icon"><Database size={20} /></div>
+                  <Link to="/services/blockchain-web3" className="megamenu-item">
+                    <div className="megamenu-icon"><Hexagon size={20} /></div>
                     <div className="megamenu-text">
-                      <h5>System Architecture</h5>
-                      <p>Scalable cloud infrastructure</p>
+                      <h5>Blockchain & Web3</h5>
+                      <p>Decentralized infrastructure</p>
                     </div>
                   </Link>
                 </div>
                 
                 <div className="megamenu-column">
-                  <h4 className="megamenu-title">Growth & Design</h4>
-                  <Link to="/services" className="megamenu-item">
+                  <h4 className="megamenu-title">Infrastructure</h4>
+                  <Link to="/services/cloud-engineering" className="megamenu-item">
+                    <div className="megamenu-icon"><Cloud size={20} /></div>
+                    <div className="megamenu-text">
+                      <h5>Cloud Engineering</h5>
+                      <p>AWS, Azure & GCP</p>
+                    </div>
+                  </Link>
+                  <Link to="/services/devops" className="megamenu-item">
+                    <div className="megamenu-icon"><Terminal size={20} /></div>
+                    <div className="megamenu-text">
+                      <h5>DevOps</h5>
+                      <p>CI/CD & automated pipelines</p>
+                    </div>
+                  </Link>
+
+                  <h4 className="megamenu-title" style={{ marginTop: 'var(--space-24)' }}>Design</h4>
+                  <Link to="/services/ui-ux-design" className="megamenu-item">
                     <div className="megamenu-icon"><Palette size={20} /></div>
                     <div className="megamenu-text">
                       <h5>UI/UX Design</h5>
                       <p>Intuitive user interfaces</p>
                     </div>
                   </Link>
-                  <Link to="/services" className="megamenu-item">
-                    <div className="megamenu-icon"><Search size={20} /></div>
+                  <Link to="/services/graphic-design" className="megamenu-item">
+                    <div className="megamenu-icon"><PenTool size={20} /></div>
                     <div className="megamenu-text">
-                      <h5>Technical SEO</h5>
-                      <p>Search engine domination</p>
+                      <h5>Graphic Design</h5>
+                      <p>Brand identity & illustration</p>
                     </div>
                   </Link>
-                  <Link to="/services" className="megamenu-item">
-                    <div className="megamenu-icon"><LineChart size={20} /></div>
+                </div>
+                
+                <div className="megamenu-column">
+                  <h4 className="megamenu-title">Growth</h4>
+                  <Link to="/services/technical-seo" className="megamenu-item">
+                    <div className="megamenu-icon"><Search size={20} /></div>
                     <div className="megamenu-text">
-                      <h5>Digital Marketing</h5>
-                      <p>Data-driven growth strategies</p>
+                      <h5>Search Engine Optimization</h5>
+                      <p>Technical search dominance</p>
+                    </div>
+                  </Link>
+                  <Link to="/services/digital-marketing" className="megamenu-item">
+                    <div className="megamenu-icon"><Share2 size={20} /></div>
+                    <div className="megamenu-text">
+                      <h5>Social Media Marketing</h5>
+                      <p>Data-driven audience growth</p>
+                    </div>
+                  </Link>
+                  <Link to="/services/content-writing" className="megamenu-item">
+                    <div className="megamenu-icon"><FileText size={20} /></div>
+                    <div className="megamenu-text">
+                      <h5>Content Writing</h5>
+                      <p>High-converting copy</p>
                     </div>
                   </Link>
                 </div>
@@ -233,7 +317,7 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Link to="/portfolio" className="nav-link">Portfolio</Link>
+          <Link to="/portfolio" className={`nav-link ${isActive('/portfolio') ? 'active' : ''}`}>Portfolio</Link>
           
           <button 
             onClick={toggleTheme} 
@@ -243,7 +327,7 @@ const Navbar = () => {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          <Link to="/contact" className="btn-primary ml-4">
+          <Link to="/contact" className="btn-primary" style={{ marginLeft: '16px' }}>
             Get in touch
             <ArrowRight size={18} />
           </Link>
@@ -263,10 +347,7 @@ const Navbar = () => {
         <div className={`mobile-sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
           <div className="sidebar-header">
             <Link to="/" className="nav-brand" onClick={() => setIsMobileMenuOpen(false)}>
-              <img src="/logo.svg" alt="Codex Neural" width="32" height="32" className="nav-logo-img" />
-              <div className="nav-brand-text">
-                <span className="nav-brand-main">CODEX</span>
-              </div>
+              <AnimatedLogo isScrolled={true} />
             </Link>
             <button className="close-btn" onClick={toggleMobileMenu}>
               <X size={28} />
@@ -274,28 +355,47 @@ const Navbar = () => {
           </div>
           
           <div className="sidebar-content">
-            <Link to="/" className="sidebar-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-            <Link to="/about" className="sidebar-link" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+            <Link to="/" className={`sidebar-link ${isActive('/') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+            <Link to="/about" className={`sidebar-link ${isActive('/about') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>About</Link>
             
             <div className="sidebar-accordion">
-              <button className={`accordion-trigger ${activeAccordion === 'services' ? 'active' : ''}`} onClick={() => toggleAccordion('services')}>
+              <button className={`accordion-trigger ${activeAccordion === 'services' || isActive('/services') ? 'active' : ''}`} onClick={() => toggleAccordion('services')}>
                 Services <ChevronDown size={20} className="accordion-icon" />
               </button>
               <div className={`accordion-content ${activeAccordion === 'services' ? 'open' : ''}`}>
-                <Link to="/services" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
-                <Link to="/services" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Mobile Apps</Link>
-                <Link to="/services" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>System Architecture</Link>
-                <Link to="/services" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>UI/UX Design</Link>
-                <Link to="/services" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>SEO & Marketing</Link>
+                <div className="mobile-megamenu-group">
+                  <span className="mobile-group-label">Engineering</span>
+                  <Link to="/services/ai-solutions" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>AI Solutions</Link>
+                  <Link to="/services/software-development" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Enterprise Software</Link>
+                  <Link to="/services/web-development" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Website Development</Link>
+                  <Link to="/services/app-development" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Mobile Apps</Link>
+                  <Link to="/services/blockchain-web3" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Blockchain & Web3</Link>
+                </div>
+                <div className="mobile-megamenu-group">
+                  <span className="mobile-group-label">Infrastructure</span>
+                  <Link to="/services/cloud-engineering" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Cloud Engineering</Link>
+                  <Link to="/services/devops" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>DevOps</Link>
+                </div>
+                <div className="mobile-megamenu-group">
+                  <span className="mobile-group-label">Design</span>
+                  <Link to="/services/ui-ux-design" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>UI/UX Design</Link>
+                  <Link to="/services/graphic-design" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Graphic Design</Link>
+                </div>
+                <div className="mobile-megamenu-group">
+                  <span className="mobile-group-label">Growth</span>
+                  <Link to="/services/technical-seo" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Search Engine Optimization</Link>
+                  <Link to="/services/digital-marketing" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Social Media Marketing</Link>
+                  <Link to="/services/content-writing" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Content Writing</Link>
+                </div>
               </div>
             </div>
             
-            <Link to="/portfolio" className="sidebar-link" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
-            <Link to="/contact" className="sidebar-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+            <Link to="/portfolio" className={`sidebar-link ${isActive('/portfolio') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
+            <Link to="/contact" className={`sidebar-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
           </div>
           
           <div className="sidebar-footer">
-            <Link to="/contact" className="btn-primary w-full justify-center" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/contact" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setIsMobileMenuOpen(false)}>
               Get in touch <ArrowRight size={18} />
             </Link>
           </div>

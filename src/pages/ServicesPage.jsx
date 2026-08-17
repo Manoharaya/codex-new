@@ -4,620 +4,334 @@ import {
   ArrowRight, CheckCircle2, ChevronRight, Monitor, Smartphone, 
   Cloud, PenTool, BrainCircuit, Database, Shield, Zap, Target, 
   Layout, Code2, Server, Settings, HeartPulse, Building2, 
-  GraduationCap, ShoppingCart, Factory, Rocket, Truck, Coffee, Home
+  GraduationCap, ShoppingCart, Factory, Rocket, Truck, Coffee, Home,
+  Brain, FileText, Activity, Share2, Hexagon, Component, Link2, Search, PlayCircle
 } from 'lucide-react';
-import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects';
-import FinalCTA from '../components/FinalCTA/FinalCTA';
+import { Link, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO/SEO';
+import { servicesData, categoryData } from '../data/servicesData';
 import './ServicesPage.css';
 
-const servicesData = [
-  {
-    id: "ai-solutions",
-    title: "Artificial Intelligence Solutions",
-    description: "Transform your operations with intelligent systems that learn, adapt, and automate complex workflows.",
-    features: [
-      "AI Automation", "AI Assistants", "Generative AI", 
-      "Business Intelligence", "Document Processing", "Workflow Automation"
-    ],
-    cta: "Explore AI Solutions",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    theme: "theme-cyan",
-    layout: "image-right"
-  },
-  {
-    id: "custom-software",
-    title: "Custom Software Development",
-    description: "Scalable, secure, and maintainable software engineered specifically for your unique business challenges.",
-    features: [
-      "Enterprise Software", "CRM", "ERP", 
-      "Internal Tools", "Business Portals", "SaaS Platforms"
-    ],
-    cta: "Explore Custom Software",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    theme: "theme-indigo",
-    layout: "image-left"
-  },
-  {
-    id: "web-applications",
-    title: "Web Applications",
-    description: "High-performance web applications that deliver seamless experiences across all devices and browsers.",
-    features: [
-      "Responsive applications", "Customer portals", "Admin dashboards", 
-      "Business websites", "Progressive Web Apps", "API Integrations"
-    ],
-    cta: "Explore Web Apps",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    theme: "theme-magenta",
-    layout: "image-right"
-  },
-  {
-    id: "mobile-applications",
-    title: "Mobile Applications",
-    description: "Native and cross-platform mobile experiences designed to engage users and drive business value.",
-    features: [
-      "Native iOS & Android", "Cross-platform", "Flutter", 
-      "React Native", "Enterprise mobile apps", "Customer applications"
-    ],
-    cta: "Explore Mobile Apps",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    theme: "theme-purple",
-    layout: "image-left"
-  },
-  {
-    id: "cloud-devops",
-    title: "Cloud & DevOps",
-    description: "Robust cloud infrastructure and automated deployment pipelines for maximum reliability and scale.",
-    features: [
-      "AWS & Azure", "Docker & Kubernetes", "CI/CD Pipelines", 
-      "Monitoring & Alerting", "Scalable infrastructure", "Security & Compliance"
-    ],
-    cta: "Explore Cloud Services",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    theme: "theme-cyan",
-    layout: "image-right"
-  },
-  {
-    id: "ui-ux-design",
-    title: "UI/UX Design",
-    description: "Intuitive, data-driven interfaces that delight users and reduce friction in digital journeys.",
-    features: [
-      "User Research", "Wireframes", "UI Design", 
-      "Design Systems", "Prototypes", "Usability Testing"
-    ],
-    cta: "Explore Design Services",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    theme: "theme-indigo",
-    layout: "image-left"
+const UIOverlay = ({ type }) => {
+  switch(type) {
+    case 'ai':
+      return (
+        <div className="ui-overlay-pill">
+          <BrainCircuit size={14} className="overlay-icon" />
+          <span>Processing 4.2B parameters</span>
+          <div className="overlay-pulse"></div>
+        </div>
+      );
+    case 'web':
+      return (
+        <div className="ui-overlay-pill">
+          <Monitor size={14} className="overlay-icon" />
+          <span>res.status(200).json()</span>
+          <CheckCircle2 size={14} style={{ color: '#10B981' }} />
+        </div>
+      );
+    case 'mobile':
+      return (
+        <div className="ui-overlay-pill">
+          <Smartphone size={14} className="overlay-icon" />
+          <span>Compiled successfully</span>
+        </div>
+      );
+    case 'software':
+      return (
+        <div className="ui-overlay-pill">
+          <Code2 size={14} className="overlay-icon" />
+          <span>Architecture active</span>
+        </div>
+      );
+    case 'cloud':
+      return (
+        <div className="ui-overlay-pill">
+          <Cloud size={14} className="overlay-icon" />
+          <span>Nodes: 3/3 Healthy</span>
+          <div className="overlay-dot healthy"></div>
+        </div>
+      );
+    case 'devops':
+      return (
+        <div className="ui-overlay-pill">
+          <Settings size={14} className="overlay-icon" />
+          <span>BUILD → TEST → DEPLOY</span>
+        </div>
+      );
+    case 'uiux':
+      return (
+        <div className="ui-overlay-pill">
+          <Layout size={14} className="overlay-icon" />
+          <span>Grid snapped to 8px</span>
+        </div>
+      );
+    case 'graphic':
+      return (
+        <div className="ui-overlay-pill">
+          <PenTool size={14} className="overlay-icon" />
+          <span>#6F3FF5</span>
+          <div className="color-swatch" style={{ background: '#6F3FF5' }}></div>
+        </div>
+      );
+    case 'seo':
+      return (
+        <div className="ui-overlay-pill">
+          <Search size={14} className="overlay-icon" />
+          <span>Crawl → Index → Optimize</span>
+        </div>
+      );
+    case 'marketing':
+      return (
+        <div className="ui-overlay-pill">
+          <Target size={14} className="overlay-icon" />
+          <span>Conversion: +24%</span>
+          <Activity size={14} style={{ color: '#10B981' }} />
+        </div>
+      );
+    case 'content':
+      return (
+        <div className="ui-overlay-pill">
+          <FileText size={14} className="overlay-icon" />
+          <span>Draft published</span>
+        </div>
+      );
+    case 'blockchain':
+      return (
+        <div className="ui-overlay-pill">
+          <Hexagon size={14} className="overlay-icon" />
+          <span>Block validated</span>
+          <Link2 size={14} />
+        </div>
+      );
+    default:
+      return null;
   }
-];
-
-const processData = [
-  { id: 1, title: "Discover" },
-  { id: 2, title: "Strategy" },
-  { id: 3, title: "Design" },
-  { id: 4, title: "Development" },
-  { id: 5, title: "Testing" },
-  { id: 6, title: "Deployment" },
-  { id: 7, title: "Growth" }
-];
-
-const industriesData = [
-  { icon: <HeartPulse size={24} />, name: "Healthcare" },
-  { icon: <Building2 size={24} />, name: "Finance" },
-  { icon: <GraduationCap size={24} />, name: "Education" },
-  { icon: <ShoppingCart size={24} />, name: "Retail" },
-  { icon: <Factory size={24} />, name: "Manufacturing" },
-  { icon: <Rocket size={24} />, name: "Startups" },
-  { icon: <Truck size={24} />, name: "Logistics" },
-  { icon: <Coffee size={24} />, name: "Hospitality" },
-  { icon: <Home size={24} />, name: "Real Estate" }
-];
-
-const techStackData = [
-  {
-    category: "Frontend",
-    icon: <Layout size={20} />,
-    technologies: ["React", "Next.js", "Vue", "Angular", "Tailwind CSS", "TypeScript"]
-  },
-  {
-    category: "Backend",
-    icon: <Server size={20} />,
-    technologies: ["Node.js", "Python", ".NET", "Java", "Go", "GraphQL"]
-  },
-  {
-    category: "Cloud & DevOps",
-    icon: <Cloud size={20} />,
-    technologies: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "Vercel"]
-  },
-  {
-    category: "AI & ML",
-    icon: <BrainCircuit size={20} />,
-    technologies: ["OpenAI", "Gemini", "LangChain", "Hugging Face", "Vector DBs", "PyTorch"]
-  },
-  {
-    category: "Databases",
-    icon: <Database size={20} />,
-    technologies: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Supabase", "Prisma"]
-  }
-];
-
-const featuresData = [
-  {
-    icon: <Target size={24} />,
-    title: "Business-first thinking",
-    desc: "We align technology with your specific business goals, focusing on ROI and measurable outcomes."
-  },
-  {
-    icon: <Zap size={24} />,
-    title: "Scalable architecture",
-    desc: "Systems designed to handle growth smoothly, ensuring your software doesn't become a bottleneck."
-  },
-  {
-    icon: <Shield size={24} />,
-    title: "Security by design",
-    desc: "Enterprise-grade security practices embedded throughout the entire development lifecycle."
-  },
-  {
-    icon: <CheckCircle2 size={24} />,
-    title: "Long-term partnership",
-    desc: "We don't just launch and leave. We provide ongoing support, optimization, and strategic guidance."
-  }
-];
-
-const engagementModels = [
-  {
-    title: "Dedicated Team",
-    desc: "Ideal for long-term partnerships and continuous product development.",
-    features: ["Dedicated engineers", "Flexible scaling", "Direct communication", "Full integration"]
-  },
-  {
-    title: "Project Based",
-    desc: "Clear scope, fixed delivery. Perfect for well-defined software initiatives.",
-    features: ["Fixed timeline", "Defined deliverables", "End-to-end execution", "Milestone tracking"]
-  },
-  {
-    title: "Technology Consulting",
-    desc: "Strategic guidance to solve complex architectural or business challenges.",
-    features: ["Architecture review", "AI Strategy", "Digital Transformation", "Security audits"]
-  }
-];
-
+};
 
 const ServicesPage = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [expandedServiceId, setExpandedServiceId] = useState(null);
-  const [expandedTechCategory, setExpandedTechCategory] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    const mQuery = window.matchMedia('(max-width: 768px)');
-    setIsMobile(mQuery.matches);
-    const handleResize = (e) => setIsMobile(e.matches);
-    mQuery.addEventListener('change', handleResize);
-    return () => mQuery.removeEventListener('change', handleResize);
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.substring(1));
+        if (element) {
+          const offset = 100; // Account for sticky navbar
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  const scrollToCategory = (categoryLabel) => {
+    // Find the first service matching this category
+    const firstService = servicesData.find(s => s.category === categoryLabel);
+    if (firstService) {
+      const element = document.getElementById(firstService.id);
+      if (element) {
+        const offset = 120;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": servicesData.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `https://www.codexneural.com/services/${service.id}`,
+      "name": service.title,
+      "description": service.description
+    }))
+  };
+
   return (
-    <div className="services-page chapter-services">
+    <div className="page-transition">
       <SEO 
-        title="Our Services"
-        description="From AI-powered automation to enterprise software, cloud infrastructure, and intuitive digital experiences, CodexNeural helps businesses build technology that delivers measurable impact."
+        title="Services"
+        description="We design and engineer the systems businesses need to move forward. AI solutions, enterprise software, cloud infrastructure, and digital growth."
         url="/services"
+        schema={servicesSchema}
       />
-      {/* 1. Hero Section */}
+
+      {/* 1. HERO SECTION */}
       <section className="services-hero">
-        <div className="aurora-blob aurora-indigo services-hero-aurora1"></div>
-        <div className="aurora-blob aurora-cyan services-hero-aurora2"></div>
+        <div className="hero-noise-overlay"></div>
+        <div className="aurora-blob aurora-purple" style={{ width: '500px', height: '500px', top: '-20%', right: '-10%' }}></div>
+        <div className="aurora-blob aurora-cyan" style={{ width: '400px', height: '400px', bottom: '-10%', left: '-5%' }}></div>
         
         <div className="container">
-          <div className="services-hero-grid">
-            <div className="services-hero-content">
-              <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="services-hero-title"
-              >
-                Engineering <span className="text-gradient">Digital Products</span> That Drive Business Growth
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="services-hero-desc"
-              >
-                From AI-powered automation to enterprise software, cloud infrastructure, and intuitive digital experiences, CodexNeural helps businesses build technology that delivers measurable impact.
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="services-hero-actions"
-              >
-                <a href="#contact" className="btn-primary">Start Your Project <ArrowRight size={18} /></a>
-                <a href="#contact" className="btn-secondary">Schedule a Discovery Call</a>
-              </motion.div>
-            </div>
-            
-            <div className="services-hero-visual">
-              <motion.div 
-                className="ecosystem-layers"
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="eco-layer eco-layer-desktop glass-card">
-                  <div className="eco-header"><div className="eco-dots"><span></span><span></span><span></span></div></div>
-                  <div className="eco-body"><div className="eco-chart"></div></div>
-                </div>
-                <div className="eco-layer eco-layer-mobile glass-card">
-                  <div className="eco-mobile-notch"></div>
-                  <div className="eco-mobile-content">
-                    <div className="eco-line"></div>
-                    <div className="eco-line"></div>
-                    <div className="eco-line short"></div>
-                  </div>
-                </div>
-                {!isMobile && (
-                  <>
-                    <div className="eco-layer eco-layer-widget glass-card">
-                      <BrainCircuit size={24} className="eco-widget-icon" />
-                      <div className="eco-widget-lines">
-                        <div className="eco-line"></div>
-                        <div className="eco-line short"></div>
-                      </div>
-                    </div>
-                    <div className="eco-layer eco-layer-cloud glass-card">
-                      <Cloud size={20} className="eco-cloud-icon" />
-                      <span className="eco-cloud-text">Syncing...</span>
-                    </div>
-                  </>
-                )}
-              </motion.div>
-            </div>
+          <div className="services-hero-content text-center">
+            <motion.div 
+              className="hero-eyebrow"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              WHAT WE BUILD
+            </motion.div>
+            <motion.h1 
+              className="page-title services-main-title"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Digital systems built for <span className="text-gradient">real business.</span>
+            </motion.h1>
+            <motion.p 
+              className="page-subtitle services-main-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              From intelligent AI solutions and enterprise software to high-performance websites, mobile products, cloud infrastructure, and digital growth — we design and engineer the systems businesses need to move forward.
+            </motion.p>
+            <motion.div 
+              className="hero-cta-group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              style={{ justifyContent: 'center', marginTop: '32px' }}
+            >
+              <Link to="/contact" className="btn-primary hero-btn-primary">
+                Start Your Project
+                <ArrowRight size={18} className="btn-arrow" />
+              </Link>
+              <button className="btn-secondary hero-btn-secondary" onClick={() => scrollToCategory('INTELLIGENCE')}>
+                <PlayCircle size={18} style={{ marginRight: '8px' }} />
+                Explore Our Services
+              </button>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 2. Services Introduction */}
-      <section className="services-intro">
+      {/* 2. SERVICE NAVIGATION / CATEGORY BAR */}
+      <div className="category-nav-wrapper">
         <div className="container">
-          <motion.div 
-            className="intro-content text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="intro-title text-gradient">What We Build</h2>
-            <p className="intro-desc">
-              Every business has different challenges. Our services are designed around solving problems, improving operations, and creating long-term digital value.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 3. Service Stories (Alternating Sections Desktop / Carousel Mobile) */}
-      <div className={`service-stories-container ${isMobile ? 'services-carousel-mobile' : ''}`}>
-        {servicesData.map((service, index) => {
-          const isExpanded = isMobile && expandedServiceId === service.id;
-          return (
-            <section key={service.id} id={service.id} className={`service-story-section ${service.theme} ${isMobile ? 'mobile-service-card' : service.layout}`}>
-              {!isMobile && <div className="service-story-aurora"></div>}
-              <div className="container">
-                <div className="service-story-grid">
-                  
-                  {isMobile && (
-                    <motion.div 
-                      className="service-story-visual"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="story-image-wrapper glass-card">
-                        <img src={service.image} alt={service.title} className="story-image" />
-                      </div>
-                    </motion.div>
-                  )}
-
-                  <div className="service-story-content">
-                    <motion.h3 
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      className="story-title"
-                    >
-                      {service.title}
-                    </motion.h3>
-                    
-                    <motion.p 
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
-                      className="story-desc"
-                    >
-                      {service.description}
-                    </motion.p>
-                    
-                    {(!isMobile || isExpanded) && (
-                      <motion.div
-                        className="service-expandable-content"
-                        initial={isMobile ? { height: 0, opacity: 0 } : false}
-                        animate={isMobile ? { height: 'auto', opacity: 1 } : false}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <ul className="story-features-list">
-                          {service.features.map((feature, fIndex) => (
-                            <li key={fIndex} className="story-feature-item">
-                              <CheckCircle2 size={18} className="story-feature-icon" />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="story-cta-wrapper">
-                          <a href="#contact" className="story-cta-link">
-                            {service.cta} <ArrowRight size={16} />
-                          </a>
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {isMobile && (
-                      <button 
-                        className="service-expand-btn"
-                        onClick={() => setExpandedServiceId(isExpanded ? null : service.id)}
-                      >
-                        {isExpanded ? 'Less Details' : 'Expand Details'} 
-                        <ChevronRight size={16} className={`expand-icon ${isExpanded ? 'rotated' : ''}`} />
-                      </button>
-                    )}
-                  </div>
-                  
-                  {!isMobile && (
-                    <motion.div 
-                      className="service-story-visual"
-                      initial={{ opacity: 0, scale: 0.95, x: service.layout === 'image-right' ? 40 : -40 }}
-                      whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <div className="story-image-wrapper glass-card">
-                        <img src={service.image} alt={service.title} className="story-image" />
-                      </div>
-                    </motion.div>
-                  )}
-
-                </div>
-              </div>
-            </section>
-          );
-        })}
-      </div>
-
-      {/* 4. Process Section (How We Deliver) */}
-      <section className="process-section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">How We Deliver</h2>
-          </div>
-          
-          <div className="process-timeline-container">
-            <div className="process-line"></div>
-            <div className={`process-steps ${isMobile ? 'vertical-process' : ''}`}>
-              {processData.map((step, index) => (
-                <React.Fragment key={step.id}>
-                  <motion.div 
-                    className="process-step"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: isMobile ? "-50px" : "0px" }}
-                    transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
-                  >
-                    <div className="process-step-number">{step.id}</div>
-                    <div className="process-step-title">{step.title}</div>
-                  </motion.div>
-                  {index < processData.length - 1 && (
-                    <div className={`process-arrow ${isMobile ? 'vertical-arrow' : ''}`}>
-                      {isMobile ? <div className="vertical-line"></div> : <ChevronRight size={16} />}
-                    </div>
-                  )}
-                </React.Fragment>
+          <div className="category-nav-scroll">
+            <div className="category-nav">
+              {categoryData.map((cat) => (
+                <button 
+                  key={cat.id} 
+                  className="category-btn"
+                  onClick={() => scrollToCategory(cat.id)}
+                >
+                  {cat.label}
+                </button>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* 5. Industries Section */}
-      <section className="industries-section">
-        <div className="aurora-blob aurora-magenta industries-aurora"></div>
+      {/* 3 & 4. FEATURED SERVICES SECTIONS (The 12 Services) */}
+      <section className="featured-services-section">
         <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">Industries We Serve</h2>
-          </div>
           
-          <div className={`industries-grid ${isMobile ? 'industries-carousel-mobile' : ''}`}>
-            {industriesData.map((industry, index) => (
-              <motion.div 
-                key={index}
-                className="industry-card glass-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: isMobile ? 0 : (index % 3) * 0.1 }}
-              >
-                <div className="industry-icon">{industry.icon}</div>
-                <h4 className="industry-name">{industry.name}</h4>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Technology Ecosystem */}
-      <section className="tech-ecosystem-section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">Technology Ecosystem</h2>
-          </div>
-          
-          <div className={`tech-panels-grid ${isMobile ? 'tech-accordion-mobile' : ''}`}>
-            {techStackData.map((group, index) => {
-              const isExpanded = isMobile && expandedTechCategory === index;
-              return (
-                <motion.div 
-                  key={index}
-                  className={`tech-panel glass-card ${isExpanded ? 'active' : ''}`}
-                  initial={{ opacity: 0, scale: isMobile ? 1 : 0.95, y: isMobile ? 20 : 0 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
-                  onClick={() => isMobile && setExpandedTechCategory(isExpanded ? null : index)}
-                >
-                  <div className="tech-panel-header">
-                    {group.icon}
-                    <h4 className="tech-panel-title">{group.category}</h4>
-                    {isMobile && <ChevronRight size={16} className={`tech-expand-icon ${isExpanded ? 'rotated' : ''}`} />}
-                  </div>
-                  {(!isMobile || isExpanded) && (
-                    <motion.div 
-                      className="tech-tags-wrapper"
-                      initial={isMobile ? { height: 0, opacity: 0 } : false}
-                      animate={isMobile ? { height: 'auto', opacity: 1 } : false}
-                    >
-                      <div className="tech-tags">
-                        {group.technologies.map((tech, tIndex) => (
-                          <span key={tIndex} className="tech-tag">{tech}</span>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Why Choose Us */}
-      <section className="why-choose-section">
-        <div className="container">
-          <div className="why-choose-grid">
-            {isMobile && (
-              <motion.div 
-                className="why-choose-visual mobile-visual-first"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-              >
-                <div className="glass-card image-wrapper-inner">
-                  <img 
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                    alt="CodexNeural Team" 
-                    className="why-choose-image"
-                  />
-                </div>
-              </motion.div>
-            )}
-
-            {!isMobile && (
-              <motion.div 
-                className="why-choose-visual glass-card"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="CodexNeural Team" 
-                  className="why-choose-image"
-                />
-              </motion.div>
-            )}
+          {servicesData.map((service, index) => {
+            const isLeftImage = service.layout === 'image-left';
             
-            <div className="why-choose-content">
-              <motion.h2 
-                className="why-choose-title"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                Why Choose CodexNeural
-              </motion.h2>
-              
-              <div className="features-blocks">
-                {featuresData.map((feature, index) => (
-                  <motion.div 
-                    key={index}
-                    className="feature-block"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <div className="feature-icon">{feature.icon}</div>
-                    <div className="feature-text">
-                      <h4 className="feature-block-title">{feature.title}</h4>
-                      <p className="feature-block-desc">{feature.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Engagement Models */}
-      <section className="engagement-section">
-        <div className="aurora-blob aurora-cyan engagement-aurora"></div>
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">Client Engagement Models</h2>
-          </div>
-          
-          <div className={`engagement-grid ${isMobile ? 'engagement-carousel-mobile' : ''}`}>
-            {engagementModels.map((model, index) => (
+            return (
               <motion.div 
-                key={index}
-                className="engagement-card glass-card"
+                key={service.id}
+                id={service.id}
+                className={`service-editorial-row ${isMobile ? 'mobile-stacked' : (isLeftImage ? 'row-reverse' : '')}`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: isMobile ? 0 : index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7 }}
               >
-                <div className="engagement-header">
-                  <h3 className="engagement-title">{model.title}</h3>
-                  <p className="engagement-desc">{model.desc}</p>
+                {/* Content Side */}
+                <div className="service-editorial-content">
+                  <div className="service-editorial-meta">
+                    <span className="service-number">{service.number}</span>
+                    <span className="service-category">{service.category}</span>
+                  </div>
+                  <h2 className="service-editorial-title">{service.title}</h2>
+                  <h3 className="service-editorial-headline">"{service.headline}"</h3>
+                  <p className="service-editorial-desc">{service.description}</p>
+                  
+                  <div className="service-capabilities">
+                    {service.capabilities.map((cap, i) => (
+                      <span key={i} className="capability-tag">{cap}</span>
+                    ))}
+                  </div>
+
+                  <Link to={`/services/${service.id}`} className="service-cta-link">
+                    Explore Service <ArrowRight size={16} />
+                  </Link>
                 </div>
-                <ul className="engagement-features">
-                  {model.features.map((feature, fIndex) => (
-                    <li key={fIndex}>
-                      <CheckCircle2 size={18} className="engagement-check" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Image Side */}
+                <div className="service-editorial-visual">
+                  <div className={`service-image-container ${service.theme}`}>
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="service-stock-image"
+                    />
+                    <div className="service-image-gradient"></div>
+                    <UIOverlay type={service.overlayType} />
+                  </div>
+                </div>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
+          
         </div>
       </section>
 
-      {/* 9. Featured Success Stories (Reusing Homepage Component) */}
-      <div className="chapter-portfolio">
-        <FeaturedProjects />
-      </div>
-
-      {/* 10. Final CTA */}
-      <div className="chapter-hero">
-        <FinalCTA />
-      </div>
+      {/* 13. FINAL CTA */}
+      <section className="final-conversion-section">
+        <div className="container">
+          <motion.div 
+            className="conversion-box glass-card text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="conversion-title">Have a system worth building?</h2>
+            <p className="conversion-subtitle">Tell us what you're trying to solve. We'll help turn the requirement into a clear digital solution.</p>
+            <div className="conversion-actions">
+              <Link to="/contact" className="btn-primary">
+                Start Your Project <ArrowRight size={18} />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      
     </div>
   );
 };

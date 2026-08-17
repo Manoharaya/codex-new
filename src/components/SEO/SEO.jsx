@@ -1,16 +1,19 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SEO = ({ title, description, keywords, url }) => {
-  const siteTitle = 'CodexNeural | Premium Digital Product Engineering';
-  const fullTitle = title ? `${title} | CodexNeural` : siteTitle;
-  const defaultDescription = 'CodexNeural is a premium product engineering firm specializing in AI, enterprise software, web, and mobile applications. We build digital products that drive business growth.';
+const SEO = ({ title, description, keywords, url, schema }) => {
+  const siteTitle = 'Codex Neural | Premium Digital Product Engineering';
+  const fullTitle = title ? `${title} | Codex Neural` : siteTitle;
+  const defaultDescription = 'Codex Neural is a premium product engineering firm specializing in AI, enterprise software, web, and mobile applications. We build digital products that drive business growth.';
   const finalDescription = description || defaultDescription;
-  const defaultKeywords = 'software development, AI solutions, web applications, mobile apps, enterprise software, cloud infrastructure, UI/UX design, CodexNeural';
+  const defaultKeywords = 'software development, AI solutions, web applications, mobile apps, enterprise software, cloud infrastructure, UI/UX design, Codex Neural';
   const finalKeywords = keywords || defaultKeywords;
-  const siteUrl = 'https://codexneural.com';
-  const currentUrl = url ? `${siteUrl}${url}` : siteUrl;
-  const ogImage = `${siteUrl}/og-image.jpg`; // Placeholder for actual OG image
+  
+  // Ensure the base URL is consistent and trailing slash logic is robust
+  const siteUrl = 'https://www.codexneural.com';
+  const cleanUrlPath = url ? (url.startsWith('/') ? url : `/${url}`) : '';
+  const currentUrl = `${siteUrl}${cleanUrlPath}`;
+  const ogImage = `${siteUrl}/og-image.jpg`;
 
   return (
     <Helmet>
@@ -35,6 +38,13 @@ const SEO = ({ title, description, keywords, url }) => {
 
       {/* Canonical Link */}
       <link rel="canonical" href={currentUrl} />
+
+      {/* Structured Data (JSON-LD) */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 };

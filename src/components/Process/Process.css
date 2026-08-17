@@ -45,6 +45,7 @@
   color: var(--brand-purple);
   margin-bottom: var(--space-16);
   letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 .step-icon {
@@ -58,17 +59,22 @@
   justify-content: center;
   color: var(--text-primary);
   margin-bottom: var(--space-24);
-  transition: var(--transition-smooth);
+  transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .process-step:hover .step-icon {
-  transform: translateY(-4px);
-  border-color: rgba(255,255,255,0.1);
+  background: var(--bg-card-hover);
+  border-color: var(--brand-purple);
   color: var(--brand-purple);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 0 20px rgba(111, 63, 245, 0.2);
+  transform: translateY(-4px);
 }
 
+.process-step:hover .step-number {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(111, 63, 245, 0.5);
+}
 .step-title {
   font-size: 18px;
   font-weight: 600;

@@ -19,6 +19,7 @@ import './Services.css';
 const servicesData = [
   {
     icon: <Globe size={32} strokeWidth={1.5} />,
+    id: 'web-development',
     title: 'Website Development',
     desc: 'Highly functional & visually appealing website designed to meet your need.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
@@ -27,6 +28,7 @@ const servicesData = [
   },
   {
     icon: <Smartphone size={32} strokeWidth={1.5} />,
+    id: 'app-development',
     title: 'App Development',
     desc: 'Innovative and user-friendly mobile application designed to engage users.',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800',
@@ -35,6 +37,7 @@ const servicesData = [
   },
   {
     icon: <Terminal size={32} strokeWidth={1.5} />,
+    id: 'software-development',
     title: 'System/Software Development',
     desc: 'System/software developed according to your business needs.',
     image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800',
@@ -43,6 +46,7 @@ const servicesData = [
   },
   {
     icon: <Layers size={32} strokeWidth={1.5} />,
+    id: 'ui-ux-design',
     title: 'UI/UX Design',
     desc: 'Design eye-catching UI/UX interfaces for effortless user interaction.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800',
@@ -51,6 +55,7 @@ const servicesData = [
   },
   {
     icon: <Zap size={32} strokeWidth={1.5} />,
+    id: 'technical-seo',
     title: 'Search Engine Optimization (SEO)',
     desc: 'Custom SEO solutions for enhanced search engine visibility and growth.',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
@@ -59,6 +64,7 @@ const servicesData = [
   },
   {
     icon: <Share2 size={32} strokeWidth={1.5} />,
+    id: 'digital-marketing',
     title: 'Social Media Marketing (SMM)',
     desc: 'Build a strong online presence and engage with your targeted audience.',
     image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
@@ -67,6 +73,7 @@ const servicesData = [
   },
   {
     icon: <Palette size={32} strokeWidth={1.5} />,
+    id: 'graphic-design',
     title: 'Graphic Design',
     desc: "Designs that Speak Your Brand's Narrative and Connect with Your Audience.",
     image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800',
@@ -75,6 +82,7 @@ const servicesData = [
   },
   {
     icon: <FileText size={32} strokeWidth={1.5} />,
+    id: 'content-writing',
     title: 'Content Writing',
     desc: 'Engaging and meaningful content to connect with your audience.',
     image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800',
@@ -83,6 +91,7 @@ const servicesData = [
   },
   {
     icon: <Cpu size={32} strokeWidth={1.5} />,
+    id: 'blockchain-web3',
     title: 'Blockchain & Web3 Development',
     desc: 'Building decentralized, secure, and transparent solutions for the next generation of the web.',
     image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800',
@@ -198,7 +207,7 @@ const Services = () => {
                           <h4 className="cinematic-headline">{service.headline}</h4>
                           <p className="cinematic-supporting">{service.supporting}</p>
                           
-                          <Link to="/services" className="btn-primary mt-4 inline-flex">
+                          <Link to={`/services/${service.id}`} className="btn-primary mt-4 inline-flex">
                             Explore <ArrowRight size={16} />
                           </Link>
                         </motion.div>
@@ -251,11 +260,11 @@ const Services = () => {
                           style={{ overflow: 'hidden' }}
                         >
                           <div className="mobile-content-inner">
-                            <img src={service.image} alt={service.title} className="mobile-image" />
+                            <img src={service.image} alt={`${service.title} - ${service.headline}`} className="mobile-image" loading="lazy" />
                             <div className="mobile-content-box">
                                <h4 className="cinematic-headline" style={{color: "var(--text-primary)"}}>{service.headline}</h4>
                                <p className="cinematic-supporting" style={{color: "var(--text-secondary)"}}>{service.supporting}</p>
-                               <Link to="/services" className="btn-primary mt-2">
+                               <Link to={`/services/${service.id}`} className="btn-primary mt-2">
                                  Explore <ArrowRight size={16} />
                                </Link>
                             </div>

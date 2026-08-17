@@ -1,0 +1,233 @@
+.engineering-engine {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  position: relative;
+  /* Fix for WebKit background bleed on rounded corners */
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.engine-header {
+  padding: var(--space-16) var(--space-24);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.engine-service-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.engine-visualization-area {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.engine-footer {
+  padding: var(--space-16) var(--space-24);
+  border-top: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+  /* Explicitly round the footer to match the container to prevent white corners */
+  border-bottom-left-radius: var(--radius-card);
+  border-bottom-right-radius: var(--radius-card);
+  margin-bottom: -1px; /* Cover any subpixel gaps */
+  position: relative;
+  z-index: 10;
+}
+
+.context-label {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Reusable Components Styles */
+.workflow-node {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-24);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+  min-width: 200px;
+}
+
+[data-theme='light'] .workflow-node {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.workflow-node.active {
+  border-color: var(--brand-accent);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+[data-theme='light'] .workflow-node.active {
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 20px rgba(111, 63, 245, 0.1);
+}
+
+.node-icon {
+  display: flex;
+  color: var(--text-secondary);
+  transition: color 0.4s ease;
+}
+
+.workflow-node.active .node-icon {
+  color: var(--brand-accent);
+}
+
+.node-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.4s ease;
+}
+
+.workflow-node.active .node-label {
+  color: var(--text-primary);
+}
+
+
+.engine-data-packet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.engine-data-packet .packet-core {
+  width: 100%;
+  height: 100%;
+  background: var(--brand-accent);
+  border-radius: 50%;
+}
+
+.engine-data-packet .packet-halo {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 16px;
+  height: 16px;
+  background: var(--brand-accent);
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(4px);
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+}
+
+.status-card.status-success {
+  border-color: var(--brand-emerald);
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-title {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.status-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .engineering-engine {
+    border-radius: var(--radius-card);
+  }
+  
+  .engine-visualization-area {
+    min-height: 400px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .engine-visualization-area::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Force vertical stacking on complex 2-column layouts */
+  .uiux-design-visual, 
+  .mobile-apps-visual, 
+  .devops-visual {
+    flex-direction: column !important;
+    padding: var(--space-24) var(--space-16) !important;
+    height: auto !important;
+    gap: var(--space-32);
+  }
+  
+  .uiux-design-visual > div:first-child,
+  .mobile-apps-visual > div:first-child,
+  .devops-visual > div:first-child {
+    flex: auto !important;
+    width: 100% !important;
+    align-items: center;
+  }
+  
+  .uiux-design-visual > div:last-child,
+  .mobile-apps-visual > div:last-child,
+  .devops-visual > div:last-child {
+    flex: auto !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    align-items: center;
+  }
+
+  /* Adjust nodes for mobile */
+  .workflow-node {
+    padding: var(--space-12) var(--space-16);
+    min-width: 180px;
+  }
+  
+  .node-label {
+    font-size: 12px;
+  }
+  
+  .status-card {
+    padding: var(--space-12);
+  }
+}
+
+@media (max-width: 480px) {
+  .workflow-node {
+    padding: var(--space-8) var(--space-12);
+    min-width: 160px;
+    border-radius: 50px;
+  }
+  
+  .node-label {
+    font-size: 11px;
+  }
+}
