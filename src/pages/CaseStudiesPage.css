@@ -316,18 +316,34 @@
 
 @media (max-width: 768px) {
   .cs-hero {
-    padding: 6rem 0 3rem;
+    padding: 5rem 0 2.5rem;
   }
   
   .cs-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .cs-featured-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
   
   .cs-image-wrapper {
     aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-hero {
+    padding: 4.5rem 0 2rem;
+  }
+  .cs-featured-section {
+    padding: 2rem 0;
+  }
+  .cs-featured-content {
+    padding: 1.5rem;
+  }
+  .cs-card-content {
+    padding: 1.25rem;
   }
 }

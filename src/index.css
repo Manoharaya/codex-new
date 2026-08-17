@@ -98,9 +98,20 @@
 @media (max-width: 768px) {
   :root {
     --section-spacing-y: var(--space-64);
-    --card-padding: var(--space-24);
-    --grid-gap: var(--space-24);
+    --card-padding: var(--space-20);
+    --grid-gap: var(--space-20);
     --page-padding: var(--space-20);
+  }
+}
+
+/* Small Mobile Semantic Overrides */
+@media (max-width: 480px) {
+  :root {
+    --section-spacing-y: var(--space-48);
+    --card-padding: var(--space-16);
+    --grid-gap: var(--space-16);
+    --page-padding: var(--space-16);
+    --radius-card: 16px;
   }
 }
 

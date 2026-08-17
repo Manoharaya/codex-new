@@ -354,15 +354,15 @@
 
 @media (max-width: 768px) {
   .service-detail-nav-container {
-    padding-top: var(--space-100);
+    padding-top: 80px;
   }
 
   .service-detail-hero {
-    padding: var(--space-40) 0;
+    padding: var(--space-24) 0;
   }
 
   .service-hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(28px, 7vw, 38px);
   }
 
   .capabilities-grid, .process-compact-grid {
@@ -371,19 +371,20 @@
   }
 
   .capability-card {
-    padding: var(--space-24);
+    padding: var(--space-20);
     flex-direction: row;
     align-items: center;
   }
 
   .capability-check {
-    width: 40px;
-    height: 40px;
-    padding: 10px;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    flex-shrink: 0;
   }
 
   .conversion-box {
-    padding: var(--space-40) var(--space-24);
+    padding: var(--space-32) var(--space-20);
   }
 
   .hero-cta-group {
@@ -394,5 +395,19 @@
   .hero-cta-group .btn-secondary {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-detail-nav-container {
+    padding-top: 70px;
+  }
+  .capability-card {
+    padding: var(--space-16);
+    gap: var(--space-12);
+  }
+  .conversion-box {
+    padding: var(--space-24) var(--space-16);
   }
 }
