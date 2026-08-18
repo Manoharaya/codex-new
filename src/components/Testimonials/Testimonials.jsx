@@ -6,10 +6,10 @@ import './Testimonials.css';
 const testimonialData = [
   {
     quote:
-      "CodexNeural transformed our vision into a robust, scalable platform that’s built to grow with our business. Their technical expertise, attention to detail, and product-focused approach made them a true technology partner.",
+      "I’ve had a very positive experience working with CodexNeural. Their team is professional, knowledgeable and genuinely committed to understanding the client’s needs before recommending a solution.\n\nWhat I particularly appreciated was their ability to communicate technical concepts clearly, remain responsive throughout the process, and approach challenges with a practical, solution-focused mindset. The collaboration felt transparent and reliable, with a strong emphasis on delivering quality outcomes rather than simply completing a project.\n\nCodexNeural has demonstrated strong technical capability, professionalism and a willingness to work collaboratively. I would be happy to recommend them to organisations looking for a dependable technology partner and look forward to continuing our work together.",
     name: "Dr. Yulianna Shiikha",
     role: "CEO & Founder",
-    company: "Life Science Ai",
+    company: "Life Science AI",
     image: "/yulianna-profile.png",
   },
   {
@@ -49,9 +49,13 @@ const Testimonials = () => {
             >
               <Quote size={48} className="quote-icon" />
               
-              <h2 className="testimonial-quote">
-                "{testimonialData[currentIndex].quote}"
-              </h2>
+              <div className="testimonial-quote-wrap">
+                {testimonialData[currentIndex].quote.split('\n\n').map((para, idx) => (
+                  <p key={idx} className="testimonial-quote-para">
+                    {idx === 0 ? `“${para}` : para}{idx === testimonialData[currentIndex].quote.split('\n\n').length - 1 ? '”' : ''}
+                  </p>
+                ))}
+              </div>
               
               <div className="testimonial-footer">
                 <div className="testimonial-author">
