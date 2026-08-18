@@ -1,5 +1,5 @@
 .final-cta-section {
-  padding: var(--space-160) 0;
+  padding: var(--space-80) 0 var(--space-120) 0;
   position: relative;
   overflow: hidden;
   background-color: var(--bg-primary);
