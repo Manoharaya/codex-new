@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import './FinalCTA.css';
@@ -25,9 +26,9 @@ const FinalCTA = () => {
           </p>
           
           <div className="cta-actions">
-            <a href="#contact" className="btn-primary btn-large">
+            <Link to="/contact" className="btn-primary btn-large">
               Book a Discovery Call <ArrowRight size={20} />
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>
