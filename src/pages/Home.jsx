@@ -20,7 +20,7 @@ const Home = () => {
         "@id": "https://www.codexneural.com/#website",
         "url": "https://www.codexneural.com/",
         "name": "Codex Neural",
-        "description": "Codex Neural engineers premium digital products. We specialize in AI solutions, custom enterprise software, and scalable web and mobile applications."
+        "description": "Codex Neural is a global product engineering and technology consulting company specializing in AI solutions, custom enterprise software, cloud infrastructure, and digital platforms."
       },
       {
         "@type": "Organization",
@@ -28,7 +28,22 @@ const Home = () => {
         "name": "Codex Neural",
         "url": "https://www.codexneural.com/",
         "logo": "https://www.codexneural.com/logo.svg",
-        "sameAs": []
+        "email": "connect@codexneural.com",
+        "telephone": "+9779840327185",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kathmandu",
+          "addressCountry": "NP"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Manohar Singh",
+          "jobTitle": "Founder & CEO"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/codex-neural/",
+          "https://github.com/Manoharaya"
+        ]
       }
     ]
   };
@@ -36,8 +51,8 @@ const Home = () => {
   return (
     <div className="home page-wrapper">
       <SEO
-        title="Home"
-        description="Codex Neural engineers premium digital products. We specialize in AI solutions, custom enterprise software, and scalable web and mobile applications."
+        title="Codex Neural | Future-Ready AI & IT Solutions"
+        description="Codex Neural builds intelligent digital systems, AI platforms, enterprise software, and scalable cloud infrastructure for modern global businesses."
         url="/"
         schema={homeSchema}
       />

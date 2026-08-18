@@ -177,8 +177,8 @@ const ServicesPage = () => {
   return (
     <div className="page-transition">
       <SEO 
-        title="Services"
-        description="We design and engineer the systems businesses need to move forward. AI solutions, enterprise software, cloud infrastructure, and digital growth."
+        title="AI, Web & Cloud Engineering Services"
+        description="We design and engineer the systems businesses need to move forward: AI solutions, enterprise software, cloud infrastructure, web and mobile platforms."
         url="/services"
         schema={servicesSchema}
       />

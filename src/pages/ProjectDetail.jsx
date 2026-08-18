@@ -24,11 +24,53 @@ const ProjectDetail = () => {
     return <Navigate to="/portfolio" replace />;
   }
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": project.title,
+        "description": project.shortDescription,
+        "image": project.image,
+        "creator": {
+          "@type": "Organization",
+          "name": "Codex Neural"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.codexneural.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Portfolio",
+            "item": "https://www.codexneural.com/portfolio"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": project.title,
+            "item": `https://www.codexneural.com/portfolio/${project.id}`
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <>
       <SEO 
-        title={`${project.title} | Codex Neural Work`}
+        title={`${project.title} | Case Study`}
         description={project.shortDescription}
+        url={`/portfolio/${project.id}`}
+        image={project.image}
+        schema={projectSchema}
       />
       
       <main className="project-detail-page">
