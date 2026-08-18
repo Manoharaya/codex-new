@@ -774,7 +774,10 @@
 }
 
 @media (max-width: 768px) {
-  .abt-hero,
+  .abt-hero {
+    padding: 100px 0 3.5rem;
+  }
+  
   .abt-journey,
   .abt-values,
   .abt-global,
@@ -804,12 +807,17 @@
 
   .abt-cta-box {
     padding: 2.5rem 1.25rem;
+    max-width: 100%;
+  }
+
+  .abt-cta-bg-glow {
+    max-width: 100%; /* Prevent horizontal overflow */
   }
   
   .abt-cred-strip {
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: center;
+    flex-direction: row; /* CRITICAL FIX: Keep marquee horizontal */
+    gap: 1.5rem;
+    text-align: left;
   }
   
   .abt-cred-dot {
@@ -835,16 +843,12 @@
 
   .abt-team-socials-hz {
     justify-content: center;
+    gap: 16px;
   }
-}
 
-@media (max-width: 480px) {
-  .abt-hero,
-  .abt-journey,
-  .abt-values,
-  .abt-global,
-  .abt-team-section {
-    padding: 2.5rem 0;
+  .abt-social-btn-hz {
+    width: 48px; /* Meet touch targets */
+    height: 48px;
   }
 
   .abt-hero-actions,
@@ -859,6 +863,19 @@
     width: 100%;
     justify-content: center;
     min-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .abt-hero {
+    padding: 80px 0 2.5rem;
+  }
+
+  .abt-journey,
+  .abt-values,
+  .abt-global,
+  .abt-team-section {
+    padding: 2.5rem 0;
   }
 
   .abt-value-card {

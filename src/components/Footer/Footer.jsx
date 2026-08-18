@@ -10,20 +10,27 @@ const Footer = () => {
 
   return (
     <footer className="footer" id="footer">
-
       <div className="container">
         <div className="footer-content">
           <div className="footer-brand">
-            <img src="/logo.svg" alt="Codex Neural" width="40" height="40" style={{ marginBottom: '16px' }} />
+            <img
+              src="/logo.svg"
+              alt="Codex Neural"
+              width="40"
+              height="40"
+              style={{ marginBottom: "16px" }}
+            />
             <div className="nav-brand-text">
               <span className="nav-brand-main">CODEX</span>
               <span className="nav-brand-sub">NEURAL</span>
             </div>
             <p className="footer-desc">
-              A distributed collective of systems engineers and designers. We build durable, high-integrity digital infrastructure for long-term value, not short-term hype.
+              A distributed collective of systems engineers and designers. We
+              build durable, high-integrity digital infrastructure for long-term
+              value, not short-term hype.
             </p>
           </div>
-          
+
           <div>
             <h4 className="footer-heading">Company</h4>
             <ul className="footer-links">
@@ -31,51 +38,107 @@ const Footer = () => {
               <li><Link to="/services" className="footer-link">Services</Link></li>
               <li><Link to="/careers" className="footer-link">Careers</Link></li>
               <li><Link to="/contact" className="footer-link">Contact</Link></li>
-              {/* <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li> */}
             </ul>
           </div>
-          
+
           <div>
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-links">
-              <li><Link to="/services/web-development" className="footer-link">Website Development</Link></li>
-              <li><Link to="/services/app-development" className="footer-link">App Development</Link></li>
-              <li><Link to="/services/software-development" className="footer-link">Software Engineering</Link></li>
-              <li><Link to="/services/ui-ux-design" className="footer-link">UI/UX Design</Link></li>
+              <li>
+                <Link to="/services/web-development" className="footer-link">
+                  Website Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/app-development" className="footer-link">
+                  App Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/software-development"
+                  className="footer-link"
+                >
+                  Software Engineering
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ui-ux-design" className="footer-link">
+                  UI/UX Design
+                </Link>
+              </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
               <li><Link to="/resources" className="footer-link">Insights & Blogs</Link></li>
               <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
               <li><a href="#" className="footer-link">HQ: Kathmandu, Nepal</a></li>
-              {/* <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li> */}
             </ul>
           </div>
 
           <div>
             <h4 className="footer-heading">Transmission</h4>
             <ul className="footer-links">
-              <li><a href="mailto:connect@codexneural.com" className="footer-link">connect@codexneural.com</a></li>
-              <li><a href="https://wa.me/9779840327185" target="_blank" rel="noopener noreferrer" className="footer-link">+977 9840327185</a></li>
+              <li>
+                <a
+                  href="mailto:connect@codexneural.com"
+                  className="footer-link"
+                >
+                  connect@codexneural.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/9779840327185"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  +977 9840327185
+                </a>
+              </li>
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <div className="footer-legal">
-            <p>&copy; {new Date().getFullYear()} Codex Neural Pvt. Ltd. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} Codex Neural Pvt. Ltd. All
+              rights reserved.
+            </p>
             <div className="legal-links">
               <Link to="/privacy" className="footer-link">Privacy</Link>
               <Link to="/terms" className="footer-link">Terms</Link>
             </div>
           </div>
-          
+
           <div className="footer-socials">
-            <a href="https://www.linkedin.com/company/codex-neural/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <a
+              href="https://www.linkedin.com/company/codexneural/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
             </a>
           </div>
         </div>

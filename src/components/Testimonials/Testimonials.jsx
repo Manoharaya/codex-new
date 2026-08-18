@@ -15,11 +15,11 @@ const testimonialData = [
   {
     quote:
       "Their engineering team feels like an internal extension of our own. The AI architecture they designed reduced our processing time by 80% while maintaining absolute compliance and security.",
-    name: "Marcus Chen",
-    role: "VP of Engineering",
-    company: "HealthSync",
+    name: "Jenny Gillson",
+    role: "Founder",
+    company: "Lemuria",
     image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800",
+      "/jenny.jpeg",
   },
 ];
 

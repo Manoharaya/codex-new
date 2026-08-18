@@ -96,5 +96,6 @@
   .btn-large {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
   }
 }

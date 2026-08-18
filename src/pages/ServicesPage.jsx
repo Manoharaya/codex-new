@@ -111,6 +111,7 @@ const UIOverlay = ({ type }) => {
 
 const ServicesPage = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(categoryData[0]?.id || '');
   const location = useLocation();
 
   useEffect(() => {
@@ -118,6 +119,44 @@ const ServicesPage = () => {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth > 768) return; // Only apply logic for mobile per user request
+      
+      let currentCategory = categoryData[0]?.id;
+      for (const service of servicesData) {
+        const element = document.getElementById(service.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // 250px offset to trigger active state when section is decently in view
+          if (rect.top <= 250) {
+            currentCategory = service.category;
+          }
+        }
+      }
+      
+      setActiveCategory((prev) => {
+        if (prev !== currentCategory) {
+          // Keep active category visible in the scrollable nav
+          const btn = document.getElementById(`cat-btn-${currentCategory}`);
+          const nav = document.querySelector('.category-nav');
+          if (btn && nav) {
+            nav.scrollTo({
+              left: btn.offsetLeft - 24,
+              behavior: 'smooth'
+            });
+          }
+        }
+        return currentCategory;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on mount to set initial
+    setTimeout(handleScroll, 100);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -243,8 +282,12 @@ const ServicesPage = () => {
               {categoryData.map((cat) => (
                 <button 
                   key={cat.id} 
-                  className="category-btn"
-                  onClick={() => scrollToCategory(cat.id)}
+                  id={`cat-btn-${cat.id}`}
+                  className={`category-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                  onClick={() => {
+                    setActiveCategory(cat.id);
+                    scrollToCategory(cat.id);
+                  }}
                 >
                   {cat.label}
                 </button>
@@ -280,6 +323,21 @@ const ServicesPage = () => {
                   <h2 className="service-editorial-title">{service.title}</h2>
                   <h3 className="service-editorial-headline">"{service.headline}"</h3>
                   <p className="service-editorial-desc">{service.description}</p>
+
+                  {/* Mobile Image Positioned properly */}
+                  {isMobile && (
+                    <div className="service-editorial-visual" style={{ marginBottom: '24px', width: '100%' }}>
+                      <div className={`service-image-container ${service.theme}`}>
+                        <img 
+                          src={service.image} 
+                          alt={service.title} 
+                          className="service-stock-image"
+                        />
+                        <div className="service-image-gradient"></div>
+                        <UIOverlay type={service.overlayType} />
+                      </div>
+                    </div>
+                  )}
                   
                   <div className="service-capabilities">
                     {service.capabilities.map((cap, i) => (
@@ -292,18 +350,20 @@ const ServicesPage = () => {
                   </Link>
                 </div>
 
-                {/* Image Side */}
-                <div className="service-editorial-visual">
-                  <div className={`service-image-container ${service.theme}`}>
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="service-stock-image"
-                    />
-                    <div className="service-image-gradient"></div>
-                    <UIOverlay type={service.overlayType} />
+                {/* Desktop Image Side */}
+                {!isMobile && (
+                  <div className="service-editorial-visual">
+                    <div className={`service-image-container ${service.theme}`}>
+                      <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        className="service-stock-image"
+                      />
+                      <div className="service-image-gradient"></div>
+                      <UIOverlay type={service.overlayType} />
+                    </div>
                   </div>
-                </div>
+                )}
               </motion.div>
             );
           })}

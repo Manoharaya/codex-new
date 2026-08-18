@@ -345,4 +345,8 @@
   .why-us-title {
     font-size: 18px;
   }
+  .why-us-illustration {
+    width: 120px;
+    height: 120px;
+  }
 }

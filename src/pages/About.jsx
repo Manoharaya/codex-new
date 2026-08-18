@@ -76,8 +76,8 @@ const About = () => {
       role: "FOUNDER & CEO",
       image: "/manohar-profile.jpg",
       desc: "Leading strategic vision, business development, client relationships, and company operations.",
-      linkedin: MANOHAR_LINKEDIN_URL,
-      email: MANOHAR_EMAIL
+      linkedin: "https://www.linkedin.com/in/manohar-cn/",
+      email: MANOHAR_EMAIL,
     },
     {
       id: "priti",
@@ -85,9 +85,9 @@ const About = () => {
       role: "CO-FOUNDER / STRATEGIST",
       image: "/priti-profile.jpg",
       desc: "Shaping content strategy, brand communication, digital storytelling, and technology clarity.",
-      linkedin: PRITI_LINKEDIN_URL,
-      email: PRITI_EMAIL
-    }
+      linkedin: "https://www.linkedin.com/in/priti-gupta-1b5a68217/",
+      email: PRITI_EMAIL,
+    },
   ];
 
   return (
