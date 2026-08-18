@@ -311,6 +311,10 @@
     margin-bottom: 2rem;
   }
 
+  .cs-detail-title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
   .cs-detail-image-wrapper {
     aspect-ratio: 16/9;
     border-radius: 1rem;
@@ -325,6 +329,19 @@
   }
 
   .cs-related-content {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-detail-hero {
+    padding: 3rem 0 1.5rem;
+  }
+  .cs-sidebar-block {
+    min-width: 100%;
+    padding: 1.25rem;
+  }
+  .cs-related-content {
+    padding: 1.25rem;
   }
 }
