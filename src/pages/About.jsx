@@ -5,6 +5,24 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO/SEO';
 import './About.css';
 
+const LinkedinIcon = ({ size = 24, color = "currentColor" }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 const MANOHAR_LINKEDIN_URL = "#";
 const MANOHAR_EMAIL = "mailto:hello@codexneural.com";
 const PRITI_LINKEDIN_URL = "#";
@@ -313,18 +331,18 @@ const About = () => {
                 key={member.id}
                 className="abt-team-card-hz"
               >
-                <div className="abt-team-photo-wrap-hz">
-                  <img src={member.image} alt={member.name} />
+                <div className="abt-team-left-col">
+                  <div className="abt-team-photo-wrap-hz">
+                    <img src={member.image} alt={member.name} />
+                  </div>
                   
-                  <div className="abt-team-overlay-hz">
-                    <div className="abt-team-socials-hz">
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="abt-social-btn-hz" aria-label="Website">
-                        <Link2 size={20} />
-                      </a>
-                      <a href={member.email} className="abt-social-btn-hz" aria-label="Email">
-                        <Mail size={20} />
-                      </a>
-                    </div>
+                  <div className="abt-team-socials-inline">
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="abt-social-inline-btn" aria-label="LinkedIn">
+                      <LinkedinIcon size={20} />
+                    </a>
+                    <a href={member.email} className="abt-social-inline-btn" aria-label="Email">
+                      <Mail size={20} />
+                    </a>
                   </div>
                 </div>
                 
