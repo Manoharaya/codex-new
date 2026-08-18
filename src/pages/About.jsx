@@ -74,7 +74,7 @@ const About = () => {
       id: "manohar",
       name: "Manohar Singh",
       role: "FOUNDER & CEO",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/manohar-profile.jpg",
       desc: "Leading strategic vision, business development, client relationships, and company operations.",
       linkedin: MANOHAR_LINKEDIN_URL,
       email: MANOHAR_EMAIL
