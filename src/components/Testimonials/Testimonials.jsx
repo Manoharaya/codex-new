@@ -6,7 +6,7 @@ import './Testimonials.css';
 const testimonialData = [
   {
     quote:
-      "CodexNeural didn't just build our platform; they engineered a scalable infrastructure that allowed us to handle a 400% increase in user traffic without a single point of failure. They are true product engineers.",
+      "CodexNeural transformed our vision into a robust, scalable platform that’s built to grow with our business. Their technical expertise, attention to detail, and product-focused approach made them a true technology partner.",
     name: "Dr. Yulianna Shiikha",
     role: "CEO & Founder",
     company: "Life Science Ai",
