@@ -21,8 +21,24 @@ const Hero = () => {
   const heroRef = useRef(null);
   
   const [activeServiceId, setActiveServiceId] = useState(servicesData[0].id);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const activeService = servicesData.find(s => s.id === activeServiceId);
+  // Auto-cycle services every 2 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveServiceId((currentId) => {
+        const currentIndex = servicesData.findIndex((s) => s.id === currentId);
+        const nextIndex = (currentIndex + 1) % servicesData.length;
+        return servicesData[nextIndex].id;
+      });
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, [isPaused, activeServiceId]);
+
+  const activeService = servicesData.find(s => s.id === activeServiceId) || servicesData[0];
 
   return (
     <section className="hero">
@@ -78,7 +94,11 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
               <h3 className="services-section-title">WHAT WE ENGINEER</h3>
-              <div className="hero-badges-container">
+              <div 
+                className="hero-badges-container"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
                 {servicesData.map((service) => (
                   <button 
                     key={service.id} 
@@ -98,10 +118,12 @@ const Hero = () => {
           </div>
           
           {/* Right Side: Visuals */}
-          <div className="hero-visual-section">
-            
+          <div 
+            className="hero-visual-section"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <EngineeringEngine activeService={activeService} />
-
           </div>
         </div>
       </div>

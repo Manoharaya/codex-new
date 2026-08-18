@@ -85,7 +85,7 @@ const EngineeringEngine = ({ activeService }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               style={{ width: '100%', height: '100%' }}
             >
               <AiSolutionsVisual activeService={activeService} />
@@ -97,7 +97,7 @@ const EngineeringEngine = ({ activeService }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               style={{ width: '100%', height: '100%' }}
             >
               <EnterpriseSoftwareVisual activeService={activeService} />
@@ -109,7 +109,7 @@ const EngineeringEngine = ({ activeService }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               style={{ width: '100%', height: '100%' }}
             >
               <CloudEngineeringVisual activeService={activeService} />
@@ -121,7 +121,7 @@ const EngineeringEngine = ({ activeService }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               style={{ width: '100%', height: '100%' }}
             >
               <UiUxDesignVisual activeService={activeService} />
@@ -133,7 +133,7 @@ const EngineeringEngine = ({ activeService }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               style={{ width: '100%', height: '100%' }}
             >
               <MobileAppsVisual activeService={activeService} />
@@ -145,7 +145,7 @@ const EngineeringEngine = ({ activeService }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               style={{ width: '100%', height: '100%' }}
             >
               <DevOpsVisual activeService={activeService} />
@@ -157,7 +157,7 @@ const EngineeringEngine = ({ activeService }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <div className="engine-placeholder">
