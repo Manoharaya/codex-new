@@ -46,6 +46,16 @@
 
 @media (max-width: 576px) {
   .industries-simple-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-16);
+  }
+  .industry-simple-card {
+    padding: var(--space-16) var(--space-12);
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .industry-name {
+    font-size: 14px;
   }
 }

@@ -182,6 +182,11 @@
   .author-info {
     text-align: center;
   }
+
+  .nav-arrow {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 @media (max-width: 480px) {

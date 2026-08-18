@@ -905,6 +905,19 @@
   .workflow-overlay { 
     display: none; 
   }
+
+  .mockup-mobile {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    max-width: 280px;
+  }
+
+  .aurora-blob {
+    width: 300px !important;
+    height: 300px !important;
+  }
 }
 
 @media (max-width: 480px) {

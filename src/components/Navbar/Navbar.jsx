@@ -365,27 +365,27 @@ const Navbar = () => {
               <div className={`accordion-content ${activeAccordion === 'services' ? 'open' : ''}`}>
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Engineering</span>
-                  <Link to="/services/ai-solutions" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>AI Solutions</Link>
-                  <Link to="/services/software-development" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Enterprise Software</Link>
-                  <Link to="/services/web-development" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Website Development</Link>
-                  <Link to="/services/app-development" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Mobile Apps</Link>
-                  <Link to="/services/blockchain-web3" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Blockchain & Web3</Link>
+                  <Link to="/services/ai-solutions" className={`accordion-link ${isActive('/services/ai-solutions') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>AI Solutions</Link>
+                  <Link to="/services/software-development" className={`accordion-link ${isActive('/services/software-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Enterprise Software</Link>
+                  <Link to="/services/web-development" className={`accordion-link ${isActive('/services/web-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Website Development</Link>
+                  <Link to="/services/app-development" className={`accordion-link ${isActive('/services/app-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Mobile Apps</Link>
+                  <Link to="/services/blockchain-web3" className={`accordion-link ${isActive('/services/blockchain-web3') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Blockchain & Web3</Link>
                 </div>
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Infrastructure</span>
-                  <Link to="/services/cloud-engineering" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Cloud Engineering</Link>
-                  <Link to="/services/devops" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>DevOps</Link>
+                  <Link to="/services/cloud-engineering" className={`accordion-link ${isActive('/services/cloud-engineering') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Cloud Engineering</Link>
+                  <Link to="/services/devops" className={`accordion-link ${isActive('/services/devops') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>DevOps</Link>
                 </div>
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Design</span>
-                  <Link to="/services/ui-ux-design" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>UI/UX Design</Link>
-                  <Link to="/services/graphic-design" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Graphic Design</Link>
+                  <Link to="/services/ui-ux-design" className={`accordion-link ${isActive('/services/ui-ux-design') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>UI/UX Design</Link>
+                  <Link to="/services/graphic-design" className={`accordion-link ${isActive('/services/graphic-design') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Graphic Design</Link>
                 </div>
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Growth</span>
-                  <Link to="/services/technical-seo" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Search Engine Optimization</Link>
-                  <Link to="/services/digital-marketing" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Social Media Marketing</Link>
-                  <Link to="/services/content-writing" className="accordion-link" onClick={() => setIsMobileMenuOpen(false)}>Content Writing</Link>
+                  <Link to="/services/technical-seo" className={`accordion-link ${isActive('/services/technical-seo') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Search Engine Optimization</Link>
+                  <Link to="/services/digital-marketing" className={`accordion-link ${isActive('/services/digital-marketing') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Social Media Marketing</Link>
+                  <Link to="/services/content-writing" className={`accordion-link ${isActive('/services/content-writing') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Content Writing</Link>
                 </div>
               </div>
             </div>
