@@ -62,8 +62,8 @@ const CaseStudiesPage = () => {
               <Link to="/contact" className="btn-primary">
                 Start Your Project <ArrowRight size={16} />
               </Link>
-              <Link to="/portfolio" className="btn-secondary">
-                View Our Work <ArrowRight size={16} />
+              <Link to="/services" className="btn-secondary">
+                Explore Services <ArrowRight size={16} />
               </Link>
             </div>
           </motion.div>

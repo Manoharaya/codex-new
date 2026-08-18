@@ -81,9 +81,9 @@ const Hero = () => {
                 Start Your Project
                 <ArrowRight size={18} className="btn-arrow" />
               </Link>
-              <Link to="/portfolio" className="btn-secondary hero-btn-secondary">
+              <Link to="/case-studies" className="btn-secondary hero-btn-secondary">
                 <PlayCircle size={18} />
-                View Our Work
+                View Case Studies
               </Link>
             </motion.div>
 

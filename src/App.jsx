@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import React, { Suspense, lazy } from 'react';
 import ScrollToTop from './components/ScrollToTop';
@@ -11,11 +11,9 @@ const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
-const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Contact = lazy(() => import('./pages/Contact'));
 const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
 const CaseStudyDetailPage = lazy(() => import('./pages/CaseStudyDetailPage'));
-const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
@@ -32,8 +30,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
+              <Route path="/portfolio" element={<Navigate to="/case-studies" replace />} />
+              <Route path="/portfolio/:projectId" element={<Navigate to="/case-studies" replace />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/case-studies" element={<CaseStudiesPage />} />
               <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />

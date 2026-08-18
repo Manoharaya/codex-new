@@ -192,7 +192,7 @@ const CaseStudyDetailPage = () => {
         <div className="container">
           <div className="cs-related-header">
             <h2 className="cs-related-title">More Case Studies</h2>
-            <Link to="/portfolio" className="btn-text">View Full Portfolio <ArrowRight size={16} /></Link>
+            <Link to="/case-studies" className="btn-text">View All Case Studies <ArrowRight size={16} /></Link>
           </div>
           
           <div className="cs-related-card" onClick={() => navigate(`/case-studies/${relatedStudy.slug}`)}>

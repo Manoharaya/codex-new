@@ -118,8 +118,8 @@ const About = () => {
                 <Link to="/contact" className="btn-primary">
                   Start Your Project <ArrowRight size={16} />
                 </Link>
-                <Link to="/portfolio" className="btn-secondary">
-                  Explore Our Work <ArrowRight size={16} />
+                <Link to="/case-studies" className="btn-secondary">
+                  Explore Case Studies <ArrowRight size={16} />
                 </Link>
               </motion.div>
             </motion.div>

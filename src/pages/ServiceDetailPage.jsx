@@ -133,8 +133,8 @@ const ServiceDetailPage = () => {
                   Start Your Project
                   <ArrowRight size={18} className="btn-arrow" />
                 </Link>
-                <Link to="/portfolio" className="btn-secondary">
-                  View Our Work
+                <Link to="/case-studies" className="btn-secondary">
+                  View Case Studies
                 </Link>
               </motion.div>
             </div>
