@@ -336,10 +336,10 @@ const Navbar = () => {
 
         {/* Mobile Toggle & Theme */}
         <div className="mobile-controls mobile-only">
-          <button onClick={toggleTheme} className="theme-toggle-btn">
+          <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme">
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-          <button className="hamburger-btn" onClick={toggleMobileMenu}>
+          <button className="hamburger-btn" onClick={toggleMobileMenu} aria-label="Open Navigation Menu">
             <Menu size={28} />
           </button>
         </div>
@@ -350,61 +350,126 @@ const Navbar = () => {
             <Link to="/" className="nav-brand" onClick={() => setIsMobileMenuOpen(false)}>
               <AnimatedLogo isScrolled={true} />
             </Link>
-            <button className="close-btn" onClick={toggleMobileMenu}>
-              <X size={28} />
-            </button>
+            <div className="sidebar-header-actions">
+              <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme">
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+              <button className="close-btn" onClick={toggleMobileMenu} aria-label="Close Navigation Menu">
+                <X size={24} />
+              </button>
+            </div>
           </div>
           
           <div className="sidebar-content">
-            <Link to="/" className={`sidebar-link ${isActive('/') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-            <Link to="/about" className={`sidebar-link ${isActive('/about') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+            <Link to="/" className={`sidebar-link ${isActive('/') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+              <span>Home</span>
+            </Link>
+            <Link to="/about" className={`sidebar-link ${isActive('/about') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+              <span>About</span>
+            </Link>
             
             <div className="sidebar-accordion">
-              <button className={`accordion-trigger ${activeAccordion === 'services' || isActive('/services') ? 'active' : ''}`} onClick={() => toggleAccordion('services')}>
-                Services <ChevronDown size={20} className="accordion-icon" />
+              <button 
+                type="button"
+                className={`accordion-trigger ${activeAccordion === 'services' || isActive('/services') ? 'active' : ''}`} 
+                onClick={() => toggleAccordion('services')}
+                aria-expanded={activeAccordion === 'services'}
+              >
+                <span>Services</span>
+                <ChevronDown size={20} className="accordion-icon" />
               </button>
               <div className={`accordion-content ${activeAccordion === 'services' ? 'open' : ''}`}>
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Engineering</span>
-                  <Link to="/services/ai-solutions" className={`accordion-link ${isActive('/services/ai-solutions') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>AI Solutions</Link>
-                  <Link to="/services/software-development" className={`accordion-link ${isActive('/services/software-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Enterprise Software</Link>
-                  <Link to="/services/web-development" className={`accordion-link ${isActive('/services/web-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Website Development</Link>
-                  <Link to="/services/app-development" className={`accordion-link ${isActive('/services/app-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Mobile Apps</Link>
-                  <Link to="/services/blockchain-web3" className={`accordion-link ${isActive('/services/blockchain-web3') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Blockchain & Web3</Link>
+                  <Link to="/services/ai-solutions" className={`accordion-link ${isActive('/services/ai-solutions') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Brain size={16} /></div>
+                    <span>AI Solutions</span>
+                  </Link>
+                  <Link to="/services/software-development" className={`accordion-link ${isActive('/services/software-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Code size={16} /></div>
+                    <span>Enterprise Software</span>
+                  </Link>
+                  <Link to="/services/web-development" className={`accordion-link ${isActive('/services/web-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Layout size={16} /></div>
+                    <span>Website Development</span>
+                  </Link>
+                  <Link to="/services/app-development" className={`accordion-link ${isActive('/services/app-development') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Smartphone size={16} /></div>
+                    <span>Mobile Apps</span>
+                  </Link>
+                  <Link to="/services/blockchain-web3" className={`accordion-link ${isActive('/services/blockchain-web3') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Hexagon size={16} /></div>
+                    <span>Blockchain & Web3</span>
+                  </Link>
                 </div>
+
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Infrastructure</span>
-                  <Link to="/services/cloud-engineering" className={`accordion-link ${isActive('/services/cloud-engineering') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Cloud Engineering</Link>
-                  <Link to="/services/devops" className={`accordion-link ${isActive('/services/devops') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>DevOps</Link>
+                  <Link to="/services/cloud-engineering" className={`accordion-link ${isActive('/services/cloud-engineering') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Cloud size={16} /></div>
+                    <span>Cloud Engineering</span>
+                  </Link>
+                  <Link to="/services/devops" className={`accordion-link ${isActive('/services/devops') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Terminal size={16} /></div>
+                    <span>DevOps</span>
+                  </Link>
                 </div>
+
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Design</span>
-                  <Link to="/services/ui-ux-design" className={`accordion-link ${isActive('/services/ui-ux-design') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>UI/UX Design</Link>
-                  <Link to="/services/graphic-design" className={`accordion-link ${isActive('/services/graphic-design') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Graphic Design</Link>
+                  <Link to="/services/ui-ux-design" className={`accordion-link ${isActive('/services/ui-ux-design') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Palette size={16} /></div>
+                    <span>UI/UX Design</span>
+                  </Link>
+                  <Link to="/services/graphic-design" className={`accordion-link ${isActive('/services/graphic-design') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><PenTool size={16} /></div>
+                    <span>Graphic Design</span>
+                  </Link>
                 </div>
+
                 <div className="mobile-megamenu-group">
                   <span className="mobile-group-label">Growth</span>
-                  <Link to="/services/technical-seo" className={`accordion-link ${isActive('/services/technical-seo') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Search Engine Optimization</Link>
-                  <Link to="/services/digital-marketing" className={`accordion-link ${isActive('/services/digital-marketing') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Social Media Marketing</Link>
-                  <Link to="/services/content-writing" className={`accordion-link ${isActive('/services/content-writing') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Content Writing</Link>
+                  <Link to="/services/technical-seo" className={`accordion-link ${isActive('/services/technical-seo') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Search size={16} /></div>
+                    <span>Search Engine Optimization</span>
+                  </Link>
+                  <Link to="/services/digital-marketing" className={`accordion-link ${isActive('/services/digital-marketing') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><Share2 size={16} /></div>
+                    <span>Social Media Marketing</span>
+                  </Link>
+                  <Link to="/services/content-writing" className={`accordion-link ${isActive('/services/content-writing') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="accordion-link-icon"><FileText size={16} /></div>
+                    <span>Content Writing</span>
+                  </Link>
                 </div>
               </div>
             </div>
             
-            <Link to="/resources" className={`sidebar-link ${isActive('/resources') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
-            <Link to="/careers" className={`sidebar-link ${isActive('/careers') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Careers</Link>
-            <Link to="/contact" className={`sidebar-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+            <Link to="/resources" className={`sidebar-link ${isActive('/resources') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+              <span>Resources</span>
+            </Link>
+            <Link to="/careers" className={`sidebar-link ${isActive('/careers') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+              <span>Careers</span>
+            </Link>
+            <Link to="/contact" className={`sidebar-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
+              <span>Contact</span>
+            </Link>
           </div>
           
           <div className="sidebar-footer">
-            <Link to="/contact" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setIsMobileMenuOpen(false)}>
-              Get in touch <ArrowRight size={18} />
+            <Link to="/contact" className="btn-primary sidebar-cta-btn" onClick={() => setIsMobileMenuOpen(false)}>
+              <span>Get in touch</span>
+              <ArrowRight size={18} />
             </Link>
           </div>
         </div>
         
         {/* Sidebar Overlay */}
-        <div className={`sidebar-overlay ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}></div>
+        <div 
+          className={`sidebar-overlay ${isMobileMenuOpen ? 'open' : ''}`} 
+          onClick={toggleMobileMenu}
+          aria-hidden={!isMobileMenuOpen}
+        ></div>
         
       </div>
     </nav>
