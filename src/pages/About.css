@@ -577,43 +577,38 @@
   transform: scale(1.05);
 }
 
-.abt-team-overlay-hz {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.15);
+.abt-team-left-col {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
-.abt-team-card-hz:hover .abt-team-overlay-hz {
-  opacity: 1;
-}
-
-.abt-team-socials-hz {
+.abt-team-socials-inline {
   display: flex;
   gap: 0.75rem;
+  justify-content: center;
 }
 
-.abt-social-btn-hz {
+.abt-social-inline-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
-  color: white;
+  background: rgba(111, 63, 245, 0.05); /* very subtle purple tint */
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  border: 1px solid var(--border-color);
 }
 
-.abt-social-btn-hz:hover {
+.abt-social-inline-btn:hover {
   transform: scale(1.1);
-  background: var(--primary-color);
+  background: var(--brand-purple);
+  color: #fff;
   border-color: transparent;
 }
 
