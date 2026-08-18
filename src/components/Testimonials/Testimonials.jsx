@@ -6,7 +6,7 @@ import './Testimonials.css';
 const testimonialData = [
   {
     quote:
-      "CodexNeural didn't just build our platform; they engineered a scalable infrastructure that allowed us to handle a 400% increase in user traffic without a single point of failure. They are true product engineers.",
+      "CodexNeural is a professional, knowledgeable team committed to understanding client needs. Their clear communication, responsiveness, and solution-focused mindset ensured a transparent collaboration. They focus on delivering quality outcomes rather than simply completing a project. I highly recommend them as a dependable technology partner.",
     name: "Dr. Yulianna Shiikha",
     role: "CEO & Founder",
     company: "Life Science Ai",
@@ -15,11 +15,11 @@ const testimonialData = [
   {
     quote:
       "Their engineering team feels like an internal extension of our own. The AI architecture they designed reduced our processing time by 80% while maintaining absolute compliance and security.",
-    name: "Marcus Chen",
-    role: "VP of Engineering",
-    company: "HealthSync",
+    name: "Jenny Gillson",
+    role: "Founder",
+    company: "Lemuria",
     image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800",
+      "/jenny.jpeg",
   },
 ];
 
