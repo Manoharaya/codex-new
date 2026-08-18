@@ -6,12 +6,12 @@
 /* 1. HERO SECTION */
 .services-hero {
   position: relative;
-  min-height: 60vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: var(--space-120);
-  padding-bottom: var(--space-80);
+  padding-top: calc(75px + var(--space-32));
+  padding-bottom: var(--space-40);
   overflow: hidden;
 }
 
@@ -63,7 +63,7 @@
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: var(--space-16) 0;
-  margin-bottom: var(--space-80);
+  margin-bottom: var(--space-40);
 }
 
 [data-theme='light'] .category-nav-wrapper {
@@ -110,14 +110,14 @@
 
 /* 3. FEATURED SERVICES (EDITORIAL LAYOUT) */
 .featured-services-section {
-  padding-bottom: var(--space-120);
+  padding-bottom: var(--space-64);
 }
 
 .service-editorial-row {
   display: flex;
   align-items: center;
-  gap: var(--space-80);
-  margin-bottom: 140px;
+  gap: var(--space-48);
+  margin-bottom: 64px;
 }
 
 .service-editorial-row.row-reverse {
@@ -333,11 +333,11 @@
 
 /* 5. FINAL CONVERSION SECTION */
 .final-conversion-section {
-  padding: var(--space-80) 0 var(--space-120) 0;
+  padding: var(--space-48) 0;
 }
 
 .conversion-box {
-  padding: var(--space-80) var(--space-40);
+  padding: var(--space-48) var(--space-32);
   border-radius: 24px;
   position: relative;
   overflow: hidden;

@@ -1,5 +1,5 @@
 .tech-stack-section {
-  padding: var(--space-120) 0;
+  padding: var(--space-64) 0;
   background-color: var(--bg-surface);
   border-top: 1px solid var(--glass-border);
 }

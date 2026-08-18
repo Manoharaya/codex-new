@@ -1,11 +1,11 @@
 /* Base Hero Setup - Editorial */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(80px, 5vh, 90px) 0 var(--space-80);
+  padding: clamp(75px, 4vh, 85px) 0 var(--space-48);
   overflow: hidden;
   background-color: var(--bg-primary);
 }
@@ -36,13 +36,13 @@
   z-index: 10;
   width: 100%;
   max-width: 1200px;
-  margin-top: -8vh; /* Shift content up to reduce the visual gap */
+  margin-top: -3vh; /* Shift content up to reduce the visual gap */
 }
 
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1.2fr; /* Slight asymmetry */
-  gap: var(--space-80);
+  gap: var(--space-48);
   align-items: center;
 }
 

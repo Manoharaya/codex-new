@@ -1,12 +1,12 @@
 .why-us-section {
-  padding: var(--space-120) 0;
+  padding: var(--space-64) 0;
   background-color: var(--bg-primary);
   position: relative;
   border-top: 1px solid var(--glass-border);
 }
 
 .why-us-header {
-  margin-bottom: var(--space-80);
+  margin-bottom: var(--space-40);
 }
 
 .why-us-grid {

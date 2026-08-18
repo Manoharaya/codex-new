@@ -1,7 +1,8 @@
 /* Contact.css */
 
 .contact-page {
-  padding-top: calc(80px + var(--space-64));
+  padding-top: calc(75px + var(--space-32));
+  padding-bottom: var(--space-48);
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,7 @@
 
 .contact-header {
   text-align: center;
-  margin-bottom: var(--space-64);
+  margin-bottom: var(--space-36);
   max-width: 700px;
   margin-inline: auto;
 }
@@ -20,7 +21,7 @@
   font-family: 'Sora', sans-serif;
   font-size: var(--text-h1);
   font-weight: 600;
-  margin-bottom: var(--space-24);
+  margin-bottom: var(--space-16);
   color: var(--text-primary);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -35,7 +36,7 @@
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-64);
+  gap: var(--space-40);
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
@@ -189,12 +190,12 @@
 
 /* Transmission Visual Container */
 .transmission-visual {
-  margin-top: var(--space-80);
-  margin-bottom: var(--space-48);
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-32);
   width: 100%;
   max-width: 1100px;
   position: relative;
-  padding: var(--space-48) var(--space-32);
+  padding: var(--space-40) var(--space-32);
   background: var(--bg-surface);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
@@ -211,7 +212,7 @@
   font-size: 24px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: var(--space-64);
+  margin-bottom: var(--space-40);
   text-align: center;
   position: relative;
   z-index: 2;

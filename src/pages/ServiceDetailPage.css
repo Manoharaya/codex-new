@@ -4,8 +4,8 @@
 */
 
 .service-detail-nav-container {
-  padding-top: var(--space-120);
-  padding-bottom: var(--space-24);
+  padding-top: calc(75px + var(--space-20));
+  padding-bottom: var(--space-16);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -39,7 +39,7 @@
    HERO SECTION
 ------------------------------------- */
 .service-detail-hero {
-  padding: var(--space-80) 0;
+  padding: var(--space-48) 0;
   position: relative;
   overflow: hidden;
 }
@@ -47,7 +47,7 @@
 .service-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-80);
+  gap: var(--space-48);
   align-items: center;
 }
 
@@ -159,7 +159,7 @@
    KEY CAPABILITIES
 ------------------------------------- */
 .service-capabilities-section {
-  padding: var(--space-120) 0;
+  padding: var(--space-64) 0;
   background-color: var(--bg-secondary);
   border-top: 1px solid rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
@@ -240,7 +240,7 @@
    PROCESS SECTION
 ------------------------------------- */
 .service-process-section {
-  padding: var(--space-120) 0;
+  padding: var(--space-64) 0;
 }
 
 .process-compact-grid {
@@ -289,11 +289,11 @@
    FINAL CTA
 ------------------------------------- */
 .final-conversion-section {
-  padding: 0 0 var(--space-120) 0;
+  padding: 0 0 var(--space-64) 0;
 }
 
 .conversion-box {
-  padding: var(--space-80) var(--space-40);
+  padding: var(--space-48) var(--space-32);
   border-radius: 24px;
   background: radial-gradient(circle at center, rgba(111, 63, 245, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
   border: 1px solid rgba(111, 63, 245, 0.2);

@@ -52,7 +52,7 @@
    1. HERO
    ========================================================================== */
 .abt-hero {
-  padding: 6rem 0 4rem;
+  padding: 3.5rem 0 2.5rem;
   background: var(--bg-primary);
 }
 
@@ -185,7 +185,7 @@
    3. OUR STORY / JOURNEY
    ========================================================================== */
 .abt-journey {
-  padding: 7rem 0;
+  padding: 3.5rem 0;
   background: var(--bg-primary);
 }
 
@@ -296,7 +296,7 @@
    4. WHAT DRIVES US FORWARD
    ========================================================================== */
 .abt-values {
-  padding: 7rem 0;
+  padding: 3.5rem 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
 }
@@ -384,7 +384,7 @@
    5. GLOBAL DELIVERY
    ========================================================================== */
 .abt-global {
-  padding: 7rem 0;
+  padding: 3.5rem 0;
   background: var(--bg-primary);
 }
 
@@ -493,7 +493,7 @@
    6. TEAM
    ========================================================================== */
 .abt-team-section {
-  padding: 7rem 0;
+  padding: 3.5rem 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
 }
@@ -659,7 +659,7 @@
    7. FINAL CTA
    ========================================================================== */
 .abt-final-cta {
-  padding: 5rem 0 8rem;
+  padding: 3rem 0 3.5rem;
   background: var(--bg-primary);
 }
 
@@ -667,7 +667,7 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 1.5rem;
-  padding: 5rem 2rem;
+  padding: 3rem 2rem;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;

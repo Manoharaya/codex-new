@@ -34,12 +34,12 @@
 
 /* 01 - Hero */
 .cs-detail-hero {
-  padding: 6rem 0 4rem;
+  padding: 3.5rem 0 2.5rem;
 }
 
 .cs-detail-header {
   max-width: 900px;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .cs-detail-meta {
@@ -212,7 +212,7 @@
 
 /* Related Section */
 .cs-related-section {
-  padding: 6rem 0;
+  padding: 3.5rem 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
 }
