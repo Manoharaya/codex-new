@@ -23,7 +23,7 @@ const Hero = () => {
   const [activeServiceId, setActiveServiceId] = useState(servicesData[0].id);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-cycle services every 2 seconds
+  // Auto-cycle services every 4 seconds
   useEffect(() => {
     if (isPaused) return;
 
@@ -33,7 +33,7 @@ const Hero = () => {
         const nextIndex = (currentIndex + 1) % servicesData.length;
         return servicesData[nextIndex].id;
       });
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [isPaused, activeServiceId]);
