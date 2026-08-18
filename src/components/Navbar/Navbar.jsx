@@ -317,7 +317,7 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Link to="/case-studies" className={`nav-link ${isActive('/case-studies') ? 'active' : ''}`}>Case Studies</Link>
+          {/* <Link to="/case-studies" className={`nav-link ${isActive('/case-studies') ? 'active' : ''}`}>Case Studies</Link> */}
           
           <button 
             onClick={toggleTheme} 
@@ -390,7 +390,7 @@ const Navbar = () => {
               </div>
             </div>
             
-            <Link to="/case-studies" className={`sidebar-link ${isActive('/case-studies') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link>
+            {/* <Link to="/case-studies" className={`sidebar-link ${isActive('/case-studies') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link> */}
             <Link to="/contact" className={`sidebar-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
           </div>
           

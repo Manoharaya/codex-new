@@ -12,8 +12,8 @@ const About = lazy(() => import('./pages/About'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
 const Contact = lazy(() => import('./pages/Contact'));
-const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
-const CaseStudyDetailPage = lazy(() => import('./pages/CaseStudyDetailPage'));
+// const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
+// const CaseStudyDetailPage = lazy(() => import('./pages/CaseStudyDetailPage'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
@@ -30,11 +30,13 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
-              <Route path="/portfolio" element={<Navigate to="/case-studies" replace />} />
-              <Route path="/portfolio/:projectId" element={<Navigate to="/case-studies" replace />} />
+              <Route path="/portfolio" element={<Navigate to="/services" replace />} />
+              <Route path="/portfolio/:projectId" element={<Navigate to="/services" replace />} />
+              {/* <Route path="/case-studies" element={<CaseStudiesPage />} /> */}
+              {/* <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} /> */}
+              <Route path="/case-studies" element={<Navigate to="/services" replace />} />
+              <Route path="/case-studies/:slug" element={<Navigate to="/services" replace />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/case-studies" element={<CaseStudiesPage />} />
-              <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
             </Routes>

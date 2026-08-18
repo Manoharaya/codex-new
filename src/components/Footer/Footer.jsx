@@ -29,7 +29,8 @@ const Footer = () => {
             <ul className="footer-links">
               <li><Link to="/about" className="footer-link">About</Link></li>
               <li><Link to="/services" className="footer-link">Services</Link></li>
-              <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li>
+              <li><Link to="/contact" className="footer-link">Contact</Link></li>
+              {/* <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li> */}
             </ul>
           </div>
           
@@ -47,8 +48,8 @@ const Footer = () => {
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
               <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
-              <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li>
               <li><a href="#" className="footer-link">HQ: Kathmandu, Nepal</a></li>
+              {/* <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li> */}
             </ul>
           </div>
 
