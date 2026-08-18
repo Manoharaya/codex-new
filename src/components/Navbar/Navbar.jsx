@@ -317,6 +317,7 @@ const Navbar = () => {
             </div>
           </div>
           
+          <Link to="/resources" className={`nav-link ${isActive('/resources') ? 'active' : ''}`}>Resources</Link>
           <Link to="/careers" className={`nav-link ${isActive('/careers') ? 'active' : ''}`}>Careers</Link>
           
           <button 
@@ -390,6 +391,7 @@ const Navbar = () => {
               </div>
             </div>
             
+            <Link to="/resources" className={`sidebar-link ${isActive('/resources') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
             <Link to="/careers" className={`sidebar-link ${isActive('/careers') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Careers</Link>
             <Link to="/contact" className={`sidebar-link ${isActive('/contact') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
           </div>

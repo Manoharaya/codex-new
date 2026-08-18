@@ -13,6 +13,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Careers = lazy(() => import('./pages/Careers'));
+const Resources = lazy(() => import('./pages/Resources'));
 // const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
 // const CaseStudyDetailPage = lazy(() => import('./pages/CaseStudyDetailPage'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -32,6 +33,7 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/resources" element={<Resources />} />
               <Route path="/portfolio" element={<Navigate to="/services" replace />} />
               <Route path="/portfolio/:projectId" element={<Navigate to="/services" replace />} />
               {/* <Route path="/case-studies" element={<CaseStudiesPage />} /> */}

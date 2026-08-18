@@ -48,6 +48,7 @@ const Footer = () => {
           <div>
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
+              <li><Link to="/resources" className="footer-link">Insights & Blogs</Link></li>
               <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
               <li><a href="#" className="footer-link">HQ: Kathmandu, Nepal</a></li>
               {/* <li><Link to="/case-studies" className="footer-link">Case Studies</Link></li> */}
