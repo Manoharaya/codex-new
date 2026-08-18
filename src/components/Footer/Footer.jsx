@@ -65,8 +65,8 @@ const Footer = () => {
           <div className="footer-legal">
             <p>&copy; {new Date().getFullYear()} Codex Neural Pvt. Ltd. All rights reserved.</p>
             <div className="legal-links">
-              <a href="#" className="footer-link">Privacy</a>
-              <a href="#" className="footer-link">Terms</a>
+              <Link to="/privacy" className="footer-link">Privacy</Link>
+              <Link to="/terms" className="footer-link">Terms</Link>
             </div>
           </div>
           
