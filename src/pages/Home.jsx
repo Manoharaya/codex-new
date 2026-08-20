@@ -11,6 +11,7 @@ import Stats from '../components/Stats/Stats';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
 import SEO from '../components/SEO/SEO';
 import TrustStrip from '../components/TrustStrip/TrustStrip';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const Home = () => {
   const homeSchema = {
@@ -58,27 +59,27 @@ const Home = () => {
         schema={homeSchema}
       />
       <div className="chapter-hero">
-        <Hero />
+        <ErrorBoundary><Hero /></ErrorBoundary>
       </div>
-      <TrustStrip />
+      <ErrorBoundary><TrustStrip /></ErrorBoundary>
       <div className="chapter-services">
-        <Services />
-        <WhyUs />
+        <ErrorBoundary><Services /></ErrorBoundary>
+        <ErrorBoundary><WhyUs /></ErrorBoundary>
       </div>
       <div className="chapter-portfolio">
         {/* <FeaturedProjects /> */}
-        <Stats />
-        <Process />
+        <ErrorBoundary><Stats /></ErrorBoundary>
+        <ErrorBoundary><Process /></ErrorBoundary>
       </div>
       <div className="chapter-tech">
-        <TechStack />
+        <ErrorBoundary><TechStack /></ErrorBoundary>
       </div>
       <div className="chapter-about">
-        <Industries />
-        <Testimonials />
+        <ErrorBoundary><Industries /></ErrorBoundary>
+        <ErrorBoundary><Testimonials /></ErrorBoundary>
       </div>
       <div className="chapter-hero">
-        <FinalCTA />
+        <ErrorBoundary><FinalCTA /></ErrorBoundary>
       </div>
     </div>
   );

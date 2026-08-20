@@ -251,84 +251,12 @@ const Careers = () => {
             We are an engineering-led collective architecting intelligent AI solutions, cloud infrastructure, and enterprise software. If you love deep technical craftsmanship and radical autonomy, you belong here.
           </motion.p>
 
-          <motion.div 
-            className="careers-stats-row"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div className="careers-stat-card">
-              <div className="careers-stat-val">100%</div>
-              <div className="careers-stat-lbl">Remote-First & Autonomous</div>
-            </div>
-            <div className="careers-stat-card">
-              <div className="careers-stat-val">0</div>
-              <div className="careers-stat-lbl">Unnecessary Meetings</div>
-            </div>
-            <div className="careers-stat-card">
-              <div className="careers-stat-val">Top 5%</div>
-              <div className="careers-stat-lbl">Engineering Talent</div>
-            </div>
-            <div className="careers-stat-card">
-              <div className="careers-stat-val">$1.5K</div>
-              <div className="careers-stat-lbl">Annual Learning Stipend</div>
-            </div>
-          </motion.div>
+          
         </section>
 
-        {/* 2. Culture & Engineering Values */}
-        <section style={{ marginBottom: 'var(--space-64)' }}>
-          <div className="careers-section-header">
-            <span className="careers-section-tag">ENGINEERING PHILOSOPHY</span>
-            <h2 className="careers-section-title">How We Build & Collaborate</h2>
-            <p className="careers-section-desc">We structure our environment around deep uninterrupted focus, peer respect, and intellectual rigor.</p>
-          </div>
+        
 
-          <div className="careers-values-grid">
-            {cultureValues.map((v, i) => (
-              <motion.div 
-                key={i} 
-                className="career-value-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-              >
-                <div className="career-value-icon">{v.icon}</div>
-                <h3 className="career-value-title">{v.title}</h3>
-                <p className="career-value-text">{v.text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* 3. Perks & Benefits */}
-        <section style={{ marginBottom: 'var(--space-64)' }}>
-          <div className="careers-section-header">
-            <span className="careers-section-tag">INVESTED IN YOU</span>
-            <h2 className="careers-section-title">Benefits & Perks</h2>
-            <p className="careers-section-desc">Designed to support your health, focus, craftsmanship, and peace of mind.</p>
-          </div>
-
-          <div className="careers-perks-grid">
-            {benefits.map((b, i) => (
-              <motion.div 
-                key={i} 
-                className="career-perk-item"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-              >
-                <div className="career-perk-icon">{b.icon}</div>
-                <div>
-                  <div className="career-perk-title">{b.title}</div>
-                  <div className="career-perk-desc">{b.desc}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        
 
         {/* 4. Open Positions */}
         <section className="careers-openings-section" id="open-roles">

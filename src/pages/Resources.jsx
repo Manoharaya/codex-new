@@ -17,7 +17,7 @@ const blogsData = [
     date: 'Aug 14, 2026',
     readTime: '6 min read',
     author: { name: 'Manohar Singh', role: 'Chief Architect', avatar: 'https://ui-avatars.com/api/?name=Manohar+Singh&background=6F3FF5&color=fff' },
-    excerpt: 'How to move beyond naive prompt-chaining and build autonomous agent graphs with state persistence, error boundaries, and tool fallback.',
+    excerpt: 'How to move beyond naive prompt-chaining and build autonomous agent graphs with state persistence, error boundaries, and tool fallback strategies for mission-critical apps.',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
@@ -26,29 +26,29 @@ const blogsData = [
     category: 'CLOUD & DEVOPS',
     date: 'Jul 28, 2026',
     readTime: '8 min read',
-    author: { name: 'Sarah Chen', role: 'DevOps Lead', avatar: 'https://ui-avatars.com/api/?name=Sarah+Chen&background=22D3EE&color=000' },
-    excerpt: 'A practical blueprint for configuring HPA, cluster autoscaling, and zero-drop connection draining under unpredictable surge loads.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    author: { name: 'Priti Gupta', role: 'DevOps Lead', avatar: 'https://ui-avatars.com/api/?name=Priti+Gupta&background=22D3EE&color=000' },
+    excerpt: 'A practical blueprint for configuring HPA, cluster autoscaling, and zero-drop connection draining under unpredictable surge loads in financial infrastructure.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 3,
-    title: 'The Death of Monoliths: When and Why to Migrate to Event-Driven Systems',
-    category: 'SOFTWARE ARCHITECTURE',
-    date: 'Jul 12, 2026',
-    readTime: '7 min read',
-    author: { name: 'David Okafor', role: 'Senior Engineer', avatar: 'https://ui-avatars.com/api/?name=David+Okafor&background=6F3FF5&color=fff' },
-    excerpt: 'Deconstructing real-world anti-patterns when decomposing legacy enterprise systems into Kafka-backed event streams.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 4,
-    title: 'Next-Gen Vector Databases: Pinecone vs Milvus vs pgvector',
+    title: 'RAG Optimization: Chunking Strategies for Domain-Specific LLMs',
     category: 'DATA ENGINEERING',
     date: 'Jun 30, 2026',
     readTime: '5 min read',
-    author: { name: 'Elena Rostova', role: 'Data Scientist', avatar: 'https://ui-avatars.com/api/?name=Elena+Rostova&background=22D3EE&color=000' },
-    excerpt: 'Benchmarking indexing speeds, HNSW precision, and cost efficiencies across leading high-dimensional vector indices.',
+    author: { name: 'Bikash Sah', role: 'Data Engineer', avatar: 'https://ui-avatars.com/api/?name=Bikash+Sah&background=6F3FF5&color=fff' },
+    excerpt: 'Benchmarking indexing speeds, HNSW precision, and cost efficiencies across vector databases to achieve sub-100ms retrieval latency in generative AI applications.',
     image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 4,
+    title: 'The Death of Monoliths: When (and Why) to Migrate to Event-Driven Systems',
+    category: 'SOFTWARE ARCHITECTURE',
+    date: 'Jul 12, 2026',
+    readTime: '7 min read',
+    author: { name: 'Anuj Pokharel', role: 'Senior Engineer', avatar: 'https://ui-avatars.com/api/?name=Anuj+Pokharel&background=22D3EE&color=000' },
+    excerpt: 'Deconstructing real-world anti-patterns when decomposing legacy enterprise systems into resilient, Kafka-backed event streams without losing data integrity.',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 5,
@@ -56,8 +56,8 @@ const blogsData = [
     category: 'UI/UX DESIGN',
     date: 'Jun 15, 2026',
     readTime: '4 min read',
-    author: { name: 'Marcus Jin', role: 'Design Engineer', avatar: 'https://ui-avatars.com/api/?name=Marcus+Jin&background=6F3FF5&color=fff' },
-    excerpt: 'Engineering 60fps GPU-accelerated motion systems using Framer Motion and WebGL without sacrificing initial bundle size.',
+    author: { name: 'Salon', role: 'Design Engineer', avatar: 'https://ui-avatars.com/api/?name=Salon&background=6F3FF5&color=fff' },
+    excerpt: 'Engineering 60fps GPU-accelerated motion systems using Framer Motion and WebGL without sacrificing your initial bundle size or core web vitals.',
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
@@ -66,8 +66,8 @@ const blogsData = [
     category: 'CYBERSECURITY',
     date: 'May 28, 2026',
     readTime: '6 min read',
-    author: { name: 'Priya Patel', role: 'Security Architect', avatar: 'https://ui-avatars.com/api/?name=Priya+Patel&background=22D3EE&color=000' },
-    excerpt: 'Implementing JWT claims validation, distributed rate-limiting with Redis, and mutual TLS across federated endpoints.',
+    author: { name: 'Rahul Sah', role: 'Security Architect', avatar: 'https://ui-avatars.com/api/?name=Rahul+Sah&background=22D3EE&color=000' },
+    excerpt: 'Implementing robust JWT claims validation, distributed rate-limiting with Redis, and mutual TLS across federated endpoints to prevent data leakage.',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
 ];
@@ -79,11 +79,11 @@ const successStoriesData = [
     industry: 'BioTech & HealthAI',
     metric: '+340% Efficiency',
     title: 'Scaling an Autonomous Multi-Agent AI Data Pipeline',
-    description: 'We engineered a synchronized swarm of 12 autonomous AI agents for an Australian biotech client, automating clinical data ingestion and multi-point verification.',
+    description: 'We engineered a synchronized swarm of 12 autonomous AI agents for an Australian biotech leader, entirely automating clinical data ingestion, cleansing, and multi-point verification workflows.',
     results: [
       'Deployed 12 autonomous agents handling 250k+ data points daily',
       'Reduced manual review processing time from 48h to under 4 minutes',
-      '100% data provenance compliance and real-time observability'
+      'Achieved 100% data provenance compliance with real-time observability'
     ]
   },
   {
@@ -92,11 +92,11 @@ const successStoriesData = [
     industry: 'Financial Cloud',
     metric: '99.999% Reliability',
     title: 'Cloud Modernization for High-Frequency Transaction Processing',
-    description: 'Architected an automated multi-region Kubernetes cloud infrastructure capable of processing high-volume transactional flows with zero data loss.',
+    description: 'Architected a self-healing, multi-region Kubernetes cloud infrastructure capable of processing volatile, high-frequency transactional flows with absolute zero data loss during traffic spikes.',
     results: [
-      'Reduced p99 latency to 18ms across global edge locations',
+      'Reduced p99 latency to a sustained 18ms across global edge locations',
       'Automated disaster recovery failover in under 30 seconds',
-      'ISO 27001 & PCI-DSS level 1 security certification attained'
+      'Attained rigorous ISO 27001 & PCI-DSS Level 1 security certifications'
     ]
   },
   {
@@ -105,11 +105,11 @@ const successStoriesData = [
     industry: 'Modern E-Commerce',
     metric: '+48% Conversion',
     title: 'High-Performance Custom E-Commerce Platform Architecture',
-    description: 'Engineered a bespoke head-less e-commerce application with intuitive gifting flows, seamless multi-currency checkout, and instant page transitions.',
+    description: 'Engineered a bespoke head-less e-commerce application featuring intuitive gifting flows, seamless multi-currency checkout, and instant GPU-accelerated page transitions.',
     results: [
-      'Sub-800ms initial page load speed across all mobile devices',
-      '48% increase in completed checkout conversions',
-      'Zero cart abandonment due to connection latency'
+      'Sub-800ms initial page load speed across all mid-tier mobile devices',
+      '48% immediate increase in completed checkout conversions',
+      'Eliminated cart abandonment caused by connection latency'
     ]
   }
 ];
@@ -117,30 +117,43 @@ const successStoriesData = [
 const ebooksData = [
   {
     id: 1,
-    badge: 'FREE WHITEPAPER',
-    title: 'The Enterprise AI Playbook 2026: From POC to Production',
-    pages: '42 Pages • PDF / ePub',
-    description: 'A comprehensive technical handbook for engineering leaders on architecting, deploying, and governing agentic AI systems at scale.',
-    downloadUrl: '#',
-    topics: ['Agentic Workflows', 'LLM Fine-Tuning & Quantization', 'Security & Guardrails', 'Infrastructure Cost Modeling']
+    badge: 'LLM & AI SYSTEMS',
+    title: 'Multi-Agent State Graph Architecture Blueprint',
+    pages: 'System Diagram • Python • LangChain',
+    description: 'A complete reference architecture detailing our setup for orchestrating 12 independent AI agents with real-time state persistence and tool fallback.',
+    downloadUrl: '/blueprints/multi-agent-blueprint.md',
+    topics: ['Stateful Graphs', 'Redis Persistence', 'Semantic Routing', 'Vector DBs'],
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 2,
-    badge: 'TECHNICAL GUIDE',
-    title: 'Next-Gen Cloud Architecture: Resilience & Cost Optimization',
-    pages: '36 Pages • PDF',
-    description: 'How modern scale-ups reduce cloud spend by up to 40% while improving fault-tolerance across Kubernetes, Serverless, and Multi-Cloud.',
-    downloadUrl: '#',
-    topics: ['FinOps Cloud Auditing', 'Container Packing & Spot Instances', 'Multi-Region Ingress', 'Automated Failover']
+    badge: 'CLOUD DEVOPS',
+    title: 'Zero-Downtime E-Commerce Cluster Topology',
+    pages: 'Architecture Diagram • Terraform • Helm',
+    description: 'High-res topology map demonstrating how we scale e-commerce infrastructure to 50k RPS with instant HPA triggers and Multi-AZ failover.',
+    downloadUrl: '/blueprints/k8s-cluster-topology.md',
+    topics: ['HPA Configs', 'Ingress NGINX', 'Pod Disruption', 'PostgreSQL HA'],
+    image: '/blueprints/cloud_cluster.jpg'
   },
   {
     id: 3,
-    badge: 'DESIGN SYSTEM HANDBOOK',
-    title: 'Building Scalable UI Design Systems for Complex SaaS',
-    pages: '50 Pages • PDF & Figma Kit',
-    description: 'A deep dive into token architecture, dark/light contrast engineering, accessible components, and component library governance.',
-    downloadUrl: '#',
-    topics: ['Design Tokens 2.0', 'Micro-Interactions', 'Component Maintenance', 'React / Tailwind Translation']
+    badge: 'DATA PIPELINES',
+    title: 'Real-Time Event Streaming Data Pipeline',
+    pages: 'System Diagram • Kafka • ClickHouse',
+    description: 'Detailed schema and data flow blueprint for migrating legacy batch processing into a sub-10ms latency event-driven architecture.',
+    downloadUrl: '/blueprints/event-streaming-pipeline.md',
+    topics: ['Kafka Topics', 'ClickHouse', 'Debezium CDC', 'Event Sourcing'],
+    image: '/blueprints/data_pipeline.jpg'
+  },
+  {
+    id: 4,
+    badge: 'SECURITY',
+    title: 'Zero-Trust Multi-Tenant API Gateway',
+    pages: 'Architecture Diagram • Redis • Lua',
+    description: 'Actionable blueprint for implementing mTLS, distributed rate limiting, and aggressive JWT edge validation across federated SaaS endpoints.',
+    downloadUrl: '/blueprints/zero-trust-gateway.md',
+    topics: ['mTLS', 'Distributed Limiting', 'Identity Federation', 'Edge Compute'],
+    image: '/blueprints/security_gateway.jpg'
   }
 ];
 
@@ -299,13 +312,11 @@ const Resources = () => {
               <div className="pillar-icon-wrap">
                 <BookOpen size={22} />
               </div>
-              <h3 className="pillar-title">eBooks</h3>
+              <h3 className="pillar-title">Blueprints</h3>
             </div>
-            <p className="pillar-desc">
-              Explore the insights from our experts to take a strategic leap into your product development journey
-            </p>
+            <p className="pillar-desc">Download production-grade system architectures, topology maps, and deployment configurations.</p>
             <div className="pillar-action">
-              <span>View Whitepapers ({ebooksData.length})</span>
+              <span>View Blueprints ({ebooksData.length})</span>
               <ChevronRight size={14} />
             </div>
           </motion.div>
@@ -330,7 +341,7 @@ const Resources = () => {
             className={`resources-tab-btn ${activeTab === 'ebooks' ? 'active' : ''}`}
             onClick={() => setActiveTab('ebooks')}
           >
-            <BookOpen size={16} /> Guides & eBooks
+            <BookOpen size={16} /> Architecture Blueprints
           </button>
         </div>
 
@@ -370,7 +381,7 @@ const Resources = () => {
                       </div>
                     </div>
                     
-                    <Link to="/contact" className="btn-primary" style={{ marginTop: 'var(--space-24)', alignSelf: 'flex-start' }}>
+                    <Link to={`/blog/${blogsData[0].id}`} className="btn-primary" style={{ marginTop: 'var(--space-24)', alignSelf: 'flex-start' }}>
                       Read Full Article <ArrowRight size={14} />
                     </Link>
                   </div>
@@ -392,7 +403,7 @@ const Resources = () => {
                       <h3 className="blog-card-title">{blog.title}</h3>
                       <p className="blog-card-excerpt">{blog.excerpt}</p>
                       
-                      <Link to="/contact" className="blog-read-more" style={{ marginBottom: 'var(--space-16)' }}>
+                      <Link to={`/blog/${blog.id}`} className="blog-read-more" style={{ marginBottom: 'var(--space-16)' }}>
                         Read Article <ArrowRight size={14} />
                       </Link>
 
@@ -458,28 +469,35 @@ const Resources = () => {
             >
               {ebooksData.map((ebook) => (
                 <div key={ebook.id} className="resource-ebook-card">
-                  <span className="ebook-type-badge">{ebook.badge}</span>
-                  <h3 className="ebook-title">{ebook.title}</h3>
-                  <p className="ebook-desc">{ebook.description}</p>
-                  
-                  <div style={{ marginBottom: 'var(--space-16)' }}>
-                    <span style={{ fontSize: '11px', fontFamily: 'IBM Plex Mono, monospace', color: 'var(--text-secondary)', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
-                      Key Focus Areas:
-                    </span>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                      {ebook.topics.map((topic, tIdx) => (
-                        <span key={tIdx} style={{ fontSize: '11px', padding: '2px 8px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', color: 'var(--text-primary)' }}>
-                          {topic}
-                        </span>
-                      ))}
+                  <div className="blueprint-preview-wrapper">
+                    <div className="blueprint-preview" style={{ backgroundImage: `url(${ebook.image})` }}>
                     </div>
                   </div>
+                  
+                  <div className="ebook-content-wrapper">
+                    <span className="ebook-type-badge">{ebook.badge}</span>
+                    <h3 className="ebook-title">{ebook.title}</h3>
+                    <p className="ebook-desc">{ebook.description}</p>
+                    
+                    <div style={{ marginBottom: 'var(--space-16)' }}>
+                      <span style={{ fontSize: '11px', fontFamily: 'IBM Plex Mono, monospace', color: 'var(--text-secondary)', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
+                        Key Focus Areas:
+                      </span>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                        {ebook.topics.map((topic, tIdx) => (
+                          <span key={tIdx} style={{ fontSize: '11px', padding: '2px 8px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', color: 'var(--text-primary)' }}>
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-                  <div className="ebook-footer">
-                    <span className="ebook-pages-info">{ebook.pages}</span>
-                    <a href="mailto:connect@codexneural.com?subject=Request%20eBook:%20" className="btn-secondary" style={{ padding: '6px 14px', fontSize: '13px' }}>
-                      <Download size={13} /> Request Copy
-                    </a>
+                    <div className="ebook-footer">
+                      <span className="ebook-pages-info">{ebook.pages}</span>
+                      <a href={ebook.downloadUrl} download target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: '6px 14px', fontSize: '13px' }}>
+                        <Download size={13} /> Download
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}

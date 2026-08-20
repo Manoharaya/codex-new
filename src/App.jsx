@@ -14,8 +14,9 @@ const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Careers = lazy(() => import('./pages/Careers'));
 const Resources = lazy(() => import('./pages/Resources'));
-// const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
-// const CaseStudyDetailPage = lazy(() => import('./pages/CaseStudyDetailPage'));
+const BlogDetail = lazy(() => import('./pages/BlogDetail'));
+const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
+const CaseStudyDetailPage = lazy(() => import('./pages/CaseStudyDetailPage'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
@@ -34,12 +35,11 @@ function App() {
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/blog/:id" element={<BlogDetail />} />
               <Route path="/portfolio" element={<Navigate to="/services" replace />} />
               <Route path="/portfolio/:projectId" element={<Navigate to="/services" replace />} />
-              {/* <Route path="/case-studies" element={<CaseStudiesPage />} /> */}
-              {/* <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} /> */}
-              <Route path="/case-studies" element={<Navigate to="/services" replace />} />
-              <Route path="/case-studies/:slug" element={<Navigate to="/services" replace />} />
+              <Route path="/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />

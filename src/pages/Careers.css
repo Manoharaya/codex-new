@@ -27,7 +27,7 @@
 .careers-hero {
   text-align: center;
   max-width: 820px;
-  margin: 0 auto var(--space-48);
+  margin: 0 auto var(--space-20);
 }
 
 .careers-badge {
@@ -40,7 +40,7 @@
   border-radius: 999px;
   font-size: var(--text-caption);
   font-family: 'IBM Plex Mono', monospace;
-  color: var(--accent-cyan);
+  color: var(--brand-cyan);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-20);
@@ -51,8 +51,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent-cyan);
-  box-shadow: 0 0 10px var(--accent-cyan);
+  background: var(--brand-cyan);
+  box-shadow: 0 0 10px var(--brand-cyan);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -76,7 +76,7 @@
   color: var(--text-secondary);
   line-height: 1.6;
   max-width: 680px;
-  margin: 0 auto var(--space-32);
+  margin: 0 auto;
 }
 
 .careers-stats-row {
@@ -105,7 +105,7 @@
   font-family: 'Inter', sans-serif;
   font-size: var(--text-h3);
   font-weight: 700;
-  color: var(--accent-cyan);
+  color: var(--brand-cyan);
   margin-bottom: 4px;
 }
 
@@ -126,7 +126,7 @@
 .careers-section-tag {
   font-family: 'IBM Plex Mono', monospace;
   font-size: var(--text-caption);
-  color: var(--accent-purple);
+  color: var(--brand-purple);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   display: block;
@@ -178,7 +178,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-cyan);
+  color: var(--brand-cyan);
   margin-bottom: var(--space-20);
 }
 
@@ -216,11 +216,11 @@
 
 .career-perk-item:hover {
   background: var(--bg-surface);
-  border-color: var(--accent-purple);
+  border-color: var(--brand-purple);
 }
 
 .career-perk-icon {
-  color: var(--accent-cyan);
+  color: var(--brand-cyan);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -266,12 +266,12 @@
 
 .careers-filter-btn:hover {
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--glass-border-hover);
 }
 
 .careers-filter-btn.active {
-  background: var(--accent-purple);
-  border-color: var(--accent-purple);
+  background: var(--brand-purple);
+  border-color: var(--brand-purple);
   color: #ffffff;
   box-shadow: 0 0 15px rgba(111, 63, 245, 0.4);
 }
@@ -298,13 +298,13 @@
 }
 
 .career-job-card:hover {
-  border-color: var(--accent-cyan);
+  border-color: var(--brand-cyan);
   transform: translateX(4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .career-job-card.active {
-  border-color: var(--accent-purple);
+  border-color: var(--brand-purple);
   background: rgba(111, 63, 245, 0.05);
 }
 
@@ -323,7 +323,7 @@
 .career-job-dept {
   font-family: 'IBM Plex Mono', monospace;
   font-size: var(--text-caption);
-  color: var(--accent-purple);
+  color: var(--brand-purple);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -331,7 +331,7 @@
 .career-job-pill {
   font-size: 11px;
   padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--glass-border);
   border-radius: 4px;
   color: var(--text-secondary);
 }
@@ -359,7 +359,7 @@
 .career-job-tag {
   font-size: 11px;
   font-family: 'IBM Plex Mono', monospace;
-  color: var(--accent-cyan);
+  color: var(--brand-cyan);
   background: rgba(0, 240, 255, 0.08);
   border: 1px solid rgba(0, 240, 255, 0.2);
   padding: 2px 8px;
@@ -433,7 +433,7 @@
 .careers-form-select {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--glass-border);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
@@ -446,8 +446,8 @@
 .careers-form-textarea:focus,
 .careers-form-select:focus {
   outline: none;
-  border-color: var(--accent-cyan);
-  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--brand-cyan);
+  background: var(--glass-border-hover);
   box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
 }
 
