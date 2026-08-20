@@ -272,13 +272,14 @@
 }
 .sticky-note.purple {
   background: var(--ux-lavender);
-  top: 60px;
-  left: 40px;
+  top: 15%;
+  left: 8%;
 }
 .sticky-note.peach {
   background: var(--ux-peach);
-  top: 140px;
-  left: 280px;
+  top: 40%;
+  right: 8%;
+  left: auto;
   transform: rotate(3deg);
 }
 .sticky-title {
@@ -779,11 +780,10 @@
   .design-left-panel {
     flex: none;
     flex-direction: row;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
     width: 100%;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
     margin-top: 48px;
   }
   
@@ -791,8 +791,7 @@
   
   .design-stage-btn {
     flex: 0 0 auto;
-    scroll-snap-align: start;
-    padding: 10px 16px;
+    padding: 8px 12px;
     font-size: 11px;
     border: 1px solid var(--glass-border);
     border-radius: 100px;

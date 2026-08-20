@@ -10,6 +10,7 @@ import Testimonials from '../components/Testimonials/Testimonials';
 import Stats from '../components/Stats/Stats';
 import FinalCTA from '../components/FinalCTA/FinalCTA';
 import SEO from '../components/SEO/SEO';
+import TrustStrip from '../components/TrustStrip/TrustStrip';
 
 const Home = () => {
   const homeSchema = {
@@ -59,6 +60,7 @@ const Home = () => {
       <div className="chapter-hero">
         <Hero />
       </div>
+      <TrustStrip />
       <div className="chapter-services">
         <Services />
         <WhyUs />

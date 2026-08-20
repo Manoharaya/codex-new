@@ -4,25 +4,40 @@
   border-top: 1px solid var(--glass-border);
 }
 
+.testimonials-header {
+  text-align: center;
+  margin-bottom: var(--space-48);
+}
+
+.testimonials-header h2 {
+  font-size: var(--text-h2);
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
 .testimonials-slider-wrapper {
   position: relative;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.testimonial-content {
+.testimonial-card {
   width: 100%;
-  padding: var(--space-48) var(--space-32);
+  padding: var(--space-48);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  gap: var(--space-48);
   position: relative;
   overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-md);
 }
 
 /* Inject Amber Aurora */
-.testimonial-content::before {
+.testimonial-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -32,69 +47,31 @@
   height: 200px;
   background: var(--brand-amber);
   filter: blur(120px);
-  opacity: 0.1;
+  opacity: 0.08;
   pointer-events: none;
   border-radius: 50%;
   z-index: 0;
 }
 
-[data-theme='light'] .testimonial-content::before {
+[data-theme='light'] .testimonial-card::before {
   opacity: 0.05;
 }
 
-.quote-icon {
-  color: var(--brand-amber);
-  margin-bottom: var(--space-32);
-  opacity: 0.8;
+.testimonial-card-left,
+.testimonial-card-right {
   position: relative;
   z-index: 1;
 }
 
-.testimonial-quote-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-16);
-  margin-bottom: var(--space-36);
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-}
-
-.testimonial-quote-para {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(15px, 1.4vw, 18px);
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  text-align: center;
-}
-
-.testimonial-quote {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(20px, 2vw, 26px);
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--text-primary);
-  margin-bottom: var(--space-36);
-  letter-spacing: -0.01em;
-  position: relative;
-  z-index: 1;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: var(--space-20);
-  position: relative;
-  z-index: 1;
+.testimonial-card-left {
+  flex-shrink: 0;
 }
 
 .author-image-wrapper {
-  width: 64px;
-  height: 64px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  padding: 3px;
+  padding: 4px;
   background: linear-gradient(135deg, var(--brand-amber), transparent);
 }
 
@@ -103,15 +80,21 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--bg-card);
+  border: 3px solid var(--bg-card);
+}
+
+.testimonial-card-right {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .author-info {
-  text-align: left;
+  margin-bottom: var(--space-20);
 }
 
 .author-name {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--text-primary);
   margin-bottom: var(--space-4);
@@ -120,46 +103,72 @@
 .author-role {
   font-size: 14px;
   color: var(--text-secondary);
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.testimonial-footer {
+.testimonial-quote-wrap {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: var(--space-24);
-  position: relative;
-  z-index: 1;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
 }
 
-.testimonial-nav {
-  display: flex;
-  gap: var(--space-12);
-}
-
-.nav-arrow {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--bg-primary);
-  border: 1px solid var(--glass-border);
+.testimonial-quote-para {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--text-secondary);
+}
+
+.testimonial-stars {
   display: flex;
-  align-items: center;
+  gap: 4px;
+}
+
+.star-icon {
+  color: #fbbf24; /* Gold star color */
+}
+
+.testimonial-dots {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  gap: var(--space-12);
+  margin-top: var(--space-32);
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  opacity: 0.3;
+  border: none;
   cursor: pointer;
+  padding: 0;
   transition: all 0.3s ease;
 }
 
-.nav-arrow:hover {
-  background: var(--bg-card);
-  border-color: var(--brand-amber);
-  color: var(--brand-amber);
+.testimonial-dot:hover {
+  opacity: 0.7;
 }
 
+.testimonial-dot.active {
+  background: var(--brand-amber);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+
+/* ==========================================================================
+   RESPONSIVE LAYOUTS
+   ========================================================================== */
 @media (max-width: 1024px) {
-  .testimonial-content {
-    padding: var(--space-48);
+  .testimonial-card {
+    padding: var(--space-32);
+    gap: var(--space-32);
   }
 }
 
@@ -168,52 +177,30 @@
     padding: var(--space-64) 0;
   }
 
-  .testimonial-content {
-    width: 100%;
-    max-width: 100%;
-    padding: var(--space-32) var(--space-20);
-    border: 1px solid var(--glass-border);
-    background: var(--bg-card);
-    border-radius: var(--radius-card);
-  }
-
-  .quote-icon {
-    margin-bottom: var(--space-20);
-    width: 36px;
-    height: 36px;
-  }
-  
-  .testimonial-quote {
-    font-size: clamp(18px, 4.8vw, 22px);
-    margin-bottom: var(--space-24);
-  }
-  
-  .testimonial-footer {
+  .testimonial-card {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-32) var(--space-20);
     gap: var(--space-24);
   }
 
-  .testimonial-author {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-12);
-  }
-  
-  .author-info {
-    text-align: center;
+  .author-image-wrapper {
+    width: 90px;
+    height: 90px;
   }
 
-  .nav-arrow {
-    width: 48px;
-    height: 48px;
+  .testimonial-stars {
+    justify-content: center;
+  }
+  
+  .testimonial-quote-para {
+    font-size: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .testimonials-section {
     padding: var(--space-48) 0;
-  }
-  .testimonial-content {
-    padding: var(--space-24) var(--space-16);
   }
 }

@@ -70,7 +70,7 @@
 /* CSS Grid Structure */
 .mobile-showcase-grid {
   display: grid;
-  grid-template-columns: 25% 40% 35%;
+  grid-template-columns: auto 1fr auto;
   width: 100%;
   height: 100%;
   align-items: center;
@@ -142,6 +142,7 @@
   font-weight: 600;
   color: var(--text-secondary);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 .mobile-stage-btn.active .m-stage-label { color: var(--text-primary); font-weight: 700; }
 
@@ -560,7 +561,7 @@
 /* Tablet Layout */
 @media (max-width: 1100px) {
   .mobile-showcase-grid {
-    grid-template-columns: 30% 40% 30%;
+    grid-template-columns: auto 1fr auto;
   }
   .mobile-process-rail { padding-right: 10px; }
   .mobile-backend-zone { padding-left: 5%; }
@@ -602,13 +603,11 @@
   .mobile-process-rail {
     order: 2;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
     gap: 8px;
   }
-  .mobile-process-rail::-webkit-scrollbar { display: none; }
   .mobile-stage-btn {
     flex: 0 0 auto;
     scroll-snap-align: start;

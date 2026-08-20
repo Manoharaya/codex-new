@@ -272,7 +272,7 @@ section {
   background: #FDFBF7; /* Warm cream */
 }
 .chapter-tech {
-  background: var(--brand-navy);
+  background: var(--bg-surface);
 }
 
 /* Buttons - Vibrant & Interactive */

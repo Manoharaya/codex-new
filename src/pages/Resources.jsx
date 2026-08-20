@@ -16,6 +16,7 @@ const blogsData = [
     category: 'AI & LLMS',
     date: 'Aug 14, 2026',
     readTime: '6 min read',
+    author: { name: 'Manohar Singh', role: 'Chief Architect', avatar: 'https://ui-avatars.com/api/?name=Manohar+Singh&background=6F3FF5&color=fff' },
     excerpt: 'How to move beyond naive prompt-chaining and build autonomous agent graphs with state persistence, error boundaries, and tool fallback.',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
@@ -25,6 +26,7 @@ const blogsData = [
     category: 'CLOUD & DEVOPS',
     date: 'Jul 28, 2026',
     readTime: '8 min read',
+    author: { name: 'Sarah Chen', role: 'DevOps Lead', avatar: 'https://ui-avatars.com/api/?name=Sarah+Chen&background=22D3EE&color=000' },
     excerpt: 'A practical blueprint for configuring HPA, cluster autoscaling, and zero-drop connection draining under unpredictable surge loads.',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
@@ -34,6 +36,7 @@ const blogsData = [
     category: 'SOFTWARE ARCHITECTURE',
     date: 'Jul 12, 2026',
     readTime: '7 min read',
+    author: { name: 'David Okafor', role: 'Senior Engineer', avatar: 'https://ui-avatars.com/api/?name=David+Okafor&background=6F3FF5&color=fff' },
     excerpt: 'Deconstructing real-world anti-patterns when decomposing legacy enterprise systems into Kafka-backed event streams.',
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
@@ -43,6 +46,7 @@ const blogsData = [
     category: 'DATA ENGINEERING',
     date: 'Jun 30, 2026',
     readTime: '5 min read',
+    author: { name: 'Elena Rostova', role: 'Data Scientist', avatar: 'https://ui-avatars.com/api/?name=Elena+Rostova&background=22D3EE&color=000' },
     excerpt: 'Benchmarking indexing speeds, HNSW precision, and cost efficiencies across leading high-dimensional vector indices.',
     image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
@@ -52,6 +56,7 @@ const blogsData = [
     category: 'UI/UX DESIGN',
     date: 'Jun 15, 2026',
     readTime: '4 min read',
+    author: { name: 'Marcus Jin', role: 'Design Engineer', avatar: 'https://ui-avatars.com/api/?name=Marcus+Jin&background=6F3FF5&color=fff' },
     excerpt: 'Engineering 60fps GPU-accelerated motion systems using Framer Motion and WebGL without sacrificing initial bundle size.',
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
@@ -61,6 +66,7 @@ const blogsData = [
     category: 'CYBERSECURITY',
     date: 'May 28, 2026',
     readTime: '6 min read',
+    author: { name: 'Priya Patel', role: 'Security Architect', avatar: 'https://ui-avatars.com/api/?name=Priya+Patel&background=22D3EE&color=000' },
     excerpt: 'Implementing JWT claims validation, distributed rate-limiting with Redis, and mutual TLS across federated endpoints.',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
@@ -335,31 +341,72 @@ const Resources = () => {
           {activeTab === 'blogs' && (
             <motion.div 
               key="blogs"
-              className="resources-grid"
+              className="blog-reader-layout"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
             >
-              {blogsData.map((blog) => (
-                <article key={blog.id} className="resource-blog-card">
-                  <div className="blog-card-media" style={{ backgroundImage: `url(${blog.image})` }}>
-                    <span className="blog-category-tag">{blog.category}</span>
+              {/* Featured Post Hero */}
+              {blogsData.length > 0 && (
+                <article className="featured-blog-card">
+                  <div className="featured-media" style={{ backgroundImage: `url(${blogsData[0].image})` }}>
+                    <span className="blog-category-tag featured-tag">{blogsData[0].category}</span>
                   </div>
-                  <div className="blog-card-body">
+                  <div className="featured-content">
                     <div className="blog-meta-row">
-                      <span><Calendar size={13} style={{ display: 'inline', marginRight: 4 }} />{blog.date}</span>
+                      <span><Calendar size={13} style={{ display: 'inline', marginRight: 4 }} />{blogsData[0].date}</span>
                       <span>•</span>
-                      <span><Clock size={13} style={{ display: 'inline', marginRight: 4 }} />{blog.readTime}</span>
+                      <span><Clock size={13} style={{ display: 'inline', marginRight: 4 }} />{blogsData[0].readTime}</span>
                     </div>
-                    <h3 className="blog-card-title">{blog.title}</h3>
-                    <p className="blog-card-excerpt">{blog.excerpt}</p>
-                    <Link to="/contact" className="blog-read-more">
-                      Read Full Analysis <ArrowRight size={14} />
+                    <h2 className="featured-title">{blogsData[0].title}</h2>
+                    <p className="featured-excerpt">{blogsData[0].excerpt}</p>
+                    
+                    <div className="author-row">
+                      <img src={blogsData[0].author.avatar} alt={blogsData[0].author.name} className="author-avatar" />
+                      <div className="author-info">
+                        <span className="author-name">{blogsData[0].author.name}</span>
+                        <span className="author-role">{blogsData[0].author.role}</span>
+                      </div>
+                    </div>
+                    
+                    <Link to="/contact" className="btn-primary" style={{ marginTop: 'var(--space-24)', alignSelf: 'flex-start' }}>
+                      Read Full Article <ArrowRight size={14} />
                     </Link>
                   </div>
                 </article>
-              ))}
+              )}
+
+              <div className="resources-grid" style={{ marginTop: 'var(--space-48)' }}>
+                {blogsData.slice(1).map((blog) => (
+                  <article key={blog.id} className="resource-blog-card">
+                    <div className="blog-card-media" style={{ backgroundImage: `url(${blog.image})` }}>
+                      <span className="blog-category-tag">{blog.category}</span>
+                    </div>
+                    <div className="blog-card-body">
+                      <div className="blog-meta-row">
+                        <span><Calendar size={13} style={{ display: 'inline', marginRight: 4 }} />{blog.date}</span>
+                        <span>•</span>
+                        <span><Clock size={13} style={{ display: 'inline', marginRight: 4 }} />{blog.readTime}</span>
+                      </div>
+                      <h3 className="blog-card-title">{blog.title}</h3>
+                      <p className="blog-card-excerpt">{blog.excerpt}</p>
+                      
+                      <Link to="/contact" className="blog-read-more" style={{ marginBottom: 'var(--space-16)' }}>
+                        Read Article <ArrowRight size={14} />
+                      </Link>
+
+                      <div className="author-row-small" style={{ marginTop: 'auto', paddingTop: 'var(--space-16)', borderTop: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <img src={blog.author.avatar} alt={blog.author.name} style={{ width: 32, height: 32, borderRadius: '50%' }} />
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)' }}>{blog.author.name}</span>
+                          <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>{blog.author.role}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </motion.div>
           )}
 
@@ -416,7 +463,7 @@ const Resources = () => {
                   <p className="ebook-desc">{ebook.description}</p>
                   
                   <div style={{ marginBottom: 'var(--space-16)' }}>
-                    <span style={{ fontSize: '11px', fontFamily: 'Space Grotesk, monospace', color: 'var(--text-secondary)', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
+                    <span style={{ fontSize: '11px', fontFamily: 'IBM Plex Mono, monospace', color: 'var(--text-secondary)', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
                       Key Focus Areas:
                     </span>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>

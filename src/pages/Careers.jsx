@@ -277,7 +277,7 @@ const Careers = () => {
         </section>
 
         {/* 2. Culture & Engineering Values */}
-        <section style={{ marginBottom: 'var(--space-56)' }}>
+        <section style={{ marginBottom: 'var(--space-64)' }}>
           <div className="careers-section-header">
             <span className="careers-section-tag">ENGINEERING PHILOSOPHY</span>
             <h2 className="careers-section-title">How We Build & Collaborate</h2>
@@ -303,7 +303,7 @@ const Careers = () => {
         </section>
 
         {/* 3. Perks & Benefits */}
-        <section style={{ marginBottom: 'var(--space-56)' }}>
+        <section style={{ marginBottom: 'var(--space-64)' }}>
           <div className="careers-section-header">
             <span className="careers-section-tag">INVESTED IN YOU</span>
             <h2 className="careers-section-title">Benefits & Perks</h2>

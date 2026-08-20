@@ -36,9 +36,8 @@
 
 .engine-footer {
   padding: var(--space-16) var(--space-24);
-  border-top: 1px solid var(--glass-border);
-  background: rgba(0, 0, 0, 0.2);
-  /* Explicitly round the footer to match the container to prevent white corners */
+  background: rgba(111, 63, 245, 0.1);
+  border-top: 1px solid rgba(111, 63, 245, 0.15);
   border-bottom-left-radius: var(--radius-card);
   border-bottom-right-radius: var(--radius-card);
   margin-bottom: -1px; /* Cover any subpixel gaps */
@@ -48,8 +47,9 @@
 
 .context-label {
   font-size: 16px;
-  color: var(--text-primary);
-  font-weight: 500;
+  color: var(--brand-accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* Reusable Components Styles */

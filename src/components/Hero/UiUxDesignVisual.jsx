@@ -289,8 +289,8 @@ const UiUxDesignVisual = () => {
                         <div className="sticky-title">User Needs</div>
                         <div className="sticky-text">- Clear overview<br/>- Quick creation<br/>- Progress tracking</div>
                       </div>
-                      <div className="wire-box" style={{ top: 40, left: 200, width: 200, height: 40 }} />
-                      <div className="wire-box" style={{ top: 100, left: 150, width: 250, height: 120 }} />
+                      <div className="wire-box" style={{ top: '15%', right: '15%', width: '35%', height: 40 }} />
+                      <div className="wire-box" style={{ top: '45%', left: '15%', width: '45%', height: 100 }} />
                     </motion.div>
                   )}
                 </AnimatePresence>

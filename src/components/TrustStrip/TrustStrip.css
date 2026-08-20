@@ -1,0 +1,110 @@
+.trust-strip-section {
+  width: 100%;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.01);
+  display: flex;
+  justify-content: center;
+  padding: var(--space-20) var(--space-24);
+  position: relative;
+  z-index: 10;
+}
+
+[data-theme='light'] .trust-strip-section {
+  background: rgba(0, 0, 0, 0.015);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.trust-strip-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.trust-strip-headline {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.trust-strip-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 834px) {
+  .trust-strip-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .trust-strip-headline {
+    padding-left: var(--space-24);
+    padding-right: var(--space-24);
+  }
+
+  .trust-strip-items {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding: 8px var(--space-24);
+  }
+  
+  .trust-strip-items::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ts-item {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .ts-separator {
+    flex-shrink: 0;
+  }
+}
+
+.ts-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.ts-separator {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--brand-purple);
+  box-shadow: 0 0 8px var(--brand-purple);
+  opacity: 0.8;
+}
+
+@media (min-width: 900px) {
+  .trust-strip-section {
+    padding: var(--space-24) var(--space-48);
+  }
+  
+  .trust-strip-headline {
+    font-size: 14px;
+  }
+  
+  .trust-strip-items {
+    gap: 20px;
+  }
+}
