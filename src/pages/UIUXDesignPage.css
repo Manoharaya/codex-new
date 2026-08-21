@@ -1,0 +1,846 @@
+/* ==========================================================================
+   UI/UX Design Page Styles
+   ========================================================================== */
+
+.uiux-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.uiux-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.uiux-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.uiux-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.uiux-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.uiux-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.uiux-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.uiux-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.uiux-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.uiux-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.uiux-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.uiux-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE DESIGN
+   -------------------------------------------------------------------------- */
+.uiux-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.uiux-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.uiux-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.uiux-cap-icon {
+  color: var(--brand-cyan);
+  background: rgba(0, 240, 255, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.uiux-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.uiux-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. DESIGNING THE EXPERIENCE
+   -------------------------------------------------------------------------- */
+.uiux-experience-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.exp-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16%;
+}
+
+.exp-box {
+  padding: 14px;
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.exp-box.highlight {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.exp-box.final {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(147, 51, 234, 0.05);
+}
+
+.exp-arrow {
+  color: var(--text-secondary);
+  opacity: 0.3;
+  flex-shrink: 0;
+}
+
+.exp-arrow-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. FROM STRUCTURE TO INTERFACE
+   -------------------------------------------------------------------------- */
+.uiux-structure-visual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 64px 48px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.structure-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 25%;
+}
+
+.structure-stage p {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.structure-connector {
+  color: var(--glass-border);
+}
+
+.s-arrow-mobile {
+  display: none;
+}
+
+/* MOCKUPS */
+.wireframe-mockup, .system-mockup, .interface-mockup {
+  width: 160px;
+  height: 200px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.wireframe-mockup {
+  border-color: var(--glass-border);
+}
+.wf-header {
+  height: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 16px;
+}
+.wf-body {
+  padding: 0 16px;
+}
+.wf-block {
+  height: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 16px;
+}
+.wf-lines span {
+  display: block;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+  border-radius: 2px;
+}
+.wf-lines span:nth-child(2) { width: 80%; }
+.wf-lines span:nth-child(3) { width: 60%; }
+
+.system-mockup {
+  padding: 24px 16px;
+  justify-content: center;
+  gap: 24px;
+  border-color: var(--brand-cyan);
+}
+.sys-colors {
+  display: flex;
+  gap: 8px;
+}
+.sc { width: 24px; height: 24px; border-radius: 50%; }
+.sc.c1 { background: var(--brand-cyan); }
+.sc.c2 { background: var(--brand-purple); }
+.sys-type {
+  font-size: 32px;
+  font-family: serif;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+.sys-comp {
+  padding: 8px;
+  background: var(--brand-cyan);
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.interface-mockup {
+  border-color: var(--brand-purple);
+  background: var(--bg-surface); /* Dark mode UI feel */
+}
+.ui-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.ui-logo { width: 20px; height: 20px; border-radius: 4px; background: var(--brand-purple); }
+.ui-nav { width: 40px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; margin-top: 8px; }
+.ui-hero {
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.ui-title {
+  width: 90%;
+  height: 24px;
+  background: linear-gradient(90deg, var(--brand-purple), var(--brand-cyan));
+  border-radius: 4px;
+}
+.ui-btn {
+  width: 60px;
+  height: 20px;
+  background: white;
+  border-radius: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   5. OUR DESIGN PRINCIPLES
+   -------------------------------------------------------------------------- */
+.uiux-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.uiux-pillar-item {
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.uiux-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.uiux-pillar-icon {
+  color: var(--brand-cyan);
+  display: flex;
+  align-items: center;
+}
+
+.uiux-pillar-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.uiux-pillar-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. HOW WE DESIGN
+   -------------------------------------------------------------------------- */
+.uiux-process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.uiux-process-card {
+  padding: 32px 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.uiux-process-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-cyan);
+  margin-bottom: 24px;
+  font-family: monospace;
+}
+
+.uiux-process-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.uiux-process-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   7. DESIGN SYSTEM
+   -------------------------------------------------------------------------- */
+.uiux-system-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sys-panel {
+  padding: 32px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.sys-panel h5 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.type-sample.primary {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.type-sample.secondary {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.color-swatches {
+  display: flex;
+  gap: 16px;
+}
+
+.swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.swatch.primary { background: var(--brand-purple); }
+.swatch.secondary { background: var(--brand-cyan); }
+.swatch.accent { background: var(--brand-cyan); }
+.swatch.dark { background: var(--glass-border); }
+
+.spacing-blocks {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.s-block {
+  background: rgba(255,255,255,0.05);
+  border: 1px dashed rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+.s-block.s8 { width: 24px; height: 8px; }
+.s-block.s16 { width: 24px; height: 16px; }
+.s-block.s24 { width: 24px; height: 24px; }
+.s-block.s32 { width: 24px; height: 32px; }
+
+.comp-demo {
+  display: flex;
+  gap: 16px;
+}
+
+.sys-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sys-btn.primary {
+  background: var(--brand-cyan);
+  color: white;
+  border: none;
+}
+.sys-btn.primary:hover {
+  background: #00c2cc;
+}
+
+.sys-btn.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+}
+.sys-btn.secondary:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE PRODUCT EXPERIENCE
+   -------------------------------------------------------------------------- */
+.uiux-responsive-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 64px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-primary);
+}
+
+.device span {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.device-icon {
+  color: var(--brand-cyan);
+}
+
+.r-arrow-desktop {
+  color: var(--glass-border);
+}
+
+.r-arrow-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. TECHNOLOGY / DESIGN HANDOFF
+   -------------------------------------------------------------------------- */
+.uiux-handoff-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  background: var(--bg-surface);
+  text-align: center;
+}
+
+.handoff-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.handoff-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+}
+
+.handoff-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hf-node {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 32px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 300px;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.hf-node.highlight {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.hf-node.final {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(147, 51, 234, 0.05);
+}
+
+.hf-operator {
+  color: var(--glass-border);
+}
+
+/* --------------------------------------------------------------------------
+   10. FINAL CTA
+   -------------------------------------------------------------------------- */
+.uiux-cta-section {
+  padding: 120px 0;
+}
+
+.uiux-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.uiux-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.uiux-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.uiux-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.uiux-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .uiux-hero-title {
+    font-size: 42px;
+  }
+  
+  .uiux-hero-grid {
+    gap: 40px;
+  }
+  
+  .uiux-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .uiux-principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .uiux-process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .uiux-system-board {
+    grid-template-columns: 1fr;
+  }
+
+  .uiux-structure-visual {
+    padding: 32px 24px;
+    gap: 16px;
+  }
+
+  .wireframe-mockup, .system-mockup, .interface-mockup {
+    width: 120px;
+    height: 160px;
+  }
+
+  .uiux-responsive-visual {
+    gap: 24px;
+    padding: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .uiux-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .uiux-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .uiux-hero-title {
+    font-size: 36px;
+  }
+  
+  .uiux-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .uiux-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .uiux-section {
+    padding: 64px 0;
+  }
+  
+  .uiux-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .uiux-section-title {
+    font-size: 28px;
+  }
+  
+  .uiux-capabilities-grid,
+  .uiux-principles-grid,
+  .uiux-process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .uiux-cap-card,
+  .uiux-pillar-item,
+  .uiux-process-card {
+    padding: 24px;
+  }
+
+  /* EXPERIENCE FLOW */
+  .uiux-experience-flow {
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+  }
+
+  .exp-node {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .exp-arrow-desktop {
+    display: none;
+  }
+
+  .exp-arrow-mobile {
+    display: block;
+    margin: 16px 0;
+  }
+
+  /* STRUCTURE VISUAL */
+  .uiux-structure-visual {
+    flex-direction: column;
+    padding: 32px 16px;
+  }
+
+  .structure-stage {
+    width: 100%;
+  }
+
+  .s-arrow-desktop {
+    display: none;
+  }
+
+  .s-arrow-mobile {
+    display: block;
+    margin: 16px 0;
+  }
+
+  /* SYSTEM BOARD */
+  .sys-panel {
+    padding: 24px;
+  }
+
+  .color-swatches {
+    flex-wrap: wrap;
+  }
+
+  .comp-demo {
+    flex-direction: column;
+  }
+
+  /* RESPONSIVE VISUAL */
+  .uiux-responsive-visual {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .r-arrow-desktop {
+    display: none;
+  }
+
+  .r-arrow-mobile {
+    display: block;
+  }
+
+  /* HANDOFF */
+  .uiux-handoff-card {
+    padding: 32px 16px;
+  }
+
+  /* CTA */
+  .uiux-cta-section {
+    padding: 64px 0;
+  }
+  
+  .uiux-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .uiux-cta-title {
+    font-size: 28px;
+  }
+  
+  .uiux-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .uiux-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .uiux-cta-actions a {
+    width: 100%;
+  }
+}

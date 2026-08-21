@@ -1,0 +1,408 @@
+/* ==========================================================================
+   AI Solutions Page Styles (Overrides generic Service Detail)
+   ========================================================================== */
+
+.ai-solutions-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.ai-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.ai-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-24);
+  display: inline-block;
+}
+
+.ai-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.ai-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.ai-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.ai-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.ai-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.ai-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.ai-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.ai-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.ai-capabilities-bg {
+  background: var(--bg-surface);
+}
+
+.ai-approach-bg {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE BUILD
+   -------------------------------------------------------------------------- */
+.ai-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ai-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ai-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.ai-cap-icon {
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.ai-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ai-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. WHERE AI CREATES VALUE
+   -------------------------------------------------------------------------- */
+.ai-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ai-value-card {
+  padding: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.ai-value-icon {
+  color: var(--brand-purple);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ai-value-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.ai-value-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. OUR ENGINEERING APPROACH
+   -------------------------------------------------------------------------- */
+.ai-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ai-approach-card {
+  padding: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.ai-approach-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-cyan);
+  margin-bottom: 24px;
+  font-family: monospace;
+}
+
+.ai-approach-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.ai-approach-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   5. TECHNOLOGY / INTEGRATION
+   -------------------------------------------------------------------------- */
+.ai-tech-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+}
+
+.ai-tech-icon {
+  color: var(--brand-cyan);
+  margin-bottom: 16px;
+}
+
+.ai-tech-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.ai-tech-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.ai-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ai-tech-pill {
+  padding: 8px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   6. FINAL CTA
+   -------------------------------------------------------------------------- */
+.ai-cta-section {
+  padding: 120px 0;
+}
+
+.ai-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.05) 0%, rgba(45, 212, 191, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.ai-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.ai-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ai-cta-btn {
+  display: inline-flex;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .ai-hero-title {
+    font-size: 42px;
+  }
+  
+  .ai-hero-grid {
+    gap: 40px;
+  }
+  
+  .ai-capabilities-grid,
+  .ai-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ai-approach-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ai-tech-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+  
+  .ai-cta-title {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ai-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .ai-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .ai-hero-title {
+    font-size: 36px;
+  }
+  
+  .ai-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .ai-hero-cta a {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+  
+  .ai-section {
+    padding: 64px 0;
+  }
+  
+  .ai-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .ai-section-title {
+    font-size: 28px;
+  }
+  
+  .ai-capabilities-grid,
+  .ai-value-grid,
+  .ai-approach-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ai-cap-card,
+  .ai-value-card,
+  .ai-approach-card {
+    padding: 24px;
+  }
+  
+  .ai-tech-container {
+    padding: 24px;
+  }
+  
+  .ai-cta-section {
+    padding: 64px 0;
+  }
+  
+  .ai-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .ai-cta-title {
+    font-size: 28px;
+  }
+  
+  .ai-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}

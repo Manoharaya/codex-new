@@ -1,0 +1,643 @@
+/* ==========================================================================
+   Blockchain & Web3 Page Styles
+   ========================================================================== */
+
+.web3-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.web3-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.web3-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.web3-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.web3-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.web3-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.web3-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.web3-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.web3-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.web3-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.web3-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.web3-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE BUILD
+   -------------------------------------------------------------------------- */
+.web3-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.web3-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.web3-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.web3-cap-icon {
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.web3-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.web3-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. WHERE BLOCKCHAIN MAKES SENSE
+   -------------------------------------------------------------------------- */
+.web3-value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.web3-value-card {
+  padding: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.web3-value-icon {
+  color: var(--brand-purple);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.web3-value-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.web3-value-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. HOW WE ENGINEER WEB3 PRODUCTS
+   -------------------------------------------------------------------------- */
+.web3-process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.web3-process-card {
+  padding: 32px 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-surface);
+  position: relative;
+}
+
+.web3-process-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-cyan);
+  margin-bottom: 24px;
+  font-family: monospace;
+}
+
+.web3-process-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.web3-process-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   5. ARCHITECTURE DIAGRAM
+   -------------------------------------------------------------------------- */
+.web3-architecture-diagram {
+  padding: 64px 32px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.arch-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.arch-mobile {
+  display: none;
+}
+
+.arch-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.arch-split-connectors {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+
+.split-left, .split-right {
+  width: 50%;
+  border-top: 2px solid var(--glass-border);
+  position: relative;
+  top: 20px;
+}
+
+.split-left {
+  border-left: 2px solid var(--glass-border);
+  border-radius: 8px 0 0 0;
+  margin-left: 25%;
+}
+
+.split-right {
+  border-right: 2px solid var(--glass-border);
+  border-radius: 0 8px 0 0;
+  margin-right: 25%;
+}
+
+.split-left::after, .split-right::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  width: 2px;
+  height: 20px;
+  background: var(--glass-border);
+}
+
+.split-left::after { left: -2px; }
+.split-right::after { right: -2px; }
+
+.split-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.arch-col {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arch-node {
+  padding: 16px 32px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  z-index: 2;
+  width: 100%;
+  max-width: 300px;
+}
+
+.arch-node.highlight {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.05);
+}
+
+.arch-node.on-chain {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(147, 51, 234, 0.05);
+}
+
+.arch-node.off-chain {
+  border-color: var(--text-secondary);
+}
+
+.arch-node.end {
+  background: var(--brand-purple);
+  color: #fff;
+}
+
+.arch-connector {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECURITY & ENGINEERING PRINCIPLES
+   -------------------------------------------------------------------------- */
+.web3-security-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.web3-security-item {
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--bg-primary);
+}
+
+.web3-security-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.web3-security-icon {
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+}
+
+.web3-security-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.web3-security-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. TECHNOLOGY / INTEGRATION
+   -------------------------------------------------------------------------- */
+.web3-tech-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+}
+
+.web3-tech-icon {
+  color: var(--brand-cyan);
+  margin-bottom: 16px;
+}
+
+.web3-tech-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.web3-tech-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.web3-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.web3-tech-pill {
+  padding: 8px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   8. FINAL CTA
+   -------------------------------------------------------------------------- */
+.web3-cta-section {
+  padding: 120px 0;
+}
+
+.web3-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.web3-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.web3-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.web3-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.web3-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .web3-hero-title {
+    font-size: 42px;
+  }
+  
+  .web3-hero-grid {
+    gap: 40px;
+  }
+  
+  .web3-capabilities-grid,
+  .web3-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .web3-process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .web3-security-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .web3-tech-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+  
+  .web3-cta-title {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .web3-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .web3-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .web3-hero-title {
+    font-size: 36px;
+  }
+  
+  .web3-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .web3-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .web3-section {
+    padding: 64px 0;
+  }
+  
+  .web3-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .web3-section-title {
+    font-size: 28px;
+  }
+  
+  .web3-capabilities-grid,
+  .web3-value-grid,
+  .web3-process-grid,
+  .web3-security-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .web3-cap-card,
+  .web3-value-card,
+  .web3-process-card,
+  .web3-security-item {
+    padding: 24px;
+  }
+  
+  .web3-architecture-diagram {
+    padding: 32px 24px;
+  }
+
+  .arch-desktop {
+    display: none;
+  }
+
+  .arch-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .arch-arrow {
+    color: var(--text-secondary);
+    opacity: 0.5;
+    margin: 12px 0;
+  }
+
+  .arch-mobile-split {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .arch-mobile-path {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--bg-surface);
+    border: 1px solid var(--glass-border);
+  }
+
+  .on-chain-path {
+    background: rgba(147, 51, 234, 0.02);
+  }
+
+  .path-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .arch-node {
+    padding: 12px;
+    font-size: 12px;
+    white-space: normal;
+  }
+
+  .web3-tech-container {
+    padding: 24px;
+  }
+  
+  .web3-cta-section {
+    padding: 64px 0;
+  }
+  
+  .web3-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .web3-cta-title {
+    font-size: 28px;
+  }
+  
+  .web3-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .web3-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .web3-cta-actions a {
+    width: 100%;
+  }
+}

@@ -4,6 +4,18 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
 import SEO from '../components/SEO/SEO';
+import AISolutionsPage from './AISolutionsPage';
+import EnterpriseSoftwarePage from './EnterpriseSoftwarePage';
+import WebDevelopmentPage from './WebDevelopmentPage';
+import AppDevelopmentPage from './AppDevelopmentPage';
+import BlockchainWeb3Page from './BlockchainWeb3Page';
+import CloudEngineeringPage from './CloudEngineeringPage';
+import DevOpsPage from './DevOpsPage';
+import UIUXDesignPage from './UIUXDesignPage';
+import GraphicDesignPage from './GraphicDesignPage';
+import SEOPage from './SEOPage';
+import DigitalMarketingPage from './DigitalMarketingPage';
+import ContentWritingPage from './ContentWritingPage';
 import './ServiceDetailPage.css';
 
 const ServiceDetailPage = () => {
@@ -11,6 +23,54 @@ const ServiceDetailPage = () => {
   const navigate = useNavigate();
   
   const service = servicesData.find(s => s.id === serviceId);
+
+  if (serviceId === 'ai-solutions' && service) {
+    return <AISolutionsPage service={service} />;
+  }
+
+  if (serviceId === 'software-development' && service) {
+    return <EnterpriseSoftwarePage service={service} />;
+  }
+
+  if (serviceId === 'web-development' && service) {
+    return <WebDevelopmentPage service={service} />;
+  }
+
+  if (serviceId === 'app-development' && service) {
+    return <AppDevelopmentPage service={service} />;
+  }
+
+  if (serviceId === 'blockchain-web3' && service) {
+    return <BlockchainWeb3Page service={service} />;
+  }
+
+  if (serviceId === 'cloud-engineering' && service) {
+    return <CloudEngineeringPage service={service} />;
+  }
+
+  if (serviceId === 'devops' && service) {
+    return <DevOpsPage service={service} />;
+  }
+
+  if (serviceId === 'ui-ux-design' && service) {
+    return <UIUXDesignPage service={service} />;
+  }
+
+  if (serviceId === 'graphic-design' && service) {
+    return <GraphicDesignPage service={service} />;
+  }
+
+  if (serviceId === 'technical-seo' && service) {
+    return <SEOPage service={service} />;
+  }
+
+  if (serviceId === 'digital-marketing' && service) {
+    return <DigitalMarketingPage service={service} />;
+  }
+
+  if (serviceId === 'content-writing' && service) {
+    return <ContentWritingPage service={service} />;
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,0 +1,779 @@
+/* ==========================================================================
+   Digital Marketing (Social Media) Page Styles
+   ========================================================================== */
+
+.smm-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.smm-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.smm-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.smm-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.smm-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.smm-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.smm-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.smm-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.smm-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.smm-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.smm-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.smm-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE DO
+   -------------------------------------------------------------------------- */
+.smm-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.smm-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.smm-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.smm-cap-icon {
+  color: var(--brand-purple);
+  background: rgba(111, 63, 245, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.smm-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.smm-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. SOCIAL MEDIA IS A SYSTEM
+   -------------------------------------------------------------------------- */
+.smm-system-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.sys-node {
+  padding: 16px 24px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  width: 14%;
+}
+
+.sys-node.highlight {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.sys-node.final {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(111, 63, 245, 0.05);
+}
+
+.sys-connector {
+  color: var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sys-arrow-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. CONTENT STRATEGY
+   -------------------------------------------------------------------------- */
+.smm-strategy-equation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 64px 32px;
+}
+
+.eq-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.eq-item {
+  padding: 16px 24px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.eq-op {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--glass-border);
+}
+
+.eq-result-connector {
+  color: var(--brand-cyan);
+}
+.eq-arrow-mobile { display: none; }
+
+.eq-output {
+  padding: 20px 48px;
+  background: linear-gradient(135deg, rgba(111, 63, 245, 0.1), rgba(0, 240, 255, 0.1));
+  border: 1px solid var(--brand-purple);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   5. CONTENT PILLARS
+   -------------------------------------------------------------------------- */
+.smm-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pillar-card {
+  padding: 40px;
+  text-align: center;
+}
+
+.pillar-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--brand-cyan);
+  margin-bottom: 12px;
+}
+
+.pillar-card p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. FROM IDEA TO PUBLISHED CONTENT
+   -------------------------------------------------------------------------- */
+.smm-workflow-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.wf-node {
+  padding: 16px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  width: 14%;
+}
+
+.wf-node.highlight {
+  border-color: var(--brand-cyan);
+  color: var(--text-primary);
+}
+
+.wf-node.final {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(111, 63, 245, 0.05);
+}
+
+.wf-connector {
+  color: var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wf-arrow-mobile { display: none; }
+
+/* --------------------------------------------------------------------------
+   7. PLATFORM-AWARE CONTENT
+   -------------------------------------------------------------------------- */
+.smm-platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.platform-card {
+  padding: 40px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.platform-icon {
+  color: var(--text-primary);
+  opacity: 0.8;
+}
+
+.platform-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.platform-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   8. BRAND CONSISTENCY
+   -------------------------------------------------------------------------- */
+.smm-consistency-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 64px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.consist-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.c-item {
+  width: 100%;
+  padding: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.c-op {
+  font-size: 20px;
+  color: var(--glass-border);
+}
+
+.consist-arrow {
+  color: var(--brand-purple);
+  margin: 16px 0;
+}
+
+.consist-output {
+  width: 100%;
+  padding: 24px;
+  background: rgba(111, 63, 245, 0.1);
+  border: 1px solid var(--brand-purple);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   9. CONTENT + DESIGN
+   -------------------------------------------------------------------------- */
+.smm-integration-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.int-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.int-node {
+  padding: 16px 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.int-node.split {
+  flex: 1;
+}
+
+.int-node.final {
+  width: 100%;
+  background: rgba(0, 240, 255, 0.05);
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+
+.int-op {
+  font-size: 20px;
+  color: var(--glass-border);
+}
+
+.int-arrow {
+  color: var(--glass-border);
+}
+
+/* --------------------------------------------------------------------------
+   10. MEASUREMENT & IMPROVEMENT
+   -------------------------------------------------------------------------- */
+.smm-feedback-loop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.loop-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.loop-item svg {
+  color: var(--brand-purple);
+}
+
+.loop-item.final {
+  color: var(--brand-cyan);
+}
+
+.loop-item.final svg {
+  color: var(--brand-cyan);
+}
+
+.loop-connector {
+  color: var(--glass-border);
+}
+
+.l-arrow-mobile { display: none; }
+
+/* --------------------------------------------------------------------------
+   11. HOW WE WORK
+   -------------------------------------------------------------------------- */
+.smm-process-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.process-card {
+  padding: 32px 24px;
+  flex: 1;
+  position: relative;
+}
+
+.process-num {
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--brand-purple);
+  margin-bottom: 24px;
+}
+
+.process-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.process-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   12. FINAL CTA
+   -------------------------------------------------------------------------- */
+.smm-cta-section {
+  padding: 120px 0;
+}
+
+.smm-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(111, 63, 245, 0.05) 0%, rgba(0, 240, 255, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.smm-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.smm-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.smm-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.smm-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .smm-hero-title {
+    font-size: 42px;
+  }
+  
+  .smm-hero-grid {
+    gap: 40px;
+  }
+  
+  .smm-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .smm-pillars-grid {
+    gap: 16px;
+  }
+
+  .smm-platforms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .smm-process-grid {
+    flex-wrap: wrap;
+  }
+  .process-card {
+    min-width: 45%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .smm-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .smm-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .smm-hero-title {
+    font-size: 36px;
+  }
+  
+  .smm-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .smm-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .smm-section {
+    padding: 64px 0;
+  }
+  
+  .smm-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .smm-section-title {
+    font-size: 28px;
+  }
+  
+  .smm-capabilities-grid,
+  .smm-pillars-grid,
+  .smm-platforms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .smm-cap-card,
+  .pillar-card,
+  .platform-card {
+    padding: 24px;
+  }
+
+  /* SYSTEM FLOW */
+  .smm-system-flow {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 12px;
+  }
+  
+  .sys-node {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .sys-connector {
+    padding: 4px 0;
+  }
+  
+  .sys-arrow-desktop { display: none; }
+  .sys-arrow-mobile { display: block; }
+
+  /* STRATEGY EQUATION */
+  .smm-strategy-equation {
+    padding: 32px 16px;
+    gap: 24px;
+  }
+
+  .eq-inputs {
+    flex-direction: column;
+  }
+
+  .eq-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .eq-arrow-desktop { display: none; }
+  .eq-arrow-mobile { display: block; }
+
+  .eq-output {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* WORKFLOW */
+  .smm-workflow-flow {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 12px;
+  }
+
+  .wf-node {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .wf-connector {
+    padding: 4px 0;
+  }
+
+  .wf-arrow-desktop { display: none; }
+  .wf-arrow-mobile { display: block; }
+
+  /* CONSISTENCY */
+  .smm-consistency-diagram {
+    padding: 32px 16px;
+  }
+
+  /* INTEGRATION FLOW */
+  .smm-integration-flow {
+    padding: 32px 16px;
+  }
+  .int-layer.middle {
+    flex-direction: column;
+  }
+  .int-node { width: 100%; }
+
+  /* FEEDBACK LOOP */
+  .smm-feedback-loop {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 16px;
+  }
+  .loop-item { width: 100%; flex-direction: row; justify-content: center; }
+  .l-arrow-desktop { display: none; }
+  .l-arrow-mobile { display: block; margin: 8px 0; }
+
+  /* PROCESS */
+  .smm-process-grid {
+    flex-direction: column;
+  }
+
+  /* CTA */
+  .smm-cta-section {
+    padding: 64px 0;
+  }
+  
+  .smm-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .smm-cta-title {
+    font-size: 28px;
+  }
+  
+  .smm-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .smm-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .smm-cta-actions a {
+    width: 100%;
+  }
+}

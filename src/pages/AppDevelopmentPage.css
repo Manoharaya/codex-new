@@ -1,0 +1,508 @@
+/* ==========================================================================
+   Mobile App Development Page Styles
+   ========================================================================== */
+
+.app-development-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.app-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.app-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.app-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.app-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.app-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.app-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.app-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.app-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.app-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.app-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.app-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE BUILD
+   -------------------------------------------------------------------------- */
+.app-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.app-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.app-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.app-cap-icon {
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.app-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.app-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE EXPERIENCE
+   -------------------------------------------------------------------------- */
+.app-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.app-pillar-item {
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.app-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.app-pillar-icon {
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+}
+
+.app-pillar-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.app-pillar-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. FROM IDEA TO MOBILE PRODUCT
+   -------------------------------------------------------------------------- */
+.app-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.app-process-card {
+  padding: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.app-process-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-cyan);
+  margin-bottom: 24px;
+  font-family: monospace;
+}
+
+.app-process-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.app-process-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. PRODUCT ECOSYSTEM FLOW
+   -------------------------------------------------------------------------- */
+.app-ecosystem-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  margin-top: 32px;
+}
+
+.flow-step {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.flow-node {
+  padding: 16px 24px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.flow-node.highlight {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.05);
+}
+
+.flow-node.end {
+  border-color: var(--brand-purple);
+}
+
+.flow-arrow {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  flex-shrink: 0;
+  margin: 0 16px;
+}
+
+.flow-arrow-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. TECHNOLOGY / INTEGRATION
+   -------------------------------------------------------------------------- */
+.app-tech-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--bg-primary);
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+}
+
+.app-tech-icon {
+  color: var(--brand-cyan);
+  margin-bottom: 16px;
+}
+
+.app-tech-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.app-tech-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.app-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.app-tech-pill {
+  padding: 8px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   7. FINAL CTA
+   -------------------------------------------------------------------------- */
+.app-cta-section {
+  padding: 120px 0;
+}
+
+.app-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.app-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.app-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.app-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .app-hero-title {
+    font-size: 42px;
+  }
+  
+  .app-hero-grid {
+    gap: 40px;
+  }
+  
+  .app-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .app-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .app-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .app-ecosystem-flow {
+    padding: 32px 16px;
+  }
+  
+  .flow-arrow {
+    margin: 0 8px;
+  }
+  
+  .flow-node {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .app-tech-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+  
+  .app-cta-title {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .app-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .app-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .app-hero-title {
+    font-size: 36px;
+  }
+  
+  .app-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .app-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .app-section {
+    padding: 64px 0;
+  }
+  
+  .app-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .app-section-title {
+    font-size: 28px;
+  }
+  
+  .app-capabilities-grid,
+  .app-pillars-grid,
+  .app-process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-cap-card,
+  .app-pillar-item,
+  .app-process-card {
+    padding: 24px;
+  }
+  
+  .app-ecosystem-flow {
+    flex-direction: column;
+    padding: 32px;
+    gap: 16px;
+  }
+  
+  .flow-step {
+    width: 100%;
+  }
+  
+  .flow-node {
+    width: 100%;
+    padding: 16px;
+    font-size: 15px;
+  }
+  
+  .flow-arrow-desktop {
+    display: none;
+  }
+  
+  .flow-arrow-mobile {
+    display: block;
+    margin: 8px 0;
+  }
+  
+  .app-tech-container {
+    padding: 24px;
+  }
+  
+  .app-cta-section {
+    padding: 64px 0;
+  }
+  
+  .app-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .app-cta-title {
+    font-size: 28px;
+  }
+  
+  .app-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .app-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .app-cta-actions a {
+    width: 100%;
+  }
+}

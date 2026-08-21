@@ -1,0 +1,457 @@
+/* ==========================================================================
+   Enterprise Software Page Styles
+   ========================================================================== */
+
+.enterprise-software-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.es-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.es-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.es-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.es-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.es-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.es-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.es-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.es-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.es-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.es-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.es-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE BUILD
+   -------------------------------------------------------------------------- */
+.es-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.es-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.es-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.es-cap-icon {
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.es-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.es-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. WHERE SOFTWARE CREATES VALUE
+   -------------------------------------------------------------------------- */
+.es-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.es-value-card {
+  padding: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.es-value-icon {
+  color: var(--brand-purple);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.es-value-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.es-value-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. ENGINEERING APPROACH
+   -------------------------------------------------------------------------- */
+.es-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.es-approach-card {
+  padding: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.es-approach-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-cyan);
+  margin-bottom: 24px;
+  font-family: monospace;
+}
+
+.es-approach-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.es-approach-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   5. ENTERPRISE FOUNDATIONS
+   -------------------------------------------------------------------------- */
+.es-foundations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.es-foundation-item {
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.es-foundation-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.es-foundation-icon {
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+}
+
+.es-foundation-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.es-foundation-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. TECHNOLOGY / INTEGRATION
+   -------------------------------------------------------------------------- */
+.es-tech-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--bg-primary);
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+}
+
+.es-tech-icon {
+  color: var(--brand-cyan);
+  margin-bottom: 16px;
+}
+
+.es-tech-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.es-tech-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.es-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.es-tech-pill {
+  padding: 8px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   7. FINAL CTA
+   -------------------------------------------------------------------------- */
+.es-cta-section {
+  padding: 120px 0;
+}
+
+.es-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.es-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.es-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.es-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.es-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .es-hero-title {
+    font-size: 42px;
+  }
+  
+  .es-hero-grid {
+    gap: 40px;
+  }
+  
+  .es-capabilities-grid,
+  .es-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .es-approach-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .es-foundations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .es-tech-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+  
+  .es-cta-title {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .es-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .es-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .es-hero-title {
+    font-size: 36px;
+  }
+  
+  .es-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .es-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .es-section {
+    padding: 64px 0;
+  }
+  
+  .es-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .es-section-title {
+    font-size: 28px;
+  }
+  
+  .es-capabilities-grid,
+  .es-value-grid,
+  .es-approach-grid,
+  .es-foundations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .es-cap-card,
+  .es-value-card,
+  .es-approach-card,
+  .es-foundation-item {
+    padding: 24px;
+  }
+  
+  .es-tech-container {
+    padding: 24px;
+  }
+  
+  .es-cta-section {
+    padding: 64px 0;
+  }
+  
+  .es-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .es-cta-title {
+    font-size: 28px;
+  }
+  
+  .es-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .es-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .es-cta-actions a {
+    width: 100%;
+  }
+}

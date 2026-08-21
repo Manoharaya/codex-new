@@ -1,0 +1,816 @@
+/* ==========================================================================
+   DevOps Page Styles
+   ========================================================================== */
+
+.devops-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.devops-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.devops-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.devops-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.devops-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.devops-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.devops-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+.devops-hero-pipeline {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  background: var(--bg-surface);
+}
+
+.pipeline-node {
+  padding: 12px 24px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 0.05em;
+  width: 160px;
+}
+
+.pipeline-node.highlight {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(147, 51, 234, 0.05);
+}
+
+.pipeline-node.final {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.05);
+}
+
+.pipeline-arrow {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  margin: 12px 0;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.devops-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.devops-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.devops-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.devops-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.devops-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE DO
+   -------------------------------------------------------------------------- */
+.devops-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.devops-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.devops-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.devops-cap-icon {
+  color: var(--brand-purple);
+  background: rgba(147, 51, 234, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.devops-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.devops-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. FROM CODE TO PRODUCTION
+   -------------------------------------------------------------------------- */
+.devops-code-to-prod {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.c2p-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14%;
+}
+
+.c2p-box {
+  padding: 12px;
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.c2p-box.highlight {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+}
+
+.c2p-box.final {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+
+.c2p-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.c2p-arrow {
+  color: var(--text-secondary);
+  opacity: 0.3;
+  margin-top: 14px;
+  flex-shrink: 0;
+}
+
+.c2p-arrow-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. DEVELOPMENT -> STAGING -> PRODUCTION
+   -------------------------------------------------------------------------- */
+.devops-env-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.devops-env-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.devops-env-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.devops-env-visual {
+  display: flex;
+  justify-content: center;
+  padding: 64px 48px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.env-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+.env-node {
+  padding: 16px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  background: var(--bg-surface);
+}
+
+.env-node.dev {
+  border-color: #6b7280;
+  color: #9ca3af;
+}
+
+.env-node.staging {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+
+.env-node.prod {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(147, 51, 234, 0.05);
+}
+
+.env-flow-line {
+  height: 24px;
+  width: 2px;
+  background: var(--glass-border);
+}
+
+/* --------------------------------------------------------------------------
+   5. DEVOPS ENGINEERING PRINCIPLES
+   -------------------------------------------------------------------------- */
+.devops-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.devops-pillar-item {
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.devops-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.devops-pillar-icon {
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+}
+
+.devops-pillar-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.devops-pillar-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. HOW WE IMPLEMENT DEVOPS
+   -------------------------------------------------------------------------- */
+.devops-process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.devops-process-card {
+  padding: 32px 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.devops-process-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-purple);
+  margin-bottom: 24px;
+  font-family: monospace;
+}
+
+.devops-process-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.devops-process-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   8. DEPLOYMENT VISUAL
+   -------------------------------------------------------------------------- */
+.devops-live-deploy-visual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 64px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.deploy-stage-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.deploy-stage-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.deploy-stage-node.past {
+  opacity: 0.8;
+}
+
+.deploy-stage-node.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.node-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.node-status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--glass-border);
+  color: var(--text-secondary);
+}
+
+.deploy-stage-node.active .node-status {
+  background: rgba(45, 212, 191, 0.1);
+  color: var(--brand-cyan);
+}
+
+.deploy-stage-node.past .node-status {
+  background: rgba(147, 51, 234, 0.1);
+  color: var(--brand-purple);
+}
+
+.deploy-arrow {
+  margin: 0 16px;
+  color: var(--glass-border);
+}
+
+.deploy-arrow.past {
+  color: var(--brand-purple);
+}
+
+.deploy-arrow-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. DEVOPS + CLOUD RELATIONSHIP
+   -------------------------------------------------------------------------- */
+.devops-relationship-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  background: var(--bg-primary);
+  text-align: center;
+}
+
+.relationship-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 48px;
+}
+
+.relationship-equation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.equation-block {
+  padding: 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  width: 200px;
+}
+
+.equation-block h4 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.equation-block p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.equation-block.highlight {
+  border-color: var(--brand-purple);
+}
+
+.equation-block.highlight h4 {
+  color: var(--brand-purple);
+}
+
+.equation-block.final {
+  border-color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.05);
+}
+
+.equation-block.final h4 {
+  color: var(--brand-cyan);
+  margin-bottom: 0;
+}
+
+.equation-operator {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   7. TECHNOLOGY & TOOLING
+   -------------------------------------------------------------------------- */
+.devops-tech-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 48px;
+  background: var(--bg-surface);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+}
+
+.devops-tech-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.tech-category {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  width: 120px;
+  padding-top: 8px;
+  flex-shrink: 0;
+}
+
+.tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tech-pill {
+  padding: 8px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   10. FINAL CTA
+   -------------------------------------------------------------------------- */
+.devops-cta-section {
+  padding: 120px 0;
+}
+
+.devops-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.05) 0%, rgba(45, 212, 191, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.devops-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.devops-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.devops-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.devops-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .devops-hero-title {
+    font-size: 42px;
+  }
+  
+  .devops-hero-grid {
+    gap: 40px;
+  }
+  
+  .devops-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .devops-principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .devops-process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .devops-env-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .devops-tech-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .tech-category {
+    padding-top: 0;
+  }
+
+  .devops-live-deploy-visual {
+    padding: 32px 24px;
+  }
+
+  .relationship-equation {
+    flex-direction: column;
+  }
+
+  .equation-block {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .devops-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .devops-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .devops-hero-title {
+    font-size: 36px;
+  }
+  
+  .devops-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .devops-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .devops-section {
+    padding: 64px 0;
+  }
+  
+  .devops-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .devops-section-title {
+    font-size: 28px;
+  }
+  
+  .devops-capabilities-grid,
+  .devops-principles-grid,
+  .devops-process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .devops-cap-card,
+  .devops-pillar-item,
+  .devops-process-card {
+    padding: 24px;
+  }
+
+  /* C2P PIPELINE */
+  .devops-code-to-prod {
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+  }
+
+  .c2p-stage {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .c2p-arrow-desktop {
+    display: none;
+  }
+
+  .c2p-arrow-mobile {
+    display: block;
+    margin: 16px 0;
+  }
+
+  /* ENV VISUAL */
+  .devops-env-visual {
+    padding: 32px 16px;
+  }
+
+  /* LIVE DEPLOY VISUAL */
+  .devops-live-deploy-visual {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    padding: 32px;
+  }
+
+  .deploy-stage-wrapper {
+    flex-direction: column;
+  }
+
+  .deploy-arrow-desktop {
+    display: none;
+  }
+
+  .deploy-arrow-mobile {
+    display: block;
+    margin: 16px 0;
+  }
+
+  /* RELATIONSHIP */
+  .devops-relationship-card {
+    padding: 32px 16px;
+  }
+
+  .relationship-title {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+
+  /* TECH STRIP */
+  .devops-tech-strip {
+    padding: 24px;
+  }
+  
+  .devops-cta-section {
+    padding: 64px 0;
+  }
+  
+  .devops-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .devops-cta-title {
+    font-size: 28px;
+  }
+  
+  .devops-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .devops-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .devops-cta-actions a {
+    width: 100%;
+  }
+}

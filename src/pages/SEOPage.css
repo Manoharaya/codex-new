@@ -1,0 +1,822 @@
+/* ==========================================================================
+   SEO Page Styles
+   ========================================================================== */
+
+.seo-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.seo-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.seo-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.seo-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.seo-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.seo-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.seo-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.seo-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.seo-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.seo-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.seo-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.seo-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT SEO COVERS
+   -------------------------------------------------------------------------- */
+.seo-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.seo-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.seo-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.seo-cap-icon {
+  color: var(--brand-indigo);
+  background: rgba(79, 70, 229, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.seo-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.seo-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. SEO SYSTEM DIAGRAM
+   -------------------------------------------------------------------------- */
+.seo-system-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.sys-node {
+  width: 15%;
+}
+
+.sys-box {
+  padding: 16px 12px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.sys-box.highlight {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.sys-box.final {
+  border-color: var(--brand-indigo);
+  color: var(--brand-indigo);
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.sys-connector {
+  color: var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sys-arrow-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. TECHNICAL SEO FOUNDATION
+   -------------------------------------------------------------------------- */
+.seo-layer-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.seo-layer {
+  width: 100%;
+  padding: 20px 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.seo-layer:hover {
+  border-color: var(--glass-border-hover);
+  background: rgba(255,255,255,0.03);
+}
+
+.seo-layer.final {
+  border-color: var(--brand-indigo);
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.seo-layer.final .layer-label {
+  color: var(--brand-indigo);
+}
+
+.layer-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  width: 30%;
+}
+
+.layer-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  width: 65%;
+  text-align: right;
+}
+
+.layer-link {
+  color: var(--glass-border);
+}
+
+/* --------------------------------------------------------------------------
+   5. ON-PAGE SEO
+   -------------------------------------------------------------------------- */
+.seo-page-anatomy-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.anatomy-text {
+  max-width: 500px;
+}
+
+.anatomy-visual {
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.anatomy-browser {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.02);
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  margin-right: 16px;
+}
+.dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--glass-border);
+}
+
+.url-bar {
+  flex: 1;
+  height: 24px;
+  background: var(--bg-surface);
+  border-radius: 4px;
+  border: 1px solid var(--glass-border);
+  font-size: 10px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  letter-spacing: 0.05em;
+}
+
+.browser-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meta-tag, .h1-tag, .content-block, .img-block {
+  padding: 12px;
+  border: 1px dashed var(--glass-border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.h1-tag {
+  border-style: solid;
+  border-color: var(--brand-indigo);
+  color: var(--text-primary);
+  font-size: 14px;
+  padding: 16px;
+}
+
+.content-block {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-style: solid;
+}
+
+.internal-link {
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--brand-cyan);
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   6. SITE ARCHITECTURE & INTERNAL LINKING
+   -------------------------------------------------------------------------- */
+.architecture-diagram {
+  padding: 64px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.arch-node {
+  padding: 12px 24px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.arch-node.home {
+  border-color: var(--brand-indigo);
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.arch-branches {
+  display: flex;
+  gap: 64px;
+}
+
+.branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.arch-line-vertical {
+  width: 1px;
+  height: 24px;
+  background: var(--glass-border);
+}
+
+.sub-branches {
+  display: flex;
+  gap: 16px;
+}
+
+.sub-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.arch-node.level-2 {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   7. SEO + CONTENT
+   -------------------------------------------------------------------------- */
+.content-flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.cf-node {
+  padding: 16px 24px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.cf-node.final {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+
+.cf-arrow-mobile {
+  display: none;
+}
+.cf-arrow-desktop {
+  color: var(--glass-border);
+}
+
+/* --------------------------------------------------------------------------
+   8. PERFORMANCE & USER EXPERIENCE
+   -------------------------------------------------------------------------- */
+.performance-equation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pe-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 16px;
+  border-radius: 12px;
+  width: 16%;
+  text-align: center;
+}
+
+.pe-item span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.pe-icon {
+  color: var(--brand-indigo);
+}
+
+.pe-operator {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--glass-border);
+}
+
+.pe-item.final {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(0, 240, 255, 0.1));
+  border: 1px solid var(--brand-cyan);
+}
+
+.pe-item.final span {
+  color: var(--text-primary);
+}
+
+.pe-item.final .pe-icon {
+  color: var(--brand-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   9. SEO AUDIT / IMPROVEMENT FLOW
+   -------------------------------------------------------------------------- */
+.seo-audit-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.audit-card {
+  padding: 32px 24px;
+  flex: 1;
+  position: relative;
+}
+
+.audit-num {
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--brand-indigo);
+  margin-bottom: 24px;
+}
+
+.audit-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.audit-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   10. SEO VISUAL ANALYSIS
+   -------------------------------------------------------------------------- */
+.seo-visual-analysis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  padding: 64px;
+}
+
+.sva-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sva-box {
+  padding: 16px 32px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  text-align: center;
+  width: 260px;
+}
+
+.sva-box.final {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(0, 240, 255, 0.05));
+  border-color: var(--brand-indigo);
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.sva-connector {
+  color: var(--glass-border);
+}
+.sva-arrow-mobile { display: none; }
+
+/* --------------------------------------------------------------------------
+   11. FINAL CTA
+   -------------------------------------------------------------------------- */
+.seo-cta-section {
+  padding: 120px 0;
+}
+
+.seo-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(0, 240, 255, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.seo-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.seo-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seo-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.seo-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .seo-hero-title {
+    font-size: 42px;
+  }
+  
+  .seo-hero-grid {
+    gap: 40px;
+  }
+  
+  .seo-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seo-page-anatomy-wrapper {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .anatomy-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .architecture-diagram {
+    overflow-x: auto;
+    align-items: flex-start;
+  }
+
+  .performance-equation {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pe-item {
+    width: 30%;
+  }
+
+  .seo-audit-grid {
+    flex-wrap: wrap;
+  }
+  .audit-card {
+    min-width: 45%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .seo-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .seo-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .seo-hero-title {
+    font-size: 36px;
+  }
+  
+  .seo-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .seo-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .seo-section {
+    padding: 64px 0;
+  }
+  
+  .seo-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .seo-section-title {
+    font-size: 28px;
+  }
+  
+  .seo-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .seo-cap-card {
+    padding: 24px;
+  }
+
+  /* SEO SYSTEM DIAGRAM */
+  .seo-system-flow {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 16px;
+  }
+  
+  .sys-node {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .sys-connector {
+    padding: 8px 0;
+  }
+  
+  .sys-arrow-desktop { display: none; }
+  .sys-arrow-mobile { display: block; }
+
+  /* LAYER DIAGRAM */
+  .seo-layer-diagram {
+    padding: 32px 16px;
+  }
+  .seo-layer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .layer-label { width: 100%; }
+  .layer-desc { width: 100%; text-align: left; }
+
+  /* ARCHITECTURE DIAGRAM */
+  .arch-branches {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .sub-branches {
+    flex-direction: column;
+  }
+
+  /* CONTENT FLOW */
+  .content-flow-diagram {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 16px;
+  }
+  .cf-arrow-desktop { display: none; }
+  .cf-arrow-mobile { display: block; }
+
+  /* PERFORMANCE EQUATION */
+  .performance-equation {
+    flex-direction: column;
+  }
+  .pe-item {
+    width: 100%;
+  }
+
+  /* AUDIT GRID */
+  .seo-audit-grid {
+    flex-direction: column;
+  }
+
+  /* VISUAL ANALYSIS */
+  .seo-visual-analysis {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 32px;
+  }
+  .sva-box { width: 100%; }
+  .sva-arrow-desktop { display: none; }
+  .sva-arrow-mobile { display: block; }
+  .sva-box.final { height: auto; padding: 32px 16px; }
+
+  /* CTA */
+  .seo-cta-section {
+    padding: 64px 0;
+  }
+  
+  .seo-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .seo-cta-title {
+    font-size: 28px;
+  }
+  
+  .seo-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .seo-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .seo-cta-actions a {
+    width: 100%;
+  }
+}

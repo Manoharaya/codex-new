@@ -1,0 +1,417 @@
+/* ==========================================================================
+   Web Development Page Styles
+   ========================================================================== */
+
+.web-development-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.web-hero {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.web-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.web-hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-24);
+  color: var(--text-primary);
+}
+
+.web-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-40);
+  max-width: 90%;
+}
+
+.web-hero-cta {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.web-hero-visual {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   -------------------------------------------------------------------------- */
+.web-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.web-section-header {
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.web-section-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.web-section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.web-bg-surface {
+  background: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   2. WHAT WE BUILD
+   -------------------------------------------------------------------------- */
+.web-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.web-cap-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.web-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+}
+
+.web-cap-icon {
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.web-cap-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.web-cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. WHAT MAKES A GOOD WEBSITE
+   -------------------------------------------------------------------------- */
+.web-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.web-pillar-item {
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.web-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.web-pillar-icon {
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+}
+
+.web-pillar-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.web-pillar-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. OUR WEB ENGINEERING PROCESS
+   -------------------------------------------------------------------------- */
+.web-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.web-process-card {
+  padding: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.web-process-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-cyan);
+  margin-bottom: 24px;
+  font-family: monospace;
+}
+
+.web-process-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.web-process-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   5. TECHNOLOGY / INTEGRATION
+   -------------------------------------------------------------------------- */
+.web-tech-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+}
+
+.web-tech-icon {
+  color: var(--brand-cyan);
+  margin-bottom: 16px;
+}
+
+.web-tech-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.web-tech-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.web-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.web-tech-pill {
+  padding: 8px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   6. FINAL CTA
+   -------------------------------------------------------------------------- */
+.web-cta-section {
+  padding: 120px 0;
+}
+
+.web-cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.web-cta-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.web-cta-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.web-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.web-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .web-hero-title {
+    font-size: 42px;
+  }
+  
+  .web-hero-grid {
+    gap: 40px;
+  }
+  
+  .web-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .web-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .web-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .web-tech-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+  
+  .web-cta-title {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .web-hero {
+    padding: 40px 0 64px 0;
+  }
+  
+  .web-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .web-hero-title {
+    font-size: 36px;
+  }
+  
+  .web-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .web-hero-cta a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .web-section {
+    padding: 64px 0;
+  }
+  
+  .web-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .web-section-title {
+    font-size: 28px;
+  }
+  
+  .web-capabilities-grid,
+  .web-pillars-grid,
+  .web-process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .web-cap-card,
+  .web-pillar-item,
+  .web-process-card {
+    padding: 24px;
+  }
+  
+  .web-tech-container {
+    padding: 24px;
+  }
+  
+  .web-cta-section {
+    padding: 64px 0;
+  }
+  
+  .web-cta-card {
+    padding: 40px 24px;
+  }
+  
+  .web-cta-title {
+    font-size: 28px;
+  }
+  
+  .web-cta-desc {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .web-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .web-cta-actions a {
+    width: 100%;
+  }
+}
