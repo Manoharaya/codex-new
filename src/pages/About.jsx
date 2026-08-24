@@ -26,7 +26,7 @@ const LinkedinIcon = ({ size = 24, color = "currentColor" }) => (
 const MANOHAR_LINKEDIN_URL = "#";
 const MANOHAR_EMAIL = "mailto:manoharkumarsingh990@gmail.com";
 const PRITI_LINKEDIN_URL = "#";
-const PRITI_EMAIL = "mailto:pritigupta9865@gmail.com";
+const PRITI_EMAIL = "mailto:priticodexneural@gmail.com";
 
 // Animation Variants
 const staggerContainer = {
