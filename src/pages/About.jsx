@@ -100,7 +100,7 @@ const About = () => {
     {
       id: "priti",
       name: "Priti Gupta",
-      role: "CO-FOUNDER / STRATEGIST",
+      role: "CO-FOUNDER /AI SOLUTIONS STRATEGIST",
       image: "/priti-profile.jpg",
       desc: "Shaping content strategy, brand communication, digital storytelling, and technology clarity.",
       linkedin: "https://www.linkedin.com/in/priti-gupta-1b5a68217/",
