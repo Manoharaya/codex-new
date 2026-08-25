@@ -107,6 +107,7 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="section-header"
+          style={{ marginBottom: '64px' }}
         >
           <motion.span variants={itemVariants} className="section-subtitle text-gradient">WHAT WE BUILD</motion.span>
           <motion.h2 variants={itemVariants} className="section-title">
