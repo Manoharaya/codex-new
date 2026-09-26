@@ -586,6 +586,16 @@
   box-shadow: 0 6px 24px rgba(111, 63, 245, 0.5);
 }
 
+[data-theme='dark'] .sidebar-cta-btn,
+:root:not([data-theme='light']) .sidebar-cta-btn {
+  color: var(--bg-primary, #050507) !important;
+}
+
+[data-theme='dark'] .sidebar-cta-btn:hover,
+:root:not([data-theme='light']) .sidebar-cta-btn:hover {
+  color: #FFFFFF !important;
+}
+
 @media (max-width: 1024px) {
   .desktop-only {
     display: none !important;

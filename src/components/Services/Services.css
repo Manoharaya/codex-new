@@ -121,7 +121,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
-  color: var(--brand-primary);
+  color: var(--brand-accent);
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
@@ -154,7 +154,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  color: var(--brand-primary);
+  color: var(--brand-accent);
   font-weight: 500;
   font-size: 15px;
   min-height: 48px; /* 48px touch target */
