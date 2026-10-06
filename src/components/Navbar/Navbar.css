@@ -113,10 +113,12 @@
   left: 50%;
   transform: translateX(-50%) translateY(20px);
   width: 900px;
-  background: var(--bg-card);
+  background: #0B1021;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
-  box-shadow: 0 30px 60px rgba(11, 16, 32, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
   padding: var(--space-32);
   opacity: 0;
   visibility: hidden;
@@ -127,6 +129,7 @@
 }
 
 [data-theme='light'] .megamenu {
+  background: #FFFFFF;
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
 }
 
