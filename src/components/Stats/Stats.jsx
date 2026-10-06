@@ -4,9 +4,9 @@ import { useRef } from 'react';
 import './Stats.css';
 
 const statsData = [
-  { label: 'Projects Delivered', value: 17, suffix: '+' },
+  { label: 'Projects Delivered', value: 20, suffix: '+' },
   { label: 'Client Satisfaction', value: 5, suffix: '+' },
-  { label: 'Countries Served', value: 2, suffix: '' }
+  { label: 'Countries Served', value: 4, suffix: '+' }
 ];
 
 const Counter = ({ from, to, duration, suffix }) => {
@@ -21,16 +21,16 @@ const Counter = ({ from, to, duration, suffix }) => {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-      
+
       // ease out quad
       const easeOut = progress * (2 - progress);
       setCount(Math.floor(easeOut * (to - from) + from));
-      
+
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
     };
-    
+
     window.requestAnimationFrame(step);
   }, [inView, from, to, duration]);
 
@@ -60,7 +60,7 @@ const Stats = () => {
   return (
     <section className="stats-section">
       <div className="container">
-        <motion.div 
+        <motion.div
           className="stats-grid"
           variants={containerVariants}
           initial="hidden"

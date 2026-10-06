@@ -24,9 +24,9 @@ const LinkedinIcon = ({ size = 24, color = "currentColor" }) => (
 );
 
 const MANOHAR_LINKEDIN_URL = "#";
-const MANOHAR_EMAIL = "mailto:manoharkumarsingh990@gmail.com";
+const MANOHAR_EMAIL = "mailto:manohar@codexneural.com";
 const PRITI_LINKEDIN_URL = "#";
-const PRITI_EMAIL = "mailto:priticodexneural@gmail.com";
+const PRITI_EMAIL = "mailto:pritigupta@codexneural.com";
 
 // Animation Variants
 const staggerContainer = {
@@ -166,12 +166,12 @@ const About = () => {
             {[
               "AI Agent Systems",
               "International Client Delivery",
-              "Australia + Nepal",
+              "Australia • USA • Russia • Nepal",
               "Software & Digital Products",
               "E-Commerce Projects Delivered",
               "AI Agent Systems",
               "International Client Delivery",
-              "Australia + Nepal",
+              "Australia • USA • Russia • Nepal",
               "Software & Digital Products",
               "E-Commerce Projects Delivered"
             ].map((item, index) => (
@@ -292,6 +292,20 @@ const About = () => {
                 <h3 className="text-gradient">AUSTRALIA</h3>
                 <h4>AI & Digital Systems</h4>
                 <p>12 AI agents and multiple websites delivered for an Australian client.</p>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="abt-global-card">
+                <div className="abt-global-map-accent alt"></div>
+                <h3 className="text-gradient">USA</h3>
+                <h4>AI & Cloud Platforms</h4>
+                <p>Enterprise AI solutions and modern cloud platforms delivered for US clients.</p>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="abt-global-card">
+                <div className="abt-global-map-accent"></div>
+                <h3 className="text-gradient">RUSSIA</h3>
+                <h4>Software Architecture</h4>
+                <p>High-performance software systems and digital engineering delivered for Russian clients.</p>
               </motion.div>
 
               <motion.div variants={fadeUp} className="abt-global-card">

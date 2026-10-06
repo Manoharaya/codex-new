@@ -6,10 +6,14 @@ const TrustStrip = () => {
     <section className="trust-strip-section">
       <div className="trust-strip-inner">
         <p className="trust-strip-headline">
-          Trusted by businesses across Australia and Nepal
+          Trusted by businesses across Australia, USA, Russia, and Nepal
         </p>
         <div className="trust-strip-items">
           <span className="ts-item">Australia</span>
+          <span className="ts-separator"></span>
+          <span className="ts-item">USA</span>
+          <span className="ts-separator"></span>
+          <span className="ts-item">Russia</span>
           <span className="ts-separator"></span>
           <span className="ts-item">Nepal</span>
           <span className="ts-separator"></span>

@@ -13,7 +13,7 @@ const PortfolioGlobal = () => {
           className="portfolio-global-content"
         >
           <h2 className="portfolio-global-title">Built across <span className="text-gradient">borders.</span></h2>
-          <p className="portfolio-global-subtitle">Client work delivered across Australia and Nepal.</p>
+          <p className="portfolio-global-subtitle">Client work delivered across Australia, USA, Russia, and Nepal.</p>
           
           <div className="portfolio-global-grid">
             <motion.div 
@@ -31,6 +31,42 @@ const PortfolioGlobal = () => {
                   <span>E-Commerce</span>
                   <span className="portfolio-global-dot"></span>
                   <span>Digital Experiences</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="portfolio-global-card"
+              whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)' }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+            >
+              <div className="portfolio-global-card-glow"></div>
+              <div className="portfolio-global-card-content">
+                <span className="portfolio-global-label">REGION</span>
+                <h3>USA</h3>
+                <div className="portfolio-global-caps">
+                  <span>AI Solutions</span>
+                  <span className="portfolio-global-dot"></span>
+                  <span>Enterprise Software</span>
+                  <span className="portfolio-global-dot"></span>
+                  <span>Cloud Systems</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="portfolio-global-card"
+              whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)' }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+            >
+              <div className="portfolio-global-card-glow"></div>
+              <div className="portfolio-global-card-content">
+                <span className="portfolio-global-label">REGION</span>
+                <h3>RUSSIA</h3>
+                <div className="portfolio-global-caps">
+                  <span>Custom Engineering</span>
+                  <span className="portfolio-global-dot"></span>
+                  <span>High-Performance APIs</span>
                 </div>
               </div>
             </motion.div>

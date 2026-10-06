@@ -23,7 +23,7 @@ const PortfolioHero = () => {
               From AI platforms and autonomous agents to e-commerce experiences and business software, we build technology around real operational needs.
             </p>
             <p className="portfolio-hero-subtext">
-              Selected work across Australia and Nepal.
+              Selected work across Australia, USA, Russia, and Nepal.
             </p>
             
             <div className="portfolio-hero-actions">
